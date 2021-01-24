@@ -1,0 +1,65 @@
+[user]
+	name = Gonzalo Reyes Huertas
+	email = gonzalo.reyes@rappi.com
+[core]
+	excludesfile = /Users/user/.gitignore_global
+	editor = nvim
+[init]
+  defaultBranch = main
+[difftool "sourcetree"]
+	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
+	path = 
+[mergetool "sourcetree"]
+	cmd = /Applications/Sourcetree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
+	trustExitCode = true
+[commit]
+	template = /Users/user/.stCommitMsg
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
+[alias]
+  # print all aliases
+  aliases = !git config --list | grep ^alias\\. | cut -c 7- | grep -Ei --color \"$1\" "#"
+  # ignore file
+  ignore = "! echo $1 >> .gitignore"
+  # list ignored files
+  ignored = ! git ls-files --others --ignored --exclude-standard --directory \
+    && git ls-files -i --exclude-standard
+  # unstage all files
+  unstage = reset --
+  # undo changes from the last commit
+  undo = reset --soft HEAD^
+  # show diff with last commit
+  last = diff HEAD^ HEAD
+  
+  # -------------------------------------------------------- Shortcuts ---------------------------------------------------------
+  a = add
+  ap = add -p
+  b = branch
+  ba = branch -a
+  branches = for-each-ref --sort=-committerdate --format='"%(color:blue)%(authordate:relative)\t%(color:red)%(authorname)\t%(color:white)%(color:bold)%(refname:short)"' refs/remotes
+  # prune merged branches
+  bp = ! git branch --merged master | grep -v master | grep -v main | grep -v develop | xargs git branch -d
+
+  # --------------------------------------------- Temporarily ignore tracked files --------------------------------------------- 
+  # mark file as ignored
+  unwatch = update-index --assume-unchanged
+  # start tracking file again
+  watch = update-index --no-assume-unchanged
+  # list all files that have been temporarily ignored
+  unwatched = "!git ls-files -v | grep '^[[:lower:]]'"
+  # clear the unwatched list
+  watchall = "!git unwatched | xargs -L 1 -I % sh -c 'git watch `echo % | cut -c 2-`'"
+  
+  # -------------------------------------------------------- Pretty logs --------------------------------------------------------
+	lol = log --decorate --oneline --graph
+  tree = log --oneline --decorate --source --pretty=format:'"%Cblue %h %Cgreen %ar %Cblue %an %C(yellow) %d %Creset %s"' --all --graph
+  lop = log --pretty=format:'"%C(auto)%h %C(green)%ad%Creset | %s%C(yellow)%d%Creset %C(bold cyan)[%an]%Creset"' --graph --date=short
+  lg = log --graph --date-order --first-parent \
+    --pretty=format:'"%C(auto)%h%Creset %C(auto)%d%Creset %s %C(green)(%ad) %C(bold cyan)<%an>%Creset"'
+  lgb = log --graph --date-order --branches --first-parent \
+    --pretty=format:'"%C(auto)%h%Creset %C(auto)%d%Creset %s %C(green)(%ad) %C(bold cyan)<%an>%Creset"'
+  lga = log --graph --date-order --all \
+    --pretty=format:'"%C(auto)%h%Creset %C(auto)%d%Creset %s %C(green)(%ad) %C(bold cyan)<%an>%Creset"'
