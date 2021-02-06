@@ -19,6 +19,7 @@ set autoread                    " Watch for file changes and auto update
 set noerrorbells                " Don't make noise
 set background=dark
 set cursorline
+set scrolloff=5                 " Lines below the cursor before scrolling
 
 " Completion options
 set wildmenu                    " Better :find
@@ -61,6 +62,11 @@ if exists('+termguicolors')
   let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
   set termguicolors
 endif
+
+" Ruby files
+au BufRead,BufNewFile Podfile setfiletype ruby
+au BufRead,BufNewFile Dangerfile setfiletype ruby
+au BufRead,BufNewFile *.podspec setfiletype ruby
 
 " ---------------------------------- LSP & Completion ----------------------------------
 
