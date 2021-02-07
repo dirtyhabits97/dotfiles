@@ -33,9 +33,12 @@ set wildignore+=*.resolved      " Package manager lock files
 " -------------------------------------- Key binds --------------------------------------
 
 nnoremap <C-n> :NERDTreeToggle<cr>
-" use tab to navigate through the pop up menu
+" Use tab to navigate through the pop up menu
 inoremap <expr> <TAB> pumvisible() ? "\<C-n>" : "\<TAB>"
 inoremap <expr> <S-TAB> pumvisible() ? "\<C-p>" : "\<TAB>"
+
+command! W write
+command! Q quit
 
 " --------------------------------------- Plugins ---------------------------------------
 
@@ -66,6 +69,7 @@ endif
 " Ruby files
 au BufRead,BufNewFile Podfile setfiletype ruby
 au BufRead,BufNewFile Dangerfile setfiletype ruby
+au BufRead,BufNewFile Gemfile setfiletype ruby
 au BufRead,BufNewFile *.podspec setfiletype ruby
 
 " ---------------------------------- LSP & Completion ----------------------------------
