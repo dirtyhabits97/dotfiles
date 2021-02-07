@@ -1,0 +1,27 @@
+Description="OneHalfDark"
+
+-- Theme based on OneHalfDark for vim
+-- Documentation: https://gitlab.com/saalen/highlight/-/tree/master
+-- Color: https://github.com/sonph/onehalf
+
+Categories = {"dark"}
+
+Default = { Colour="#dcdfe4" }
+Canvas  = { Colour="#282c34" }
+Number  = { Colour="#e5c07b" }
+Escape  = { Colour="#61afef" }
+String  = { Colour="#98c379" }
+Interpolation = { Colour="#61afef" }
+PreProcessor  = { Colour="#e5c07b" }
+StringPreProc = { Colour="#e5c07b" }
+BlockComment  = { Colour="#5c6370" }
+LineComment   = { Colour="#5c6370" }
+LineNum       = { Colour="#919baa" }
+Operator      = { Colour="#dcdfe4" }
+
+Keywords = {
+  { Colour="#c678dd" },
+  { Colour="#e06c75" },
+  { Colour="#dcdfe4" },
+  { Colour="#e5c07b" },
+}

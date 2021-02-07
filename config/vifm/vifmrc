@@ -301,8 +301,10 @@ fileviewer {*.docx},
 " Explicitly set highlight type for some extensions
 "
 " 256-color terminal
-fileviewer *.swift highlight -O xterm256 -s doom --syntax swift %c
-fileviewer *.rb highlight -O xterm256 -s aiseered --syntax ruby %c
+" /usr/local/Cellar/highlight/3.60/share/highlight/themes
+fileviewer *.swift highlight -O xterm256 -s onehalf --syntax swift %c
+fileviewer *.rb highlight -O xterm256 -s onehalf --syntax ruby %c
+fileviewer *.py highlight -O xterm256 -s onehalf --syntax python %c
 " fileviewer *.[ch],*.[ch]pp highlight -O xterm256 -s dante --syntax c %c
 " fileviewer Makefile,Makefile.* highlight -O xterm256 -s dante --syntax make %c
 "
