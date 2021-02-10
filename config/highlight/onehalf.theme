@@ -3,6 +3,7 @@ Description="OneHalfDark"
 -- Theme based on OneHalfDark for vim
 -- Documentation: https://gitlab.com/saalen/highlight/-/tree/master
 -- Color: https://github.com/sonph/onehalf
+-- Config path: /usr/local/Cellar/highlight/3.60/share/highlight/themes/
 
 Categories = {"dark"}
 
