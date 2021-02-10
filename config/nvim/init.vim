@@ -33,10 +33,16 @@ set wildignore+=*.resolved      " Package manager lock files
 " -------------------------------------- Key binds --------------------------------------
 
 nnoremap <C-n> :NERDTreeToggle<cr>
+
+" Easier code comment
+nmap <C-_> <Plug>NERDCommenterToggle
+vmap <C-_> <Plug>NERDCommenterToggle<CR>gv
+
 " Use tab to navigate through the pop up menu
 inoremap <expr> <TAB> pumvisible() ? "\<C-n>" : "\<TAB>"
 inoremap <expr> <S-TAB> pumvisible() ? "\<C-p>" : "\<TAB>"
 
+" Easier write and quit
 command! W write
 command! Q quit
 
@@ -47,12 +53,21 @@ call plug#begin('~/.nvim/plugged')        " Set directory for plugins
 Plug 'neovim/nvim-lspconfig'              " LSP integration
 Plug 'keith/swift.vim'                    " Swift plugin
 Plug 'preservim/nerdtree'                 " File browsing
+Plug 'preservim/nerdcommenter'            " Easier comment
 Plug 'christoomey/vim-tmux-navigator'     " Vim + Tmux
 Plug 'vim-airline/vim-airline'            " Status bar
 Plug 'vim-airline/vim-airline-themes'
 Plug 'sonph/onehalf', { 'rtp': 'vim' }    " Colors
 
 call plug#end()
+
+" ---------------------------------- Plugin Config ----------------------------------
+
+" Add your own custom formats or override the defaults
+let g:NERDCustomDelimiters = { 'swift': { 'left': '//','right': '' } }
+
+" Align line-wise comment delimiters flush left instead of following code indentation
+let g:NERDDefaultAlign = 'left'
 
 " ---------------------------------- Theme & Color ----------------------------------
 

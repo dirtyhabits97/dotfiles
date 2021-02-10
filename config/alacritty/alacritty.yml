@@ -37,3 +37,4 @@ colors:
 key_bindings:
   - { key: Right, mods: Alt, chars: "\x1BF" }
   - { key: Left,  mods: Alt, chars: "\x1BB" }
+  - { key: Slash, mods: Control, chars: "\x1f" }

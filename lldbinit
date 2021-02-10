@@ -1,9 +1,9 @@
 # =========================== Alias =========================== 
-# TODO: add documentatino for the commands
-command regex doc 's/(.+)/script import os; os.system("open https:" + unichr(47) + unichr(47) + "lldb.llvm.org" + unichr(47) + "python_reference" + unichr(47) + "lldb.%1-class.html")/'
 command alias look expr -l objc++ -- (void *)dlopen("/Applications/Lookin.app/Contents/Resources/LookinServerFramework/LookinServer.framework/LookinServer", 0x2)
 
 # ========================== Scripts ========================== 
 command script import ~/lldb/LLDB/lldb_commands/dslldb.py
+command script import ~/lldb/chisel/fblldb.py
+
 command script import ~/lldb/SwiftDemangle.py
 command script import ~/lldb/ToFile.py
