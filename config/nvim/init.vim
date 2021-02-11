@@ -46,6 +46,10 @@ inoremap <expr> <S-TAB> pumvisible() ? "\<C-p>" : "\<TAB>"
 command! W write
 command! Q quit
 
+" Easier tab navigation
+nmap <leader>1 :bp<cr>
+nmap <leader>2 :bn<cr>
+
 " --------------------------------------- Plugins ---------------------------------------
 
 call plug#begin('~/.nvim/plugged')        " Set directory for plugins
@@ -64,10 +68,13 @@ call plug#end()
 " ---------------------------------- Plugin Config ----------------------------------
 
 " Add your own custom formats or override the defaults
-let g:NERDCustomDelimiters = { 'swift': { 'left': '//','right': '' } }
+let g:NERDCustomDelimiters = { 'swift': { 'left': '// ','right': '' } }
 
 " Align line-wise comment delimiters flush left instead of following code indentation
 let g:NERDDefaultAlign = 'left'
+
+" Tabs
+let g:airline#extensions#tabline#enabled = 1
 
 " ---------------------------------- Theme & Color ----------------------------------
 
