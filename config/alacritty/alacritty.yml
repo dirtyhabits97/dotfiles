@@ -1,13 +1,6 @@
 env:
   TERM: xterm-256color
 
-shell:
-  program: /bin/zsh
-  args:
-    - -l
-    - -c
-    - "tmux"
-  
 # Colors (One Half Dark)
 colors:
   primary:
