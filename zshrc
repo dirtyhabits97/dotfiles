@@ -99,6 +99,9 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
 # ==================== Alias ====================
 alias nn="nvim"
 alias fm="vifm"
@@ -107,3 +110,5 @@ alias fm="vifm"
 # zsh-autosuggestions
 # source: https://github.com/zsh-users/zsh-autosuggestions#configuration 
 ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=#5c6370,bold,underline"
+
+bindkey '^ ' autosuggest-accept
