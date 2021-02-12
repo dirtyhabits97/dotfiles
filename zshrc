@@ -107,5 +107,3 @@ alias fm="vifm"
 # zsh-autosuggestions
 # source: https://github.com/zsh-users/zsh-autosuggestions#configuration 
 ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=#5c6370,bold,underline"
-# use '`' as the completion key
-bindkey '`' autosuggest-accept
