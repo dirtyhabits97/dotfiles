@@ -18,9 +18,14 @@ local on_attach = function(_, bufnr)
   vim.cmd("setlocal omnifunc=v:lua.vim.lsp.omnifunc")
 end
 
+-- Swift
 lspconfig.sourcekit.setup{
   serverPath = '/Applications/Xcode-12.1.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/sourcekit-lsp',
   filetypes = {'swift'},
   on_attach = on_attach
 }
-lspconfig.pyls.setup{}
+
+-- Python
+lspconfig.pyls.setup{
+  on_attach = on_attach
+}

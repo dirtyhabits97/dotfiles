@@ -105,6 +105,7 @@ source $ZSH/oh-my-zsh.sh
 # ==================== Alias ====================
 alias nn="nvim"
 alias fm="vifm"
+alias ..="cd .."
 
 # =================== Override ==================
 # zsh-autosuggestions
