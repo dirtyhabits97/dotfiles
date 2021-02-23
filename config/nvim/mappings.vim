@@ -15,6 +15,14 @@ command! W write
 command! Q quit
 inoremap jj <ESC>
 
+" Easier navigation with wrapped lines
+nnoremap j gj
+nnoremap k gk
+
 " Easier navigation between buffers
 nmap <leader>1 :bp<cr>
 nmap <leader>2 :bn<cr>
+
+" Easier merge solving with fugitive
+nmap <leader>gj :diffget //3<CR>
+nmap <leader>gf :diffget //2<CR>

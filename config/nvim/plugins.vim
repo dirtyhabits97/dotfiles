@@ -3,6 +3,7 @@
 call plug#begin('~/.nvim/plugged')        " Set directory for plugins
 
 Plug 'neovim/nvim-lspconfig'              " LSP integration
+Plug 'tpope/vim-fugitive'                 " Git
 Plug 'keith/swift.vim'                    " Swift plugin
 Plug 'preservim/nerdtree'                 " File browsing
 Plug 'preservim/nerdcommenter'            " Easier comment
