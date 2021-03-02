@@ -29,3 +29,8 @@ lspconfig.sourcekit.setup{
 lspconfig.pyls.setup{
   on_attach = on_attach
 }
+
+-- Ruby
+lspconfig.solargraph.setup{
+  on_attach = on_attach
+}

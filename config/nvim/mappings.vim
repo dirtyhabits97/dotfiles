@@ -1,5 +1,9 @@
 " -------------------------------------- Mappings --------------------------------------
 
+" Leader key
+nnoremap <SPACE> <Nop> 
+let g:mapleader="\<Space>"
+
 nnoremap <C-n> :NERDTreeToggle<cr>
 
 " Easier code comment
@@ -14,6 +18,7 @@ inoremap <expr> <S-TAB> pumvisible() ? "\<C-p>" : "\<TAB>"
 command! W write
 command! Q quit
 inoremap jj <ESC>
+inoremap kk <ESC>
 
 " Easier navigation with wrapped lines
 nnoremap j gj
