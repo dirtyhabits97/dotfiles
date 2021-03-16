@@ -11,6 +11,8 @@ Plug 'christoomey/vim-tmux-navigator'     " Vim + Tmux
 Plug 'vim-airline/vim-airline'            " Status bar
 Plug 'vim-airline/vim-airline-themes'
 Plug 'sonph/onehalf', { 'rtp': 'vim' }    " Colors
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } } " Fuzzy find
+Plug 'junegunn/fzf.vim'
 
 call plug#end()
 
