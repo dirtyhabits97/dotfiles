@@ -5,6 +5,7 @@ nnoremap <SPACE> <Nop>
 let g:mapleader="\<Space>"
 
 nnoremap <C-n> :NERDTreeToggle<cr>
+nnoremap <C-m> :NERDTreeFind<cr>
 
 " Easier code comment
 nmap <C-_> <Plug>NERDCommenterToggle
