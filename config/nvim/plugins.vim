@@ -13,6 +13,7 @@ Plug 'vim-airline/vim-airline-themes'
 Plug 'sonph/onehalf', { 'rtp': 'vim' }    " Colors
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } } " Fuzzy find
 Plug 'junegunn/fzf.vim'
+Plug 'hrsh7th/nvim-compe'                 " Auto complete
 
 call plug#end()
 
