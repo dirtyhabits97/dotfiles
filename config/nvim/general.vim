@@ -38,8 +38,3 @@ au BufRead,BufNewFile Podfile     setfiletype ruby
 au BufRead,BufNewFile Dangerfile  setfiletype ruby
 au BufRead,BufNewFile Gemfile     setfiletype ruby
 au BufRead,BufNewFile *.podspec   setfiletype ruby
-
-" Auto format
-autocmd BufWritePre *.py lua vim.lsp.buf.formatting_sync(nil, 100)
-autocmd BufWritePre *.rb lua vim.lsp.buf.formatting_sync(nil, 100)
-autocmd BufWritePre *.swift lua vim.lsp.buf.formatting_sync(nil, 100)
