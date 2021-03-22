@@ -53,6 +53,7 @@
   # better commit
   com = commit --verbose
   coma = commit --verbose --amend --no-edit
+  pul = pull
   s = status -sb
 
   # ------------------------------- Temporarily ignore tracked files -------------------------------
@@ -76,9 +77,7 @@
   lga = log --graph --date-order --all \
     --pretty=format:'"%C(auto)%h%Creset %C(auto)%d%Creset %s %C(green)(%ad) %C(bold cyan)<%an>%Creset"'
   # -------------------------------------------- Merge --------------------------------------------
-  # TODO: improve formatting
   conf = diff --name-only --diff-filter=U
-  merge-blame =  blame -L '/^<<<</,/^>>>>/' --
 
 [filter "lfs"]
 	process = git-lfs filter-process
