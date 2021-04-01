@@ -9,7 +9,7 @@ nnoremap <C-m> :NERDTreeFind<cr>
 
 " Easier code comment
 nmap <C-_> <Plug>NERDCommenterToggle
-vmap <C-_> <Plug>NERDCommenterToggle<CR>gv
+vmap <C-_> <Plug>NERDCommenterToggle<Bar>gv
 
 " Use tab to navigate through the pop up menu
 inoremap <expr> <TAB> pumvisible() ? "\<C-n>" : "\<TAB>"
