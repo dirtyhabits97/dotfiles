@@ -24,7 +24,10 @@ let g:NERDTreeMapActivateNode = 'l'
 let g:NERDTreeShowBookmarks=1
 
 " Add your own custom formats or override the defaults
-let g:NERDCustomDelimiters = { 'swift': { 'left': '// ','right': '' } }
+let g:NERDCustomDelimiters = {
+      \ 'swift': { 'left': '// ','right': '' },
+      \ 'ruby': { 'left': '# ' }
+\ }
 
 " Align line-wise comment delimiters flush left instead of following code indentation
 let g:NERDDefaultAlign = 'left'
