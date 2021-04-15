@@ -69,3 +69,8 @@ lspconfig.solargraph.setup{
 lspconfig.bashls.setup{
   on_attach = on_attach
 }
+
+-- Haskell
+lspconfig.hls.setup{
+  on_attach = on_attach
+}
