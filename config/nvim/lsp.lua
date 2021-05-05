@@ -50,7 +50,7 @@ end
 
 -- Swift
 lspconfig.sourcekit.setup{
-  serverPath = '/Applications/Xcode-12.1.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/sourcekit-lsp',
+  serverPath = '/Applications/Xcode-12.4.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/sourcekit-lsp',
   filetypes = {'swift'},
   on_attach = on_attach
 }
@@ -72,5 +72,10 @@ lspconfig.bashls.setup{
 
 -- Haskell
 lspconfig.hls.setup{
+  on_attach = on_attach
+}
+
+-- Rust
+lspconfig.rls.setup{
   on_attach = on_attach
 }
