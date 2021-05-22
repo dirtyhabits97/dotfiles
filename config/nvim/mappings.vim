@@ -1,5 +1,9 @@
 " -------------------------------------- Mappings --------------------------------------
 
+" Easier reload
+command! Reload :source ~/.config/nvim/init.vim
+command! Config :edit ~/.config/nvim/general.vim
+
 " Leader key
 nnoremap <SPACE> <Nop> 
 let g:mapleader="\<Space>"
