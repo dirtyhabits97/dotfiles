@@ -123,6 +123,7 @@ alias notify='terminal-notifier -title "Terminal" -message "Done with task! Exit
 [ -f "/Users/user/.ghcup/env" ] && source "/Users/user/.ghcup/env" # ghcup-env
 
 # =================== Brewfile ==================
+# https://homebrew-file.readthedocs.io/en/latest/installation.html
 if [ -f $(brew --prefix)/etc/brew-wrap ];then
   source $(brew --prefix)/etc/brew-wrap
 fi
