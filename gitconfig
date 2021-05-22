@@ -46,6 +46,7 @@
   # prune merged branches
   bp = ! git branch --merged master | grep -v master | grep -v main | grep -v develop | xargs git branch -d
   bprune = ! git branch --merged main | grep -v main | grep -v develop | xargs git branch -d
+  prunebranch = ! git branch --merged develop | grep -v master | grep -v main | grep -v develop | xargs git branch -d
   co = checkout
   # diff
   d = diff
@@ -54,6 +55,7 @@
   com = commit --verbose
   coma = commit --verbose --amend --no-edit
   pul = pull
+  punch = push --force-with-lease
   s = status -sb
 
   # ------------------------------- Temporarily ignore tracked files -------------------------------

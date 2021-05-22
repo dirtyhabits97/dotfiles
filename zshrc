@@ -113,3 +113,16 @@ alias ..="cd .."
 ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=#5c6370,bold,underline"
 
 bindkey '^ ' autosuggest-accept
+
+# =================== Notification ==================
+# source: https://github.com/julienXX/terminal-notifier
+alias notify='terminal-notifier -title "Terminal" -message "Done with task! Exit status: $?"' -activate com.apple.Terminal
+
+# =================== Haskell ==================
+# https://www.haskell.org/ghcup/
+[ -f "/Users/user/.ghcup/env" ] && source "/Users/user/.ghcup/env" # ghcup-env
+
+# =================== Brewfile ==================
+if [ -f $(brew --prefix)/etc/brew-wrap ];then
+  source $(brew --prefix)/etc/brew-wrap
+fi

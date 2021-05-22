@@ -15,6 +15,7 @@ Plug 'junegunn/fzf', { 'do': { -> fzf#install() } } " Fuzzy find
 Plug 'junegunn/fzf.vim'
 Plug 'hrsh7th/nvim-compe'                 " Auto complete
 Plug 'rhysd/git-messenger.vim'            " Git
+Plug 'junegunn/goyo.vim'                  " Simple vim
 
 call plug#end()
 

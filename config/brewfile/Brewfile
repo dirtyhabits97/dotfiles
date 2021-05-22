@@ -1,0 +1,85 @@
+
+# tap repositories and their packages
+
+tap homebrew/core
+brew autoconf
+brew bazelisk
+brew carthage
+brew cmake
+brew gdbm
+brew gettext
+brew git
+brew git-lfs
+brew grpcurl
+brew highlight
+brew icu4c
+brew libevent
+brew libtermkey
+brew libuv
+brew libvterm
+brew lua
+brew luajit --HEAD
+brew luarocks
+brew m4
+brew mas
+brew mint
+brew mpdecimal
+brew msgpack
+brew ncurses
+brew neovim --HEAD
+brew node
+brew openjdk
+brew openjdk@11
+brew openssl@1.1
+brew pcre2
+brew pkg-config
+brew protobuf
+brew pyenv
+brew python@3.9
+brew readline
+brew reattach-to-user-namespace
+brew ripgrep
+brew sourcekitten
+brew sqlite
+brew swift-protobuf
+brew swiftlint
+brew telnet
+brew terminal-notifier
+brew tig
+brew tmux
+brew tokei
+brew tree
+brew tree-sitter
+brew unibilium
+brew utf8proc
+brew vapor
+brew vifm
+brew xclogparser
+brew xz
+
+tap homebrew/cask
+cask alacritty
+
+tap bradleyjkemp/formulae
+
+tap peripheryapp/periphery
+cask periphery
+
+tap rcmdnk/file
+brew brew-file
+
+tap vapor/tap
+
+# App Store applications
+appstore 1333542190  1Password 7  (7.7)
+appstore 1091189122  Bear         (1.8.2)
+appstore 682658836   GarageBand   (10.4.2)
+appstore 408981434   iMovie       (10.2.2)
+appstore 409183694   Keynote      (10.3.9)
+appstore 409203825   Numbers      (10.3.9)
+appstore 409201541   Pages        (10.3.9)
+appstore 803453959   Slack        (4.12.2)
+appstore 1176895641  Spark        (2.9.15)
+appstore 904280696   Things       (3.13.8)
+appstore 1147396723  WhatsApp     (2.2100.11)
+appstore 497799835   Xcode        (12.4)

@@ -7,3 +7,6 @@ command script import ~/lldb/chisel/fblldb.py
 
 command script import ~/lldb/SwiftDemangle.py
 command script import ~/lldb/ToFile.py
+# <-- Rappi LLDB bridge
+command source /Users/user/.lldbinit-rappi
+# Rappi Team with love -->
