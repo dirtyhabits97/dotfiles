@@ -19,14 +19,16 @@ brew libuv
 brew libvterm
 brew lua
 brew luajit --HEAD
+brew luajit-openresty
 brew luarocks
+brew luv
 brew m4
 brew mas
 brew mint
 brew mpdecimal
 brew msgpack
 brew ncurses
-brew neovim --HEAD
+brew neovim
 brew node
 brew openjdk
 brew openjdk@11
@@ -71,15 +73,19 @@ brew brew-file
 tap vapor/tap
 
 # App Store applications
-appstore 1333542190  1Password 7  (7.7)
-appstore 1091189122  Bear         (1.8.2)
-appstore 682658836   GarageBand   (10.4.2)
-appstore 408981434   iMovie       (10.2.2)
-appstore 409183694   Keynote      (10.3.9)
-appstore 409203825   Numbers      (10.3.9)
-appstore 409201541   Pages        (10.3.9)
-appstore 803453959   Slack        (4.12.2)
-appstore 1176895641  Spark        (2.9.15)
-appstore 904280696   Things       (3.13.8)
-appstore 1147396723  WhatsApp     (2.2100.11)
-appstore 497799835   Xcode        (12.4)
+appstore 1333542190  1Password 7  (7.8.3)
+appstore 1091189122  Bear         (1.8.4)
+appstore 682658836   GarageBand   (10.4.3)
+appstore 408981434   iMovie       (10.2.3)
+appstore 1035137927  KeyKey       (2.9)
+appstore 409183694   Keynote      (11.0.1)
+appstore 405399194   Kindle       (1.31.0)
+appstore 1116599239  NordVPN IKE  (6.3.0)
+appstore 409203825   Numbers      (11.0)
+appstore 409201541   Pages        (11.0)
+appstore 1504940162  RocketSim    (4.1.2)
+appstore 803453959   Slack        (4.16.0)
+appstore 1176895641  Spark        (2.9.22)
+appstore 904280696   Things       (3.13.11)
+appstore 1147396723  WhatsApp     (2.2119.6)
+appstore 497799835   Xcode        (12.5)
