@@ -39,3 +39,7 @@ inoremap <silent><expr> <CR>      compe#confirm('<CR>')
 inoremap <silent><expr> <C-e>     compe#close('<C-e>')
 inoremap <silent><expr> <C-f>     compe#scroll({ 'delta': +4 })
 inoremap <silent><expr> <C-d>     compe#scroll({ 'delta': -4 })
+
+" Easier resize
+nnoremap <silent><Leader>= :exe "vertical resize +5"<CR>
+nnoremap <silent><Leader>- :exe "vertical resize -5"<CR>
