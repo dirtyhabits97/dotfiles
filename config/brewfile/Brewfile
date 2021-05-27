@@ -56,6 +56,7 @@ brew unibilium
 brew utf8proc
 brew vapor
 brew vifm
+brew xcbeautify
 brew xclogparser
 brew xz
 
@@ -66,6 +67,11 @@ tap bradleyjkemp/formulae
 
 tap peripheryapp/periphery
 cask periphery
+
+tap rappinc/rappi-army-knife
+
+tap rappinc/tap
+brew rak
 
 tap rcmdnk/file
 brew brew-file
@@ -80,12 +86,12 @@ appstore 408981434   iMovie       (10.2.3)
 appstore 1035137927  KeyKey       (2.9)
 appstore 409183694   Keynote      (11.0.1)
 appstore 405399194   Kindle       (1.31.0)
-appstore 1116599239  NordVPN IKE  (6.3.0)
+appstore 1116599239  NordVPN IKE  (6.4.1)
 appstore 409203825   Numbers      (11.0)
 appstore 409201541   Pages        (11.0)
 appstore 1504940162  RocketSim    (4.1.2)
 appstore 803453959   Slack        (4.16.0)
-appstore 1176895641  Spark        (2.9.22)
+appstore 1176895641  Spark        (2.9.23)
 appstore 904280696   Things       (3.13.11)
 appstore 1147396723  WhatsApp     (2.2119.6)
 appstore 497799835   Xcode        (12.5)

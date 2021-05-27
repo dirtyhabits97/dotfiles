@@ -38,3 +38,6 @@ au BufRead,BufNewFile Podfile     setfiletype ruby
 au BufRead,BufNewFile Dangerfile  setfiletype ruby
 au BufRead,BufNewFile Gemfile     setfiletype ruby
 au BufRead,BufNewFile *.podspec   setfiletype ruby
+
+" Groovy files
+au BufRead,BufNewFile Jenkinsfile setfiletype groovy
