@@ -41,6 +41,7 @@ brew python@3.9
 brew readline
 brew reattach-to-user-namespace
 brew ripgrep
+brew sdl2
 brew sourcekitten
 brew sqlite
 brew swift-protobuf
@@ -79,7 +80,7 @@ brew brew-file
 tap vapor/tap
 
 # App Store applications
-appstore 1333542190  1Password 7  (7.8.3)
+appstore 1333542190  1Password 7  (7.8.4)
 appstore 1091189122  Bear         (1.8.4)
 appstore 682658836   GarageBand   (10.4.3)
 appstore 408981434   iMovie       (10.2.3)
