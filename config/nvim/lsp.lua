@@ -46,6 +46,15 @@ local on_attach = function(client, bufnr)
       augroup END
     ]], false)
   end
+
+  -- Method signature
+  require'lsp_signature'.on_attach({
+    bind = true,
+    hint_prefix = "",
+    handler_opts = {
+      border = "single"
+    },
+  })
 end
 
 -- Swift

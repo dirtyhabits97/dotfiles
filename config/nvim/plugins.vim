@@ -2,7 +2,6 @@
 
 call plug#begin('~/.nvim/plugged')        " Set directory for plugins
 
-Plug 'neovim/nvim-lspconfig'              " LSP integration
 Plug 'tpope/vim-fugitive'                 " Git
 Plug 'keith/swift.vim'                    " Swift plugin
 Plug 'preservim/nerdtree'                 " File browsing
@@ -13,11 +12,14 @@ Plug 'vim-airline/vim-airline-themes'
 Plug 'sonph/onehalf', { 'rtp': 'vim' }    " Colors
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } } " Fuzzy find
 Plug 'junegunn/fzf.vim'
-Plug 'hrsh7th/nvim-compe'                 " Auto complete
 Plug 'rhysd/git-messenger.vim'            " Git
 Plug 'junegunn/goyo.vim'                  " Simple vim
 Plug 'tpope/vim-surround'                 " Surround text objects
 Plug 'tpope/vim-commentary'               " Comment code
+
+Plug 'neovim/nvim-lspconfig'              " LSP integration
+Plug 'hrsh7th/nvim-compe'                 " Auto complete
+Plug 'ray-x/lsp_signature.nvim'           " Method signature
 
 call plug#end()
 
