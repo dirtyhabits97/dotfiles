@@ -5,8 +5,7 @@ command! Reload :source ~/.config/nvim/init.vim
 command! Config :edit ~/.config/nvim/general.vim
 
 " Leader key
-nnoremap <SPACE> <Nop> 
-let g:mapleader="\<Space>"
+let g:mapleader=","
 
 nnoremap <C-n> :NERDTreeToggle<cr>
 nnoremap <C-m> :NERDTreeFind<cr>

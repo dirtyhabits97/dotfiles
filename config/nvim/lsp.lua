@@ -48,13 +48,7 @@ local on_attach = function(client, bufnr)
   end
 
   -- Method signature
-  require'lsp_signature'.on_attach({
-    bind = true,
-    hint_prefix = "",
-    handler_opts = {
-      border = "single"
-    },
-  })
+  require'lsp_signature'.on_attach(client)
 end
 
 -- Swift

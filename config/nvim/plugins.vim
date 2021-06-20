@@ -13,7 +13,6 @@ Plug 'sonph/onehalf', { 'rtp': 'vim' }    " Colors
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } } " Fuzzy find
 Plug 'junegunn/fzf.vim'
 Plug 'rhysd/git-messenger.vim'            " Git
-Plug 'junegunn/goyo.vim'                  " Simple vim
 Plug 'tpope/vim-surround'                 " Surround text objects
 Plug 'tpope/vim-commentary'               " Comment code
 
@@ -32,7 +31,8 @@ let g:NERDTreeShowBookmarks=1
 " Add your own custom formats or override the defaults
 let g:NERDCustomDelimiters = {
       \ 'swift': { 'left': '// ','right': '' },
-      \ 'ruby': { 'left': '# ' }
+      \ 'ruby': { 'left': '# ' },
+      \ 'bash': { 'left': '# ' }
 \ }
 
 " Align line-wise comment delimiters flush left instead of following code indentation
