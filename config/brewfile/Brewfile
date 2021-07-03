@@ -4,6 +4,8 @@
 tap homebrew/core
 brew autoconf
 brew bazelisk
+brew brotli
+brew c-ares
 brew carthage
 brew cmake
 brew gdbm
@@ -13,6 +15,9 @@ brew git-lfs
 brew grpcurl
 brew highlight
 brew icu4c
+brew jemalloc
+brew jq
+brew libev
 brew libevent
 brew libtermkey
 brew libuv
@@ -29,7 +34,9 @@ brew mpdecimal
 brew msgpack
 brew ncurses
 brew neovim
+brew nghttp2
 brew node
+brew oniguruma
 brew openjdk
 brew openjdk@11
 brew openssl@1.1
@@ -42,6 +49,7 @@ brew readline
 brew reattach-to-user-namespace
 brew ripgrep
 brew sdl2
+brew six
 brew sourcekitten
 brew sqlite
 brew swift-protobuf
@@ -79,19 +87,19 @@ brew brew-file
 tap vapor/tap
 
 # App Store applications
-appstore 1333542190  1Password 7  (7.8.5)
+appstore 1333542190  1Password 7  (7.8.6)
 appstore 1091189122  Bear         (1.8.4)
 appstore 682658836   GarageBand   (10.4.3)
-appstore 408981434   iMovie       (10.2.3)
+appstore 408981434   iMovie       (10.2.4)
 appstore 1035137927  KeyKey       (2.9)
 appstore 409183694   Keynote      (11.1)
 appstore 405399194   Kindle       (1.31.0)
-appstore 1116599239  NordVPN IKE  (6.4.2)
+appstore 1116599239  NordVPN IKE  (6.5.0)
 appstore 409203825   Numbers      (11.1)
 appstore 409201541   Pages        (11.1)
 appstore 1504940162  RocketSim    (4.1.2)
-appstore 803453959   Slack        (4.16.0)
+appstore 803453959   Slack        (4.17.0)
 appstore 1176895641  Spark        (2.9.23)
-appstore 904280696   Things       (3.13.11)
+appstore 904280696   Things       (3.13.13)
 appstore 1147396723  WhatsApp     (2.2121.7)
-appstore 497799835   Xcode        (12.5)
+appstore 497799835   Xcode        (12.5.1)
