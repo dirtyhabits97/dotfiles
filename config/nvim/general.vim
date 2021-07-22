@@ -41,3 +41,6 @@ au BufRead,BufNewFile *.podspec   setfiletype ruby
 
 " Groovy files
 au BufRead,BufNewFile Jenkinsfile setfiletype groovy
+
+" Latex files
+au BufRead,BufNewFile *.tex       setfiletype tex
