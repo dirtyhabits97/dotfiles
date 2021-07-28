@@ -114,6 +114,10 @@ alias fm="vifm"
 alias :q="exit"
 alias :Q="exit"
 
+replace() {
+  rg -l "$1" | xargs sed -i '' -e "s/$1/$2/"
+}
+
 # =================== Override ==================
 # zsh-autosuggestions
 # source: https://github.com/zsh-users/zsh-autosuggestions#configuration 
