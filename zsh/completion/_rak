@@ -1,0 +1,755 @@
+#compdef rak
+local context state state_descr line
+_rak_commandname=$words[1]
+typeset -A opt_args
+
+_rak() {
+    integer ret=1
+    local -a args
+    args+=(
+        '(-h --help)'{-h,--help}'[Print help information.]'
+        '(-): :->command'
+        '(-)*:: :->arg'
+    )
+    _arguments -w -s -S $args[@] && ret=0
+    case $state in
+        (command)
+            local subcommands
+            subcommands=(
+                'lfs:LFS related commands'
+                'ci:CI related commands'
+                'assets:Assets related commands'
+                'bazel:Bazel related commands'
+                'metrics:Metrics related commands'
+                'danger:Danger related commands'
+                'llvm:llvm related commands'
+                'lint:Lint related commands'
+                'simulator:Simulators commands'
+                'help:Show subcommand help information.'
+            )
+            _describe "subcommand" subcommands
+            ;;
+        (arg)
+            case ${words[1]} in
+                (lfs)
+                    _rak_lfs
+                    ;;
+                (ci)
+                    _rak_ci
+                    ;;
+                (assets)
+                    _rak_assets
+                    ;;
+                (bazel)
+                    _rak_bazel
+                    ;;
+                (metrics)
+                    _rak_metrics
+                    ;;
+                (danger)
+                    _rak_danger
+                    ;;
+                (llvm)
+                    _rak_llvm
+                    ;;
+                (lint)
+                    _rak_lint
+                    ;;
+                (simulator)
+                    _rak_simulator
+                    ;;
+                (help)
+                    _rak_help
+                    ;;
+            esac
+            ;;
+    esac
+
+    return ret
+}
+
+_rak_lfs() {
+    integer ret=1
+    local -a args
+    args+=(
+        '(-h --help)'{-h,--help}'[Print help information.]'
+        '(-): :->command'
+        '(-)*:: :->arg'
+    )
+    _arguments -w -s -S $args[@] && ret=0
+    case $state in
+        (command)
+            local subcommands
+            subcommands=(
+                'setup:Install and setup git lfs for the project'
+                'fix-broken-refs:Fixes broken lfs references'
+            )
+            _describe "subcommand" subcommands
+            ;;
+        (arg)
+            case ${words[1]} in
+                (setup)
+                    _rak_lfs_setup
+                    ;;
+                (fix-broken-refs)
+                    _rak_lfs_fix-broken-refs
+                    ;;
+            esac
+            ;;
+    esac
+
+    return ret
+}
+
+_rak_lfs_setup() {
+    integer ret=1
+    local -a args
+    args+=(
+        '(-h --help)'{-h,--help}'[Print help information.]'
+    )
+    _arguments -w -s -S $args[@] && ret=0
+
+    return ret
+}
+
+_rak_lfs_fix-broken-refs() {
+    integer ret=1
+    local -a args
+    args+=(
+        '(-s --stash)'{-s,--stash}'[Should stash before running]'
+        '--no-stash[Should stash before running]'
+        '(-h --help)'{-h,--help}'[Print help information.]'
+    )
+    _arguments -w -s -S $args[@] && ret=0
+
+    return ret
+}
+
+_rak_ci() {
+    integer ret=1
+    local -a args
+    args+=(
+        '-v[Verbose output]'
+        '(-h --help)'{-h,--help}'[Print help information.]'
+        '(-): :->command'
+        '(-)*:: :->arg'
+    )
+    _arguments -w -s -S $args[@] && ret=0
+    case $state in
+        (command)
+            local subcommands
+            subcommands=(
+                'build:Triggers a build in the CI. Default workflow: '"'"'development-firebase'"'"''
+                'app-store-auth:Generates a token in ~/.rak/ci/token.txt directory to be used in App Store Connect API'
+                'provisioning:Download profiles. If there are new devices, it generates new profiles'"'"''
+            )
+            _describe "subcommand" subcommands
+            ;;
+        (arg)
+            case ${words[1]} in
+                (build)
+                    _rak_ci_build
+                    ;;
+                (app-store-auth)
+                    _rak_ci_app-store-auth
+                    ;;
+                (provisioning)
+                    _rak_ci_provisioning
+                    ;;
+            esac
+            ;;
+    esac
+
+    return ret
+}
+
+_rak_ci_build() {
+    integer ret=1
+    local -a args
+    args+=(
+        '(-m --message)'{-m,--message}'[Message to be sent with the build]:message:'
+        '(-b --branch-name)'{-b,--branch-name}'[Name of the branch. If empty, current active branch is used]:branch-name:'
+        '(-w --workflow)'{-w,--workflow}'[Workflow name. Default: development-firebase]:workflow:'
+        '(-h --help)'{-h,--help}'[Print help information.]'
+    )
+    _arguments -w -s -S $args[@] && ret=0
+
+    return ret
+}
+
+_rak_ci_app-store-auth() {
+    integer ret=1
+    local -a args
+    args+=(
+        '--kid[Key Identifier. Your private key ID from App Store Connect (Ex: 2X9R4HXF34)]:kid:'
+        '--iss[Your issuer ID from the API Keys page in App Store Connect (Ex: 57246542-96fe-1a63-e053-0824d011072a)]:iss:'
+        '--tokenizer[Tokenizer ruby script path]:tokenizer:'
+        '--p8-path[Path to your local .p8 App Store private key]:p8-path:'
+        '(-h --help)'{-h,--help}'[Print help information.]'
+    )
+    _arguments -w -s -S $args[@] && ret=0
+
+    return ret
+}
+
+_rak_ci_provisioning() {
+    integer ret=1
+    local -a args
+    args+=(
+        '--profile-type[Type of profiles to download, select one: IOS_APP_ADHOC, IOS_APP_STORE, or IOS_APP_DEVELOPMENT]:profile-type:'
+        '--profiles[Profiles to download]:profiles:'
+        '--profiles-path[Path where profiles will be saved]:profiles-path:'
+        '(-h --help)'{-h,--help}'[Print help information.]'
+    )
+    _arguments -w -s -S $args[@] && ret=0
+
+    return ret
+}
+
+_rak_assets() {
+    integer ret=1
+    local -a args
+    args+=(
+        '(-h --help)'{-h,--help}'[Print help information.]'
+        '(-): :->command'
+        '(-)*:: :->arg'
+    )
+    _arguments -w -s -S $args[@] && ret=0
+    case $state in
+        (command)
+            local subcommands
+            subcommands=(
+                'pull:pull images from repo and include them in xcode project, also generates RappiIconCatalog struct to call the images'
+                'remove-duplicates:remove duplicated images based on their name.'
+                'upload:upload asset to core-lottie service'
+                'delete:delete asset from the core-lottie service'
+                'migrate:migrate assets to core-assets service'
+                'generate-remote-asset-names:generates RemoteAssets name constants based on the ios-remote-assets repo.'
+            )
+            _describe "subcommand" subcommands
+            ;;
+        (arg)
+            case ${words[1]} in
+                (pull)
+                    _rak_assets_pull
+                    ;;
+                (remove-duplicates)
+                    _rak_assets_remove-duplicates
+                    ;;
+                (upload)
+                    _rak_assets_upload
+                    ;;
+                (delete)
+                    _rak_assets_delete
+                    ;;
+                (migrate)
+                    _rak_assets_migrate
+                    ;;
+                (generate-remote-asset-names)
+                    _rak_assets_generate-remote-asset-names
+                    ;;
+            esac
+            ;;
+    esac
+
+    return ret
+}
+
+_rak_assets_pull() {
+    integer ret=1
+    local -a args
+    args+=(
+        '(-g --git-images-path)'{-g,--git-images-path}'[local images repository path]:git-images-path:'
+        '(-r --rappi-monorepo-path)'{-r,--rappi-monorepo-path}'[Rappi local repository path]:rappi-monorepo-path:'
+        '(-h --help)'{-h,--help}'[Print help information.]'
+    )
+    _arguments -w -s -S $args[@] && ret=0
+
+    return ret
+}
+
+_rak_assets_remove-duplicates() {
+    integer ret=1
+    local -a args
+    args+=(
+        '(--path-to-images -p)'{--path-to-images,-p}'[path to the local images repository]:path-to-images:'
+        '(--warn -w)'{--warn,-w}'[flag that indicates if an exception should be thrown instead of deleting the duplicated files.]'
+        '(-h --help)'{-h,--help}'[Print help information.]'
+    )
+    _arguments -w -s -S $args[@] && ret=0
+
+    return ret
+}
+
+_rak_assets_upload() {
+    integer ret=1
+    local -a args
+    args+=(
+        '(--name -n)'{--name,-n}'[the name of the asset. If '"'"'nil'"'"', will use the file'"'"'s name.]:name:'
+        '(--country -c)'{--country,-c}'[the country header'"'"'s value.]:country:'
+        '(--language -l)'{--language,-l}'[the language header'"'"'s value.]:language:'
+        '(--path -p)'{--path,-p}'[the path to the asset to upload.]:path:'
+        '(--token -t)'{--token,-t}'[the token for prod environment.]:token:'
+        '--prod[indicates if the asset should be uploaded to prod environment as well.]'
+        '--no-fallback[indicates if the fallback language(ALL) and country(ALL) should NOT be set.]'
+        '(-h --help)'{-h,--help}'[Print help information.]'
+    )
+    _arguments -w -s -S $args[@] && ret=0
+
+    return ret
+}
+
+_rak_assets_delete() {
+    integer ret=1
+    local -a args
+    args+=(
+        ':names:'
+        '(--token -t)'{--token,-t}'[the token for prod environment]:token:'
+        '--prod[indicates if the asset should be deleted from prod as well]'
+        '(-h --help)'{-h,--help}'[Print help information.]'
+    )
+    _arguments -w -s -S $args[@] && ret=0
+
+    return ret
+}
+
+_rak_assets_migrate() {
+    integer ret=1
+    local -a args
+    args+=(
+        '--min-file-size[the min file size of the asset, in bytes. Defaults to 10000 bytes.]:min-file-size:'
+        '--assets-path[the path to the assets to upload.]:assets-path:'
+        '--code-path[the path to the Swift files.]:code-path:'
+        '--asset-prefix[prefix for renaming the assets to upload.]:asset-prefix:'
+        '--token[the token for prod environment.]:token:'
+        '--prod[flag that indicates if the asset should be uploaded to prod environment as well.]'
+        '--upload-assets-not-automatically-replaced[flag that indicates if upload the assets that not be automatically replaced.]'
+        '--delete-uploaded-assets[flag that indicates if the uploaded asset should be removed from the filesystem.]'
+        '--simulate-upload[flag for fake the upload process to test the changes and look at what assets would be upload.]'
+        '(-h --help)'{-h,--help}'[Print help information.]'
+    )
+    _arguments -w -s -S $args[@] && ret=0
+
+    return ret
+}
+
+_rak_assets_generate-remote-asset-names() {
+    integer ret=1
+    local -a args
+    args+=(
+        '(--path -p)'{--path,-p}'[path to the ios-remote-assets repo.]:path:'
+        '(--rappi -r)'{--rappi,-r}'[path to the ios-rappi-main repo.]:rappi:'
+        '(-h --help)'{-h,--help}'[Print help information.]'
+    )
+    _arguments -w -s -S $args[@] && ret=0
+
+    return ret
+}
+
+_rak_bazel() {
+    integer ret=1
+    local -a args
+    args+=(
+        '(-h --help)'{-h,--help}'[Print help information.]'
+        '(-): :->command'
+        '(-)*:: :->arg'
+    )
+    _arguments -w -s -S $args[@] && ret=0
+    case $state in
+        (command)
+            local subcommands
+            subcommands=(
+                'setup:Sets up Xcode project to run with Bazel'
+                'cache:'
+                'uninstall:Removes all stuff related to Bazel'
+            )
+            _describe "subcommand" subcommands
+            ;;
+        (arg)
+            case ${words[1]} in
+                (setup)
+                    _rak_bazel_setup
+                    ;;
+                (cache)
+                    _rak_bazel_cache
+                    ;;
+                (uninstall)
+                    _rak_bazel_uninstall
+                    ;;
+            esac
+            ;;
+    esac
+
+    return ret
+}
+
+_rak_bazel_setup() {
+    integer ret=1
+    local -a args
+    args+=(
+        '(-l --local-cache)'{-l,--local-cache}'[Specifies if you want to use local caché instead of Rappi'"'"'s remote]'
+        '(-r --remote-cache)'{-r,--remote-cache}'[Specifies if you want to use remote caché]'
+        '(-w --write)'{-w,--write}'[Sends artifacts to remote caché]'
+        '(-b --boost)'{-b,--boost}'[Specifies if you want to use the max resources available]'
+        '(-m --messages)'{-m,--messages}'[Enables messages during setup]'
+        '(-d --debug)'{-d,--debug}'[Enables debug flags]'
+        '(-u --update)'{-u,--update}'[runs pod update instead of install]'
+        '(-v --verbose)'{-v,--verbose}'[Enables verbosity during setup, this will enable messages too]'
+        '(-c --ci)'{-c,--ci}'[Same configuration as Bitrise, use this to upload artifacts]'
+        '(-h --help)'{-h,--help}'[Print help information.]'
+    )
+    _arguments -w -s -S $args[@] && ret=0
+
+    return ret
+}
+
+_rak_bazel_cache() {
+    integer ret=1
+    local -a args
+    args+=(
+        '(-u --upload)'{-u,--upload}'[Uploads a file]'
+        '(-d --download)'{-d,--download}'[Downloads a file]'
+        '(--checksum -c)'{--checksum,-c}'[Sha256 checksum]:checksum:'
+        '(--path -p)'{--path,-p}'[File path]:path:'
+        '(-h --help)'{-h,--help}'[Print help information.]'
+    )
+    _arguments -w -s -S $args[@] && ret=0
+
+    return ret
+}
+
+_rak_bazel_uninstall() {
+    integer ret=1
+    local -a args
+    args+=(
+        '(-v --verbose)'{-v,--verbose}'[Enables verbosity]'
+        '(-h --help)'{-h,--help}'[Print help information.]'
+    )
+    _arguments -w -s -S $args[@] && ret=0
+
+    return ret
+}
+
+_rak_metrics() {
+    integer ret=1
+    local -a args
+    args+=(
+        '(-h --help)'{-h,--help}'[Print help information.]'
+        '(-): :->command'
+        '(-)*:: :->arg'
+    )
+    _arguments -w -s -S $args[@] && ret=0
+    case $state in
+        (command)
+            local subcommands
+            subcommands=(
+                'coverage:Presents coverage data from projects.'
+            )
+            _describe "subcommand" subcommands
+            ;;
+        (arg)
+            case ${words[1]} in
+                (coverage)
+                    _rak_metrics_coverage
+                    ;;
+            esac
+            ;;
+    esac
+
+    return ret
+}
+
+_rak_metrics_coverage() {
+    integer ret=1
+    local -a args
+    args+=(
+        '(--workspace -w)'{--workspace,-w}'[path to the workspace]:workspace:'
+        '(--xcodeproj -x)'{--xcodeproj,-x}'[path to the xcodeproj]:xcodeproj:'
+        '(--scheme -s)'{--scheme,-s}'[scheme name]:scheme:'
+        '(--terminal -t)'{--terminal,-t}'[terminal output]'
+        '(--json -j)'{--json,-j}'[json output]'
+        '(--html -h)'{--html,-h}'[html output]'
+        '(--verbose -v)'{--verbose,-v}'[verbose]'
+        '(-h --help)'{-h,--help}'[Print help information.]'
+    )
+    _arguments -w -s -S $args[@] && ret=0
+
+    return ret
+}
+
+_rak_danger() {
+    integer ret=1
+    local -a args
+    args+=(
+        '(-h --help)'{-h,--help}'[Print help information.]'
+        '(-): :->command'
+        '(-)*:: :->arg'
+    )
+    _arguments -w -s -S $args[@] && ret=0
+    case $state in
+        (command)
+            local subcommands
+            subcommands=(
+                'pre:Executes danger pre validation.'
+                'post:Executes danger post validation.'
+            )
+            _describe "subcommand" subcommands
+            ;;
+        (arg)
+            case ${words[1]} in
+                (pre)
+                    _rak_danger_pre
+                    ;;
+                (post)
+                    _rak_danger_post
+                    ;;
+            esac
+            ;;
+    esac
+
+    return ret
+}
+
+_rak_danger_pre() {
+    integer ret=1
+    local -a args
+    args+=(
+        '(--pr -p)'{--pr,-p}'[Bitbucket pr url]:pr:'
+        '(--workspace -w)'{--workspace,-w}'[path to the workspace]:workspace:'
+        '(--xcodeproj -x)'{--xcodeproj,-x}'[path to the xcodeproj]:xcodeproj:'
+        '(--scheme -s)'{--scheme,-s}'[scheme name]:scheme:'
+        '(-h --help)'{-h,--help}'[Print help information.]'
+    )
+    _arguments -w -s -S $args[@] && ret=0
+
+    return ret
+}
+
+_rak_danger_post() {
+    integer ret=1
+    local -a args
+    args+=(
+        '(--pr -p)'{--pr,-p}'[Bitbucket pr url]:pr:'
+        '(--workspace -w)'{--workspace,-w}'[path to the workspace]:workspace:'
+        '(--xcodeproj -x)'{--xcodeproj,-x}'[path to the xcodeproj]:xcodeproj:'
+        '(--scheme -s)'{--scheme,-s}'[scheme name]:scheme:'
+        '(-h --help)'{-h,--help}'[Print help information.]'
+    )
+    _arguments -w -s -S $args[@] && ret=0
+
+    return ret
+}
+
+_rak_llvm() {
+    integer ret=1
+    local -a args
+    args+=(
+        '-v[Verbose output]'
+        '(-h --help)'{-h,--help}'[Print help information.]'
+        '(-): :->command'
+        '(-)*:: :->arg'
+    )
+    _arguments -w -s -S $args[@] && ret=0
+    case $state in
+        (command)
+            local subcommands
+            subcommands=(
+                'link:Links IR files from derived data. This is used in release pipeline.'
+                'clang-linker:Finds and parses linker arguments from Xcode log and runs linker with those arguments.'
+                'log-parser:It finds and parses linker arguments from Xcode log and runs linker with those arguments.'
+            )
+            _describe "subcommand" subcommands
+            ;;
+        (arg)
+            case ${words[1]} in
+                (link)
+                    _rak_llvm_link
+                    ;;
+                (clang-linker)
+                    _rak_llvm_clang-linker
+                    ;;
+                (log-parser)
+                    _rak_llvm_log-parser
+                    ;;
+            esac
+            ;;
+    esac
+
+    return ret
+}
+
+_rak_llvm_link() {
+    integer ret=1
+    local -a args
+    args+=(
+        '(-o --output)'{-o,--output}'[Output file path]:output:'
+        '--dependencies-paths-file[File that contains DerivedData paths, usually named '"'"'env.sh'"'"' in root project directory.]:dependencies-paths-file:'
+        '--targets-white-list[Target names that won'"'"'t be linked. Separate them with a comma. E.g. Target 1,Target2]:targets-white-list:'
+        '--symbols-file[JSON file that contains symbols that should be replaced to avoid errors.]:symbols-file:'
+        '--llvm-link[Path to llvm-link executable.]:llvm-link:'
+        '--llvm-dis[Path to llvm-dis executable.]:llvm-dis:'
+        '--swift[Path to swift executable.]:swift:'
+        '--rpl[Path to rpl executable.]:rpl:'
+        '--configuration[Build configuration. '"'"'Debug'"'"' or '"'"'Release'"'"']:configuration:'
+        '(-w --workspace)'{-w,--workspace}'[Path to the root of the repo.]:workspace:'
+        '(-b --bazel)'{-b,--bazel}'[Wheter the app compiled with Bazel or not.]'
+        '(-h --help)'{-h,--help}'[Print help information.]'
+    )
+    _arguments -w -s -S $args[@] && ret=0
+
+    return ret
+}
+
+_rak_llvm_clang-linker() {
+    integer ret=1
+    local -a args
+    args+=(
+        '--link-arguments-file[File that contains Xcode link argumnets. Generate it with '"'"'log-parser'"'"']:link-arguments-file:'
+        '(-e --enable-bitcode)'{-e,--enable-bitcode}'[Wheter or not add bitcode. To enable this, you must have compiled with bitcode enabled.]'
+        '--link-file-list[LinkFileList path file.]:link-file-list:'
+        '--executable-file[Executable path file.]:executable-file:'
+        '--configuration[Build configuration. '"'"'Debug'"'"' or '"'"'Release'"'"']:configuration:'
+        '(-h --help)'{-h,--help}'[Print help information.]'
+    )
+    _arguments -w -s -S $args[@] && ret=0
+
+    return ret
+}
+
+_rak_llvm_log-parser() {
+    integer ret=1
+    local -a args
+    args+=(
+        '--xcode-build-log-file[File that contains Xcode build file.]:xcode-build-log-file:'
+        '--project[Project name.]:project:'
+        '--target[Target name.]:target:'
+        '--outputs[Path were outputs will be saved.]:outputs:'
+        '--configuration[Build configuration. '"'"'Debug'"'"' or '"'"'Release'"'"']:configuration:'
+        '(-h --help)'{-h,--help}'[Print help information.]'
+    )
+    _arguments -w -s -S $args[@] && ret=0
+
+    return ret
+}
+
+_rak_lint() {
+    integer ret=1
+    local -a args
+    args+=(
+        '(-h --help)'{-h,--help}'[Print help information.]'
+        '(-): :->command'
+        '(-)*:: :->arg'
+    )
+    _arguments -w -s -S $args[@] && ret=0
+    case $state in
+        (command)
+            local subcommands
+            subcommands=(
+                'autocorrect:autocorrects linter rules violations'
+            )
+            _describe "subcommand" subcommands
+            ;;
+        (arg)
+            case ${words[1]} in
+                (autocorrect)
+                    _rak_lint_autocorrect
+                    ;;
+            esac
+            ;;
+    esac
+
+    return ret
+}
+
+_rak_lint_autocorrect() {
+    integer ret=1
+    local -a args
+    args+=(
+        '(--verbose -v)'{--verbose,-v}'[tells autolint to ouput more info.]'
+        '(--recursive -r)'{--recursive,-r}'[tells autolint whether to check files recursively inside the specified directories.]'
+        '--config[the path to the autocorrect yml file.]:config:'
+        ':paths-to-auto-correct:'
+        '(-h --help)'{-h,--help}'[Print help information.]'
+    )
+    _arguments -w -s -S $args[@] && ret=0
+
+    return ret
+}
+
+_rak_simulator() {
+    integer ret=1
+    local -a args
+    args+=(
+        '-v[Verbose output]'
+        '(-h --help)'{-h,--help}'[Print help information.]'
+        '(-): :->command'
+        '(-)*:: :->arg'
+    )
+    _arguments -w -s -S $args[@] && ret=0
+    case $state in
+        (command)
+            local subcommands
+            subcommands=(
+                'available:Find available simulators'
+                'shutdown:Shutdown selected simulators'
+            )
+            _describe "subcommand" subcommands
+            ;;
+        (arg)
+            case ${words[1]} in
+                (available)
+                    _rak_simulator_available
+                    ;;
+                (shutdown)
+                    _rak_simulator_shutdown
+                    ;;
+            esac
+            ;;
+    esac
+
+    return ret
+}
+
+_rak_simulator_available() {
+    integer ret=1
+    local -a args
+    args+=(
+        '(--devices -d)'{--devices,-d}'[path to the workspace]:devices:'
+        '(-h --help)'{-h,--help}'[Print help information.]'
+    )
+    _arguments -w -s -S $args[@] && ret=0
+
+    return ret
+}
+
+_rak_simulator_shutdown() {
+    integer ret=1
+    local -a args
+    args+=(
+        '(--devices -d)'{--devices,-d}'[path to the workspace]:devices:'
+        '(-h --help)'{-h,--help}'[Print help information.]'
+    )
+    _arguments -w -s -S $args[@] && ret=0
+
+    return ret
+}
+
+_rak_help() {
+    integer ret=1
+    local -a args
+    args+=(
+        ':subcommands:'
+        '(-h --help)'{-h,--help}'[Print help information.]'
+    )
+    _arguments -w -s -S $args[@] && ret=0
+
+    return ret
+}
+
+
+_custom_completion() {
+    local completions=("${(@f)$($*)}")
+    _describe '' completions
+}
+
+_rak
