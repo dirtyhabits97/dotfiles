@@ -19,6 +19,8 @@ brew htop
 brew httpie
 brew icu4c
 brew jemalloc
+brew jenkins-lts
+brew jenv
 brew jq
 brew libev
 brew libevent
@@ -75,6 +77,8 @@ brew xcbeautify
 brew xclogparser
 brew xz
 
+tap homebrew/services
+
 tap homebrew/cask
 cask alacritty
 cask basictex
@@ -95,7 +99,7 @@ tap vapor/tap
 
 # App Store applications
 appstore 1333542190  1Password 7  (7.8.6)
-appstore 1575220747  Bakery       (1.18)
+appstore 1575220747  Bakery       (2.2)
 appstore 1091189122  Bear         (1.8.5)
 appstore 406056744   Evernote     (10.17.8)
 appstore 682658836   GarageBand   (10.4.3)
@@ -103,12 +107,12 @@ appstore 408981434   iMovie       (10.2.5)
 appstore 1035137927  KeyKey       (2.9)
 appstore 409183694   Keynote      (11.1)
 appstore 405399194   Kindle       (1.32.0)
-appstore 1116599239  NordVPN IKE  (6.5.0)
+appstore 1116599239  NordVPN IKE  (6.6.1)
 appstore 409203825   Numbers      (11.1)
 appstore 409201541   Pages        (11.1)
 appstore 1504940162  RocketSim    (4.1.2)
 appstore 803453959   Slack        (4.18.0)
-appstore 1176895641  Spark        (2.10.0)
+appstore 1176895641  Spark        (2.10.5)
 appstore 904280696   Things       (3.13.14)
 appstore 1147396723  WhatsApp     (2.2126.15)
 appstore 497799835   Xcode        (12.5.1)
