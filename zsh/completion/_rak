@@ -395,7 +395,10 @@ _rak_bazel_setup() {
         '(-d --debug)'{-d,--debug}'[Enables debug flags]'
         '(-u --update)'{-u,--update}'[runs pod update instead of install]'
         '(-v --verbose)'{-v,--verbose}'[Enables verbosity during setup, this will enable messages too]'
-        '(-c --ci)'{-c,--ci}'[Same configuration as Bitrise, use this to upload artifacts]'
+        '--ci[Configurations specific to CI]'
+        '--bitrise[Configurations specific to Bitrise]'
+        '--jenkins[Configurations specific to Jenkins]'
+        '--optimizations[Enables size optimizations]'
         '(-h --help)'{-h,--help}'[Print help information.]'
     )
     _arguments -w -s -S $args[@] && ret=0

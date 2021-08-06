@@ -1,6 +1,28 @@
 env:
   TERM: xterm-256color
 
+# Fonts
+font:
+  # Normal (roman) font face
+  normal:
+    family: Hack Nerd Font Mono
+    style: Regular
+
+  # Bold font face
+  bold:
+    family: Hack Nerd Font Mono
+    style: Bold
+
+  # Italic font face
+  italic:
+    family: Hack Nerd Font Mono
+    style: Italic
+
+  # Bold italic font face
+  bold_italic:
+    family: Hack Nerd Font Mono
+    style: Bold Italic
+
 # Colors (One Half Dark)
 colors:
   primary:

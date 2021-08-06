@@ -113,6 +113,7 @@ alias nn="nvim"
 alias fm="vifm"
 alias :q="exit"
 alias :Q="exit"
+alias ll="exa -l -g --icons"
 
 replace() {
   rg -l "$1" | xargs sed -i '' -e "s/$1/$2/"
@@ -151,3 +152,8 @@ export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 fpath=(~/.zsh/completion $fpath)
 autoload -U compinit
 compinit
+
+# =================== jenv ==================
+# for some reason this has to be at the end
+export PATH="$HOME/.jenv/bin:$PATH"
+eval "$(jenv init -)"

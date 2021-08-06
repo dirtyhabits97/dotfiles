@@ -414,6 +414,11 @@ nnoremap xed :!xed -b %f<cr>
 nnoremap run :!./%f<cr>
 
 " ------------------------------------------------------------------------------
+"  Icons
+
+source /Users/user/.config/vifm/icons.vifm
+
+" ------------------------------------------------------------------------------
 
 " Various customization examples
 
