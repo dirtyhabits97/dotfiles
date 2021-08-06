@@ -59,7 +59,8 @@ lspconfig.sourcekit.setup{
 }
 
 -- Python
-lspconfig.pyls.setup{
+-- https://github.com/python-lsp/python-lsp-server
+lspconfig.pylsp.setup{
   on_attach = on_attach
 }
 
