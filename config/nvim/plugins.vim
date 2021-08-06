@@ -9,7 +9,6 @@ Plug 'preservim/nerdcommenter'            " Easier comment
 Plug 'christoomey/vim-tmux-navigator'     " Vim + Tmux
 Plug 'vim-airline/vim-airline'            " Status bar
 Plug 'vim-airline/vim-airline-themes'
-Plug 'sonph/onehalf', { 'rtp': 'vim' }    " Colors
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } } " Fuzzy find
 Plug 'junegunn/fzf.vim'
 Plug 'rhysd/git-messenger.vim'            " Git
@@ -19,6 +18,9 @@ Plug 'tpope/vim-commentary'               " Comment code
 Plug 'neovim/nvim-lspconfig'              " LSP integration
 Plug 'hrsh7th/nvim-compe'                 " Auto complete
 Plug 'ray-x/lsp_signature.nvim'           " Method signature
+
+Plug 'ryanoasis/vim-devicons'             " Icons
+Plug 'sonph/onehalf', { 'rtp': 'vim' }    " Colors
 
 call plug#end()
 
