@@ -53,7 +53,7 @@ end
 
 -- Swift
 lspconfig.sourcekit.setup{
-  serverPath = '/Applications/Xcode-12.4.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/sourcekit-lsp',
+  serverPath = '/Applications/Xcode-System.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/sourcekit-lsp',
   filetypes = {'swift'},
   on_attach = on_attach
 }
