@@ -114,6 +114,7 @@ alias fm="vifm"
 alias :q="exit"
 alias :Q="exit"
 alias ll="exa -l -g --icons"
+alias tree="exa --tree --icons"
 
 replace() {
   rg -l "$1" | xargs sed -i '' -e "s/$1/$2/"
