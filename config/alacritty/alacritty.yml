@@ -23,7 +23,7 @@ font:
     family: Hack Nerd Font
     style: Bold Italic
 
-  size: 16
+  #size: 16
 
 # Colors (One Half Dark)
 colors:
