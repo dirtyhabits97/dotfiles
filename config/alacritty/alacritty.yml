@@ -5,22 +5,22 @@ env:
 font:
   # Normal (roman) font face
   normal:
-    family: Hack Nerd Font Mono
+    family: Hack Nerd Font
     style: Regular
 
   # Bold font face
   bold:
-    family: Hack Nerd Font Mono
+    family: Hack Nerd Font
     style: Bold
 
   # Italic font face
   italic:
-    family: Hack Nerd Font Mono
+    family: Hack Nerd Font
     style: Italic
 
   # Bold italic font face
   bold_italic:
-    family: Hack Nerd Font Mono
+    family: Hack Nerd Font
     style: Bold Italic
 
   size: 16
