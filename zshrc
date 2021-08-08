@@ -187,9 +187,7 @@ fi
 # =================== jenv ==================
 # for some reason this has to be at the end
 export PATH="$HOME/.jenv/bin:$PATH"
-jenv_() {
-  eval "$(jenv init --no-rehash -)"
-  (jenv rehash &) 2> /dev/null
-  jenv "$@"
-}
+eval "$(jenv init --no-rehash -)"
+(jenv rehash &) 2> /dev/null
+
 #zprof
