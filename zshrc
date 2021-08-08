@@ -1,3 +1,4 @@
+#zmodload zsh/zprof
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
@@ -137,7 +138,9 @@ alias ll="exa -l -g --icons"
 alias lt="exa --tree -L 3 --icons"
 alias tree="exa --tree --icons"
 
-alias startup="/usr/bin/time /bin/zsh -i -c exit"
+startup() {
+  for i in $(seq 1 10); do /usr/bin/time zsh -i -c exit; done
+}
 
 replace() {
   rg -l "$1" | xargs sed -i '' -e "s/$1/$2/"
@@ -180,8 +183,6 @@ if [ $(date +'%j') != $(stat -f '%Sm' -t '%j' ~/.zcompdump) ]; then
 else
   compinit -C
 fi
-#autoload -U compinit
-#compinit
 
 # =================== jenv ==================
 # for some reason this has to be at the end
@@ -191,3 +192,4 @@ jenv_() {
   (jenv rehash &) 2> /dev/null
   jenv "$@"
 }
+#zprof
