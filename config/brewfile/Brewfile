@@ -9,7 +9,10 @@ brew brotli
 brew c-ares
 brew carthage
 brew cmake
+brew duf
+brew dust
 brew exa
+brew fd
 brew gdbm
 brew gettext
 brew git
