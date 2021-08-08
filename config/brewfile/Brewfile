@@ -21,6 +21,7 @@ brew grpcurl
 brew highlight
 brew htop
 brew httpie
+brew hyperfine
 brew icu4c
 brew jemalloc
 brew jenkins-lts
@@ -108,7 +109,6 @@ appstore 1333542190  1Password 7  (7.8.6)
 appstore 1575220747  Bakery       (2.4)
 appstore 1091189122  Bear         (1.8.5)
 appstore 406056744   Evernote     (10.18.3)
-appstore 682658836   GarageBand   (10.4.3)
 appstore 408981434   iMovie       (10.2.5)
 appstore 1035137927  KeyKey       (2.9)
 appstore 409183694   Keynote      (11.1)

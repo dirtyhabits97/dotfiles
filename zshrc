@@ -119,6 +119,8 @@ alias ll="exa -l -g --icons"
 alias lt="exa --tree -L 3 --icons"
 alias tree="exa --tree --icons"
 
+alias startup="/usr/bin/time /bin/zsh -i -c exit"
+
 replace() {
   rg -l "$1" | xargs sed -i '' -e "s/$1/$2/"
 }
@@ -160,4 +162,8 @@ compinit
 # =================== jenv ==================
 # for some reason this has to be at the end
 export PATH="$HOME/.jenv/bin:$PATH"
-eval "$(jenv init -)"
+jenv_() {
+  eval "$(jenv init --no-rehash -)"
+  (jenv rehash &) 2> /dev/null
+  jenv "$@"
+}
