@@ -18,6 +18,7 @@ Plug 'tpope/vim-commentary'               " Comment code
 Plug 'neovim/nvim-lspconfig'              " LSP integration
 Plug 'hrsh7th/nvim-compe'                 " Auto complete
 Plug 'ray-x/lsp_signature.nvim'           " Method signature
+Plug 'folke/trouble.nvim'                 " Diagnostics
 
 Plug 'ryanoasis/vim-devicons'             " Icons
 Plug 'sonph/onehalf', { 'rtp': 'vim' }    " Colors

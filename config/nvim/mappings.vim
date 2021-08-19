@@ -50,3 +50,7 @@ nnoremap <silent><Leader>- :exe "vertical resize -5"<CR>
 
 " Easier FZF
 nnoremap <C-T> :Files<cr>
+cnoreabbrev rg Rg
+
+" Easier Trouble
+nnoremap <C-x> :TroubleToggle<cr>
