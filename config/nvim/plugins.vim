@@ -44,6 +44,12 @@ let g:NERDDefaultAlign = 'left'
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#formatter = 'unique_tail'
 
+" FZF
+let g:fzf_action = {
+  \ 'ctrl-x': 'split',
+  \ 'ctrl-t': 'vsplit' }
+
+let g:fzf_layout = { 'down': '~20%' }
 " ---------------------------------- Theme & Color ----------------------------------
 
 set t_Co=256

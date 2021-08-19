@@ -5,7 +5,8 @@ command! Reload :source ~/.config/nvim/init.vim
 command! Config :edit ~/.config/nvim/general.vim
 
 " Leader key
-let g:mapleader=","
+"let g:mapleader=","
+let g:mapleader="\<Space>"
 
 nnoremap <C-n> :NERDTreeToggle<cr>
 nnoremap <C-m> :NERDTreeFind<cr>
@@ -46,3 +47,6 @@ inoremap <silent><expr> <C-d>     compe#scroll({ 'delta': -4 })
 " Easier resize
 nnoremap <silent><Leader>= :exe "vertical resize +5"<CR>
 nnoremap <silent><Leader>- :exe "vertical resize -5"<CR>
+
+" Easier FZF
+nnoremap <C-T> :Files<cr>

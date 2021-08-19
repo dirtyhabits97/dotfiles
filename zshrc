@@ -133,7 +133,7 @@ alias fm="vifm"
 alias :q="exit"
 alias :Q="exit"
 
-alias ee="exa --icons"
+alias ee="exa -1 --icons"
 alias ll="exa -l -g --icons"
 alias lt="exa --tree -L 3 --icons"
 alias tree="exa --tree --icons"
