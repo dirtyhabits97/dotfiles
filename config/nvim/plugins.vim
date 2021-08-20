@@ -50,7 +50,8 @@ let g:fzf_action = {
   \ 'ctrl-x': 'split',
   \ 'ctrl-t': 'vsplit' }
 
-let g:fzf_layout = { 'down': '~20%' }
+let g:fzf_layout = { 'window': { 'width': 0.9, 'height': 0.6 } }
+
 " ---------------------------------- Theme & Color ----------------------------------
 
 set t_Co=256
