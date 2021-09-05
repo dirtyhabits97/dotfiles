@@ -3,7 +3,8 @@
 require 'fileutils'
 require 'set'
 
-dest_dir = '/Users/user/dotfiles'
+home = ENV["HOME"]
+dest_dir = "#{home}/dotfiles"
 
 directories = Set[
   '.bin',
