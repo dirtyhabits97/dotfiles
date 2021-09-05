@@ -1,0 +1,42 @@
+#!/usr/bin/env ruby
+
+require 'fileutils'
+require 'set'
+
+dest_dir = '/Users/user/dotfiles'
+
+directories = Set[
+  '.bin',
+  '.config',
+  '.zsh'
+]
+
+files = Set[
+  '.lldbinit',
+  '.tmux.conf',
+  '.gitconfig',
+  '.zshrc'
+]
+
+def clean(str)
+  str.delete_prefix(".")
+end
+
+home = Dir['.*'] - ['.', '..']
+home.each do |filename| 
+  if directories.include? filename
+    dest_name = clean(filename)
+    puts "destination #{dest_name}"
+    FileUtils.cp_r(
+      filename + "/.",
+      dest_dir + "/#{dest_name}"
+    )
+
+  elsif files.include? filename
+    dest_name = clean(filename)
+    FileUtils.cp(
+      filename,
+      dest_dir + "/#{dest_name}"
+    )
+  end
+end

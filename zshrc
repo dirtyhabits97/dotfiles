@@ -152,7 +152,7 @@ replace() {
 ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=#5c6370,bold,underline"
 
 bindkey '^ ' autosuggest-accept
-
+export PATH="$HOME/.bin:$PATH"
 # =================== Notification ==================
 # source: https://github.com/julienXX/terminal-notifier
 alias notify='terminal-notifier -title "Terminal" -message "Done with task! Exit status: $?"' -activate com.apple.Terminal

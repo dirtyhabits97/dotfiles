@@ -22,64 +22,35 @@
   prompt = false
 
 [alias]
-  # print all aliases
-  aliases = !git config --list | grep ^alias\\. | cut -c 7- | grep -Ei --color \"$1\" "#"
-  # ignore file
-  ignore = "! echo $1 >> .gitignore"
-  # list ignored files
-  ignored = ! git ls-files --others --ignored --exclude-standard --directory \
-    && git ls-files -i --exclude-standard
-  # unstage all files
-  unstage = reset --
-  # undo changes from the last commit
-  undo = reset --soft HEAD^
-  # show diff with last commit
-  last = diff HEAD^ HEAD
-
-  # ----------------------------------------- Shortcuts ------------------------------------------
+  # ==================== Shortcuts ====================
   a = add
   aa = add --all
   ap = add -p
   b = branch
   ba = branch -a
-  branches = for-each-ref --sort=-committerdate --format='"%(color:blue)%(authordate:relative)\t%(color:red)%(authorname)\t%(color:white)%(color:bold)%(refname:short)"' refs/remotes
-  # prune merged branches
-  bp = ! git branch --merged master | grep -v master | grep -v main | grep -v develop | xargs git branch -d
-  bprune = ! git branch --merged main | grep -v main | grep -v develop | xargs git branch -d
-  prunebranch = ! git branch --merged develop | grep -v master | grep -v main | grep -v develop | xargs git branch -d
   co = checkout
-  # diff
   d = diff
   dc = diff --cached
-  # better commit
   com = commit --verbose
   coma = commit --verbose --amend --no-edit
+  conf = diff --name-only --diff-filter=U
+  last = diff HEAD^ HEAD
   pul = pull
   punch = push --force-with-lease
   s = status -sb
-
-  # ------------------------------- Temporarily ignore tracked files -------------------------------
-  # mark file as ignored
+  unstage = reset --
+  undo = reset --soft HEAD^
+  # ==================== Custom ====================
+  alias = !git config --list | grep 'alias\\.' | sed 's/alias\\.\\([^=]*\\)=\\(.*\\)/\\1\\t=> \\2/' | sort
+  ignore = "!f() { echo $1 >> .gitignore; }; f"
+  ignored = ! git ls-files --others --ignored --exclude-standard --directory && git ls-files -i --exclude-standarddpkg -L fzf | grep bindings
+  prune-branches = "!f() { git branch --merged ${1:-main} | grep -v main | grep -v develop | grep -v master | xargs git branch -d; }; f"
+  this = !git init && git add . && git commit -m \"Initial commit\"
+  # ==================== Unwatch ====================
   unwatch = update-index --assume-unchanged
-  # start tracking file again
-  watch = update-index --no-assume-unchanged
-  # list all files that have been temporarily ignored
   unwatched = "!git ls-files -v | grep '^[[:lower:]]'"
-  # clear the unwatched list
+  watch = update-index --no-assume-unchanged
   watchall = "!git unwatched | xargs -L 1 -I % sh -c 'git watch `echo % | cut -c 2-`'"
-
-  # ------------------------------------------ Pretty logs ------------------------------------------
-  lol = log --decorate --oneline --graph
-  tree = log --oneline --decorate --source --pretty=format:'"%Cblue %h %Cgreen %ar %Cblue %an %C(yellow) %d %Creset %s"' --all --graph
-  lop = log --pretty=format:'"%C(auto)%h %C(green)%ad%Creset | %s%C(yellow)%d%Creset %C(bold cyan)[%an]%Creset"' --graph --date=short
-  lg = log --graph --date-order --first-parent \
-    --pretty=format:'"%C(auto)%h%Creset %C(auto)%d%Creset %s %C(green)(%ad) %C(bold cyan)<%an>%Creset"'
-  lgb = log --graph --date-order --branches --first-parent \
-    --pretty=format:'"%C(auto)%h%Creset %C(auto)%d%Creset %s %C(green)(%ad) %C(bold cyan)<%an>%Creset"'
-  lga = log --graph --date-order --all \
-    --pretty=format:'"%C(auto)%h%Creset %C(auto)%d%Creset %s %C(green)(%ad) %C(bold cyan)<%an>%Creset"'
-  # -------------------------------------------- Merge --------------------------------------------
-  conf = diff --name-only --diff-filter=U
 
 [filter "lfs"]
 	process = git-lfs filter-process
