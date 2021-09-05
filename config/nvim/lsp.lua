@@ -91,3 +91,8 @@ lspconfig.groovyls.setup{
   cmd = { "java", "-jar", "/Users/user/other_projects/outside/groovy-language-server/build/libs/groovy-language-server-all.jar" },
   on_attach = on_attach
 }
+
+-- C
+lspconfig.clangd.setup{
+  on_attach = on_attach
+}
