@@ -68,6 +68,7 @@ brew sdl2
 brew six
 brew sourcekitten
 brew sqlite
+brew starship
 brew swift-protobuf
 brew swiftformat
 brew swiftlint
@@ -117,13 +118,13 @@ appstore 406056744   Evernote     (10.20.4)
 appstore 408981434   iMovie       (10.2.5)
 appstore 1035137927  KeyKey       (2.9)
 appstore 409183694   Keynote      (11.1)
-appstore 405399194   Kindle       (1.32.0)
+appstore 405399194   Kindle       (1.33.0)
 appstore 1116599239  NordVPN IKE  (6.7.0)
 appstore 409203825   Numbers      (11.1)
 appstore 409201541   Pages        (11.1)
 appstore 1504940162  RocketSim    (5.0.1)
 appstore 803453959   Slack        (4.19.0)
 appstore 1176895641  Spark        (2.10.11)
-appstore 904280696   Things       (3.14.2)
+appstore 904280696   Things       (3.14.4)
 appstore 1147396723  WhatsApp     (2.2134.10)
 appstore 497799835   Xcode        (12.5.1)

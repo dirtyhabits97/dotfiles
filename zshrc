@@ -9,14 +9,24 @@ export ZSH="/Users/user/.oh-my-zsh"
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
-ZSH_THEME="random"
-ZSH_THEME_RANDOM_CANDIDATES=(
-  "robbyrussell"
-  "garyblessington"
-  "cloud"
-  "clean"
-  "simple"
-)
+ZSH_THEME="mortalscumbag"
+#ZSH_THEME_RANDOM_CANDIDATES=(
+  #"afowler"
+  #"amuse"
+  #"arrow"
+  #"avit"
+  #"aussiegeek"
+  #"clean"
+  #"cloud"
+  #"cypher"
+  #"garyblessington"
+  #"half-life" # copy this one
+  #"jaischeema"
+  #"mortalscumbag"
+  #"robbyrussell"
+  #"simple"
+  #"steeef"
+#)
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
 # a theme from this variable instead of looking in $ZSH/themes/
@@ -191,5 +201,8 @@ fi
 export PATH="$HOME/.jenv/bin:$PATH"
 eval "$(jenv init --no-rehash -)"
 (jenv rehash &) 2> /dev/null
+
+# =================== jenv ==================
+eval "$(starship init zsh)"
 
 #zprof
