@@ -96,3 +96,10 @@ lspconfig.groovyls.setup{
 lspconfig.clangd.setup{
   on_attach = on_attach
 }
+
+------------------------------- Linters ------------------------------
+local dlsconfig = require 'diagnosticls-configs'
+
+dlsconfig.init {
+  on_attach = on_attach,
+}

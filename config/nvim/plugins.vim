@@ -20,6 +20,11 @@ Plug 'hrsh7th/nvim-compe'                 " Auto complete
 Plug 'ray-x/lsp_signature.nvim'           " Method signature
 Plug 'folke/trouble.nvim'                 " Diagnostics
 
+" TODO: consider replacing this.
+" To install: npm install -g diagnostic-languageserver
+Plug 'iamcco/diagnostic-languageserver'   " Linters
+Plug 'dirtyhabits97/diagnosticls-configs-nvim', { 'branch': 'swiftlint' } " Linters
+
 Plug 'ryanoasis/vim-devicons'             " Icons
 Plug 'sonph/onehalf', { 'rtp': 'vim' }    " Colors
 
