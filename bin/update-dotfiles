@@ -3,16 +3,14 @@
 require 'fileutils'
 require 'set'
 
-home = ENV["HOME"]
-dest_dir = "#{home}/dotfiles"
-
-directories = Set[
+HOME = ENV["HOME"]
+GIT_REPO = "#{HOME}/dotfiles"
+FOLDERS = Set[
   '.bin',
   '.config',
   '.zsh'
 ]
-
-files = Set[
+FILES = Set[
   '.lldbinit',
   '.tmux.conf',
   '.gitconfig',
@@ -23,21 +21,27 @@ def clean(str)
   str.delete_prefix(".")
 end
 
-home = Dir['.*'] - ['.', '..']
-home.each do |filename| 
-  if directories.include? filename
-    dest_name = clean(filename)
-    puts "destination #{dest_name}"
-    FileUtils.cp_r(
-      filename + "/.",
-      dest_dir + "/#{dest_name}"
-    )
+folder_count = 0
+files_count = 0
+TO_MOVE = Dir["#{HOME}/.*"] - ["#{HOME}/.", "#{HOME}/.."]
+TO_MOVE.each do |fullpath| 
 
-  elsif files.include? filename
-    dest_name = clean(filename)
-    FileUtils.cp(
-      filename,
-      dest_dir + "/#{dest_name}"
-    )
+  filename = File.basename(fullpath)
+  destination = "#{GIT_REPO}/#{clean(filename)}"
+
+  if FOLDERS.include? filename
+    source = "#{fullpath}/."
+    FileUtils.cp_r(source, destination)
+    folder_count += 1
+    next
+  end
+
+  if FILES.include? filename
+    FileUtils.cp(fullpath, destination)
+    files_count += 1
+    next
   end
 end
+
+puts "Copied #{folder_count} folders."
+puts "Copied #{files_count} files."
