@@ -45,8 +45,8 @@ export PATH="/usr/local/opt/llvm/bin:$PATH"
 
 alias ee="exa --icons"
 alias fm="vifm"
-alias ll="exa -l -g --icons"
-alias lt="exa --tree -L 3 --icons"
+alias ll="exa -l --no-user --icons"
+alias lt="exa --tree -L 2 --icons"
 alias nn="nvim"
 # source: https://github.com/julienXX/terminal-notifier
 alias notify='terminal-notifier -title "Terminal" -message "Done with task! Exit status: $?"' -activate com.apple.Terminal
