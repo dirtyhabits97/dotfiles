@@ -4,6 +4,7 @@ call plug#begin('~/.nvim/plugged')        " Set directory for plugins
 
 Plug 'tpope/vim-fugitive'                 " Git
 Plug 'keith/swift.vim'                    " Swift plugin
+Plug 'cespare/vim-toml'                   " Toml plugin
 Plug 'preservim/nerdtree'                 " File browsing
 Plug 'preservim/nerdcommenter'            " Easier comment
 Plug 'christoomey/vim-tmux-navigator'     " Vim + Tmux
@@ -18,11 +19,11 @@ Plug 'tpope/vim-commentary'               " Comment code
 Plug 'neovim/nvim-lspconfig'              " LSP integration
 Plug 'hrsh7th/nvim-compe'                 " Auto complete
 Plug 'ray-x/lsp_signature.nvim'           " Method signature
-Plug 'folke/trouble.nvim'                 " Diagnostics
 
+Plug 'folke/trouble.nvim'                 " Diagnostics
 " TODO: consider replacing this.
 " To install: npm install -g diagnostic-languageserver
-Plug 'iamcco/diagnostic-languageserver'   " Linters
+Plug 'iamcco/diagnostic-languageserver'   " Needed for linters
 Plug 'dirtyhabits97/diagnosticls-configs-nvim', { 'branch': 'swiftlint' } " Linters
 
 Plug 'ryanoasis/vim-devicons'             " Icons
