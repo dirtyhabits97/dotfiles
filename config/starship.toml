@@ -1,5 +1,9 @@
 # config: https://starship.rs/config/
 
+[[battery.display]]
+threshold = 20
+style = "bold red"
+
 [git_branch]
 symbol = "🌱 "
 
