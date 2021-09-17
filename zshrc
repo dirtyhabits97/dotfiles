@@ -63,6 +63,17 @@ replace() {
 }
 
 # =====================================
+# Optimizations
+# =====================================
+# If this is called later, it doesn't work
+autoload -Uz compinit
+if [ $(date +'%j') != $(stat -f '%Sm' -t '%j' ~/.zcompdump) ]; then
+  compinit
+else
+  compinit -C
+fi
+
+# =====================================
 # Plugins
 # =====================================
 
@@ -77,24 +88,12 @@ export FZF_DEFAULT_COMMAND="rg --files --hidden --glob '!.git'"
 # To apply the command to CTRL-T as well
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 
-
 # =====================================
 # Completions
 # =====================================
 # https://github.com/apple/swift-argument-parser/pull/123/files
 # https://unix.stackexchange.com/a/240192
 fpath=(~/.zsh/completion $fpath)
-
-# =====================================
-# Optimizations
-# =====================================
-autoload -Uz compinit
-if [ $(date +'%j') != $(stat -f '%Sm' -t '%j' ~/.zcompdump) ]; then
-  compinit
-else
-  compinit -C
-fi
-
 
 # =====================================
 # Environments
