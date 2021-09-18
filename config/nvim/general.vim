@@ -4,6 +4,7 @@ set nocompatible                " No need to behave like vi
 syntax on                       " Show color scheme
 set path+=**                    " Make :find search recursively in subdirectories
 
+set number                      " Show real line number
 set relativenumber              " Shows relative position to current line
 set tabstop=2                   " Number of spaces each tab counts for
 set shiftwidth=2                " The space << and >> moves the lines
