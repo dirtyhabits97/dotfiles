@@ -99,7 +99,11 @@ lspconfig.clangd.setup{
 
 ------------------------------- Linters ------------------------------
 local dlsconfig = require 'diagnosticls-configs'
+local util = require 'lspconfig.util'
 
 dlsconfig.init {
   on_attach = on_attach,
+  root_dir = function(fname)
+    return util.root_pattern '.git'(fname) or util.path.dirname(fname)
+  end,
 }
