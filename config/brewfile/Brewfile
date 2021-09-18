@@ -65,6 +65,7 @@ brew readline
 brew reattach-to-user-namespace
 brew ripgrep
 brew sdl2
+brew shellcheck
 brew six
 brew sourcekitten
 brew sqlite
@@ -85,6 +86,7 @@ brew vifm
 brew wget
 brew xcbeautify
 brew xclogparser
+brew xcodegen
 brew xz
 
 tap homebrew/cask-fonts
