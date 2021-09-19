@@ -36,6 +36,7 @@ brew libtermkey
 brew libunistring
 brew libuv
 brew libvterm
+brew libzip
 brew llvm
 brew lua
 brew luajit --HEAD
@@ -76,6 +77,7 @@ brew swiftlint
 brew telnet
 brew terminal-notifier
 brew tig
+brew tldr
 brew tmux
 brew tokei
 brew tree-sitter
@@ -116,7 +118,7 @@ tap vapor/tap
 appstore 1333542190  1Password 7  (7.8.7)
 appstore 1575220747  Bakery       (2.10)
 appstore 1091189122  Bear         (1.8.5)
-appstore 406056744   Evernote     (10.20.4)
+appstore 406056744   Evernote     (10.21.5)
 appstore 408981434   iMovie       (10.2.5)
 appstore 1035137927  KeyKey       (2.9)
 appstore 409183694   Keynote      (11.1)
