@@ -17,6 +17,7 @@ sed
 ssh
 tar
 tail
+tmux
 tldr
 xargs
 zip
