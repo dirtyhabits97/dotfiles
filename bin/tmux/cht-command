@@ -1,8 +1,12 @@
 awk
+bat
+brew
 cat
 chmod
 chown
 cp
+cut
+dust
 find
 git
 head
@@ -10,7 +14,9 @@ jq
 kill
 less
 lsof
+ln
 mv
+make
 ps
 rm
 sed
@@ -19,5 +25,6 @@ tar
 tail
 tmux
 tldr
+which
 xargs
 zip
