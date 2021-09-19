@@ -20,7 +20,7 @@ local on_attach = function(client, bufnr)
 
   buf_set_keymap('n', '<leader>rn', '<cmd>lua vim.lsp.buf.rename()<CR>', opts)
   buf_set_keymap('n', '<leader>D', '<cmd>lua vim.lsp.buf.type_definition()<CR>', opts)
-  
+
   -- Diagnostics
   buf_set_keymap('n', '<leader>e', '<cmd>lua vim.lsp.diagnostic.show_line_diagnostics()<CR>', opts)
   buf_set_keymap('n', '[d', '<cmd>lua vim.lsp.diagnostic.goto_prev()<CR>', opts)
@@ -94,6 +94,21 @@ lspconfig.groovyls.setup{
 
 -- C
 lspconfig.clangd.setup{
+  on_attach = on_attach
+}
+
+-- Lua
+-- source: https://github.com/sumneko/lua-language-server/wiki/Build-and-Run-(Standalone)
+-- source: https://github.com/neovim/nvim-lspconfig/blob/master/lua/lspconfig/sumneko_lua.lua
+lspconfig.sumneko_lua.setup {
+  cmd = {
+    "/Users/user/other_projects/lsp/lua-language-server/bin/macOS/lua-language-server",
+    "-E",
+    "/Users/user/other_projects/lsp/lua-language-server/main.lua"
+  },
+  runtime = {
+    version = 'LuaJIT'
+  },
   on_attach = on_attach
 }
 
