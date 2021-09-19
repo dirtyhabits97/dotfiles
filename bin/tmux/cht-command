@@ -4,6 +4,7 @@ chmod
 chown
 cp
 find
+git
 head
 jq
 kill
