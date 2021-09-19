@@ -99,9 +99,9 @@ fpath=(~/.zsh/completion $fpath)
 # Environments
 # =====================================
 # jenv
-export PATH="$HOME/.jenv/bin:$PATH"
-eval "$(jenv init --no-rehash -)"
-(jenv rehash &) 2> /dev/null
+#export PATH="$HOME/.jenv/bin:$PATH"
+#eval "$(jenv init --no-rehash -)"
+#(jenv rehash &) 2> /dev/null
 
 # =====================================
 # Starship
