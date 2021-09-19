@@ -51,6 +51,7 @@ brew msgpack
 brew ncurses
 brew neovim --HEAD
 brew nghttp2
+brew ninja
 brew node
 brew oniguruma
 brew openjdk
