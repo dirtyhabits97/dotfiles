@@ -6,6 +6,8 @@ set path+=**                    " Make :find search recursively in subdirectorie
 
 set number                      " Show real line number
 set relativenumber              " Shows relative position to current line
+set ignorecase                  " Search ignores case
+set smartcase                   " Better search
 set tabstop=2                   " Number of spaces each tab counts for
 set shiftwidth=2                " The space << and >> moves the lines
 set softtabstop=2               " Number of spaces for some tab operations
