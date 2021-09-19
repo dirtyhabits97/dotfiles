@@ -1,7 +1,7 @@
 " -------------------------------------- Mappings --------------------------------------
 
 " Easier reload
-command! Reload :source ~/.config/nvim/init.vim
+command! Reload :luafile ~/.config/nvim/init.lua
 command! Config :edit ~/.config/nvim/general.vim
 
 " Leader key
@@ -49,8 +49,10 @@ nnoremap <silent><Leader>= :exe "vertical resize +5"<CR>
 nnoremap <silent><Leader>- :exe "vertical resize -5"<CR>
 
 " Easier FZF
-nnoremap <C-T> :Files<cr>
-cnoreabbrev rg Rg
+nnoremap <leader>ff :Files<cr>
+nnoremap <leader>fg :Rg<cr>
+nnoremap <leader>fb :Buffers<cr>
+nnoremap <leader>fh :HelpTags<cr>
 
 " Easier Trouble
 nnoremap <C-x> :TroubleToggle<cr>

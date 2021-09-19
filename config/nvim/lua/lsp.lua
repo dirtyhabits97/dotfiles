@@ -106,8 +106,13 @@ lspconfig.sumneko_lua.setup {
     "-E",
     "/Users/user/other_projects/lsp/lua-language-server/main.lua"
   },
-  runtime = {
-    version = 'LuaJIT'
+  settings = {
+    Lua = {
+      diagnostics = {
+        -- Get the language server to recognize the `vim` global
+        globals = {'vim'},
+      },
+    },
   },
   on_attach = on_attach
 }
