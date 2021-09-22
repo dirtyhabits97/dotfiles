@@ -49,6 +49,7 @@ vim.g['NERDCustomDelimiters'] = {
   ruby  = { left = '# ' },
   bash  = { left = '# ' },
   lua   = { left = '-- ' },
+  vim   = { left = '" ' },
 }
 
 -- Align the comments

@@ -2,7 +2,7 @@
 
 " Easier reload
 command! Reload :luafile ~/.config/nvim/init.lua
-command! Config :edit ~/.config/nvim/general.vim
+command! Config :edit ~/.config/nvim/mappings.vim
 
 " Leader key
 "let g:mapleader=","
