@@ -11,3 +11,6 @@ vim.cmd[[
     set termguicolors
   endif
 ]]
+
+-- Colorizer
+require'colorizer'.setup()

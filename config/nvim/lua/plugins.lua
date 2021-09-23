@@ -20,8 +20,10 @@ Plug('junegunn/fzf', {                    -- Fuzzy find
   end
 })
 Plug 'junegunn/fzf.vim'
+Plug 'jiangmiao/auto-pairs'               -- Match (, [ and {
 
 Plug 'ellisonleao/glow.nvim'              -- Markdown preview
+Plug 'norcalli/nvim-colorizer.lua'        -- Colorizer
 
 Plug 'tpope/vim-fugitive'                 -- Git
 Plug 'rhysd/git-messenger.vim'            -- Git
@@ -52,6 +54,7 @@ vim.g['NERDCustomDelimiters'] = {
   bash  = { left = '# ' },
   lua   = { left = '-- ' },
   vim   = { left = '" ' },
+  c     = { left = '// ', right = '' },
 }
 
 -- Align the comments
