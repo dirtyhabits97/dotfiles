@@ -21,6 +21,8 @@ Plug('junegunn/fzf', {                    -- Fuzzy find
 })
 Plug 'junegunn/fzf.vim'
 
+Plug 'ellisonleao/glow.nvim'              -- Markdown preview
+
 Plug 'tpope/vim-fugitive'                 -- Git
 Plug 'rhysd/git-messenger.vim'            -- Git
 
