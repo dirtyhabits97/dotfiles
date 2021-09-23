@@ -24,6 +24,7 @@ Plug 'jiangmiao/auto-pairs'               -- Match (, [ and {
 
 Plug 'ellisonleao/glow.nvim'              -- Markdown preview
 Plug 'norcalli/nvim-colorizer.lua'        -- Colorizer
+Plug 'sunjon/shade.nvim'                  -- Dim inactive windows
 
 Plug 'tpope/vim-fugitive'                 -- Git
 Plug 'rhysd/git-messenger.vim'            -- Git
@@ -75,3 +76,8 @@ vim.g['fzf_layout'] = {
 
 -- Glow
 vim.g['glow_binary_path'] = '/usr/local/bin'
+
+-- Shade
+require'shade'.setup {
+  overlay_opacity = 50,
+}
