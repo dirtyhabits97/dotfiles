@@ -69,3 +69,6 @@ vim.g['fzf_action'] = {
 vim.g['fzf_layout'] = {
   window = { width = 0.9, height = 0.6 }
 }
+
+-- Glow
+vim.g['glow_binary_path'] = '/usr/local/bin'
