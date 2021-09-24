@@ -5,7 +5,11 @@ local Plug = vim.fn['plug#']
 vim.call('plug#begin', '~/.nvim/plugged')
 
 Plug 'keith/swift.vim'                    -- Swift plugin
-Plug 'cespare/vim-toml'                   -- Toml plugin
+Plug('nvim-treesitter/nvim-treesitter', { -- Language
+  ['do'] = function()
+    vim.call(':TSUpdate')
+  end
+})
 
 Plug 'preservim/nerdtree'                 -- File browsing
 Plug 'preservim/nerdcommenter'            -- Easier comment
