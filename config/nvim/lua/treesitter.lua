@@ -10,6 +10,7 @@ treesitter.setup {
   ensure_installed = {
     "bash",
     "c",
+    "cpp",
     "json",
     "lua",
     "python",
