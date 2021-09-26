@@ -29,6 +29,7 @@ Plug 'jiangmiao/auto-pairs'               -- Match (, [ and {
 -- Plug 'ellisonleao/glow.nvim'              -- Markdown preview
 Plug 'norcalli/nvim-colorizer.lua'        -- Colorizer
 -- Plug 'sunjon/shade.nvim'                  -- Dim inactive windows
+Plug 'Yggdroot/indentLine'               -- Indentation guide
 
 Plug 'tpope/vim-fugitive'                 -- Git
 Plug 'rhysd/git-messenger.vim'            -- Git
