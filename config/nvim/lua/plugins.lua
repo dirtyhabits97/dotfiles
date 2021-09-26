@@ -86,3 +86,12 @@ vim.g['fzf_layout'] = {
 -- require'shade'.setup {
 --   overlay_opacity = 50,
 -- }
+
+-- Fix intro screen with indentLine
+-- source: https://github.com/Yggdroot/indentLine/issues/315
+vim.cmd[[
+  autocmd VimEnter * if bufname('%') == '' | IndentLinesDisable | endif
+]]
+
+-- Git git-messenger
+vim.g['git_messenger_always_into_popup'] = true
