@@ -61,6 +61,7 @@ brew openssl@1.1
 brew pcre2
 brew pkg-config
 brew protobuf
+brew pstree
 brew pyenv
 brew python@3.9
 brew re2
@@ -121,7 +122,7 @@ brew brew-file
 tap vapor/tap
 
 # App Store applications
-appstore 1333542190  1Password 7  (7.8.7)
+appstore 1333542190  1Password 7  (7.8.8)
 appstore 1575220747  Bakery       (2.11)
 appstore 1091189122  Bear         (1.8.5)
 appstore 406056744   Evernote     (10.22.3)
