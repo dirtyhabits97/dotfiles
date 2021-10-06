@@ -8,9 +8,11 @@ brew bazelisk
 brew bloaty
 brew brotli
 brew c-ares
+brew ca-certificates
 brew capstone
 brew carthage
 brew cmake
+brew cpplint
 brew duf
 brew dust
 brew exa
