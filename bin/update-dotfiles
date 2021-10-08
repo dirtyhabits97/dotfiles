@@ -18,28 +18,24 @@ FILES = Set[
   '.zshrc'
 ]
 
-def clean(str)
-  str
-end
-
 folder_count = 0
 files_count = 0
-TO_MOVE = Dir.entries(HOME) - ["#{HOME}/.", "#{HOME}/.."]
+TO_MOVE = Dir["#{HOME}/.*"] + Dir["#{HOME}/*"] - ["#{HOME}/.", "#{HOME}/.."]
 TO_MOVE.each do |fullpath| 
 
   filename = File.basename(fullpath)
-  destination = "#{GIT_REPO}/#{clean(filename)}"
+  destination = GIT_REPO + "/" + filename 
 
   if FOLDERS.include? filename
     source = "#{fullpath}/."
-    puts "will move #{source} to #{destination}"
+    puts "FOLDER: Will copy #{source} to #{destination}"
     FileUtils.cp_r(source, destination)
     folder_count += 1
     next
   end
 
   if FILES.include? filename
-    puts "will move #{fullpath} to #{destination}"
+    puts "FILE: Will copy #{fullpath} to #{destination}"
     FileUtils.cp(fullpath, destination)
     files_count += 1
     next
