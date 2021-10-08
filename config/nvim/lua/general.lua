@@ -32,9 +32,12 @@ set.splitright      = true
 set.completeopt     = 'menuone,noselect'
 
 -- Ignore these folder for completion
-set.wildignore      = '.git,'                             -- Version control
+set.wildignore      = '.git,'                              -- Version control
                     .. '*.jpg,*.bmp,*.gif,*.png,*.jpeg,'   -- Media files
                     .. '*.resolved'                        -- Package manager lock files
+-- source: https://stackoverflow.com/a/29787362
+set.listchars       = 'eol:¬,tab:>·,space:.'
+set.list            = true
 
 -- File types
 vim.cmd [[

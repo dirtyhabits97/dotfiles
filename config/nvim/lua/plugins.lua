@@ -29,7 +29,6 @@ Plug 'jiangmiao/auto-pairs'               -- Match (, [ and {
 -- Plug 'ellisonleao/glow.nvim'              -- Markdown preview
 Plug 'norcalli/nvim-colorizer.lua'        -- Colorizer
 -- Plug 'sunjon/shade.nvim'                  -- Dim inactive windows
-Plug 'Yggdroot/indentLine'               -- Indentation guide
 
 Plug 'tpope/vim-fugitive'                 -- Git
 Plug 'rhysd/git-messenger.vim'            -- Git
@@ -86,12 +85,6 @@ vim.g['fzf_layout'] = {
 -- require'shade'.setup {
 --   overlay_opacity = 50,
 -- }
-
--- Fix intro screen with indentLine
--- source: https://github.com/Yggdroot/indentLine/issues/315
-vim.cmd[[
-  autocmd VimEnter * if bufname('%') == '' | IndentLinesDisable | endif
-]]
 
 -- Git git-messenger
 vim.g['git_messenger_always_into_popup'] = true
