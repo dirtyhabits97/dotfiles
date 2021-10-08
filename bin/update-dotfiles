@@ -5,8 +5,9 @@ require 'set'
 
 HOME = ENV["HOME"]
 GIT_REPO = "#{HOME}/dotfiles"
+
 FOLDERS = Set[
-  '.bin',
+  'bin',
   '.config',
   '.zsh'
 ]
@@ -18,12 +19,12 @@ FILES = Set[
 ]
 
 def clean(str)
-  str.delete_prefix(".")
+  str
 end
 
 folder_count = 0
 files_count = 0
-TO_MOVE = Dir["#{HOME}/.*"] - ["#{HOME}/.", "#{HOME}/.."]
+TO_MOVE = Dir.entries(HOME) - ["#{HOME}/.", "#{HOME}/.."]
 TO_MOVE.each do |fullpath| 
 
   filename = File.basename(fullpath)
@@ -31,12 +32,14 @@ TO_MOVE.each do |fullpath|
 
   if FOLDERS.include? filename
     source = "#{fullpath}/."
+    puts "will move #{source} to #{destination}"
     FileUtils.cp_r(source, destination)
     folder_count += 1
     next
   end
 
   if FILES.include? filename
+    puts "will move #{fullpath} to #{destination}"
     FileUtils.cp(fullpath, destination)
     files_count += 1
     next
