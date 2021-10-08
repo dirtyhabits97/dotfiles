@@ -52,6 +52,7 @@ brew mint
 brew mpdecimal
 brew msgpack
 brew ncurses
+brew neofetch
 brew neovim --HEAD
 brew nghttp2
 brew ninja
@@ -71,6 +72,7 @@ brew readline
 brew reattach-to-user-namespace
 brew ripgrep
 brew sccache
+brew screenresolution
 brew sdl2
 brew shellcheck
 brew six
