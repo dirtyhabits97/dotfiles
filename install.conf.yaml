@@ -6,25 +6,27 @@
 
 - link:
     ~/bin:
-    ~/.config/:
-      glob: true
-      path: config/*
-      relink: true
-      force: true
-      exclude:
-        - .config/vifm/vifminfo.json
-        - config/vifm/vifminfo.json
-        - config/Battle.net
-        - config/op
-        - config/htop/htoprc
-        - config/jgit
-
     ~/.gitconfig:
     ~/.lldbinit:
     ~/.tmux.conf:
     ~/.zsh:
     ~/.zshrc:
       force: true
+    ~/.config/:
+      glob: true
+      path: config/*
+      force: true
+      exclude:
+        - config/vifm
+        - config/Battle.net
+        - config/op
+        - config/htop
+        - config/jgit
+    ~/.config/vifm/:
+      glob: true
+      force: true
+      path: config/*
+      exclude: [config/vifm/]
 
 - create:
   - ~/projects
