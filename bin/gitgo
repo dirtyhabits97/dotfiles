@@ -1,6 +1,5 @@
 #!/usr/bin/env zsh
 
-local branches branch
-branches=$(git branch --all | grep -v HEAD) &&
-branch=$(echo "$branches" | fzf-tmux -d 40 +m) &&
+branches=$(git branch --all | grep -v HEAD)
+branch=$(echo "$branches" | fzf-tmux -d 40 +m)
 git checkout $(echo "$branch" | sed "s/.* //" | sed "s#remotes/[^/]*/##")

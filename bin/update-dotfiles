@@ -35,7 +35,7 @@ TO_MOVE.each do |fullpath|
   end
 
   if FILES.include? filename
-    puts "FILE: Will copy #{fullpath} to #{destination}"
+    puts "FILE:   Will copy #{fullpath} to #{destination}"
     FileUtils.cp(fullpath, destination)
     files_count += 1
     next
