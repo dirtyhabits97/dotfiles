@@ -1,13 +1,18 @@
 - clean: ['~']
 
 - link:
-  - ~/.config: 
-  - ~/.gitconfig:
-  - ~/.lldbinit:
-  - ~/.tmux.conf:
-  - ~/.zsh:
-  - ~/.zshrc:
+  #- ~/.config/:
+  #  glob: true
+  #  path: .config/*
+  #  relink: true
+  #- ~/.gitconfig:
+  #- ~/.lldbinit:
+  #- ~/.tmux.conf:
+  #- ~/.zsh:
+  #- ~/.zshrc:
   - ~/bin:
+    - force: true
+    - path: bin
 
 - create:
   - ~/projects
