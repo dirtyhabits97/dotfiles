@@ -1,21 +1,29 @@
+- defaults:
+    link:
+      relink: true
+
 - clean: ['~']
 
 - link:
     ~/bin:
+    ~/.config/:
+      glob: true
+      path: config/*
       relink: true
-      path: bin
-  #- ~/.config/:
-  #  glob: true
-  #  path: .config/*
-  #  relink: true
-  #- ~/.gitconfig:
-  #- ~/.lldbinit:
-    ~/.tmux.conf:
-      relink: true
-      path: .tmux.conf
+      force: true
+      exclude:
+        - config/vifm/vifminfo.json
+        - config/Battle.net
+        - config/op
+        - config/htop/htoprc
+        - config/jgit
 
-  #- ~/.zsh:
-  #- ~/.zshrc:
+    ~/.gitconfig:
+    ~/.lldbinit:
+    ~/.tmux.conf:
+    ~/.zsh:
+    ~/.zshrc:
+      force: true
 
 - create:
   - ~/projects

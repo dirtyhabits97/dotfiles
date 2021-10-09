@@ -21,10 +21,10 @@ FILES = Set[
 folder_count = 0
 files_count = 0
 TO_MOVE = Dir["#{HOME}/.*"] + Dir["#{HOME}/*"] - ["#{HOME}/.", "#{HOME}/.."]
-TO_MOVE.each do |fullpath| 
+TO_MOVE.each do |fullpath|
 
   filename = File.basename(fullpath)
-  destination = GIT_REPO + "/" + filename 
+  destination = GIT_REPO + "/" + filename
 
   if FOLDERS.include? filename
     source = "#{fullpath}/."
