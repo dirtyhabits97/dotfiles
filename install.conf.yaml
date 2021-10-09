@@ -12,6 +12,7 @@
       relink: true
       force: true
       exclude:
+        - .config/vifm/vifminfo.json
         - config/vifm/vifminfo.json
         - config/Battle.net
         - config/op
