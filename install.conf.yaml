@@ -27,6 +27,9 @@
       force: true
       path: config/vifm/*
       exclude: [config/vifm/vifminfo.json]
+    ~/lldb/scripts:
+      create: true
+      path: lldb/scripts
 
 - create:
   - ~/projects
