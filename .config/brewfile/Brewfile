@@ -13,6 +13,7 @@ brew capstone
 brew carthage
 brew cmake
 brew cpplint
+brew dog
 brew duf
 brew dust
 brew exa
@@ -134,7 +135,7 @@ appstore 408981434   iMovie       (10.2.5)
 appstore 1035137927  KeyKey       (2.9)
 appstore 409183694   Keynote      (11.2)
 appstore 405399194   Kindle       (1.33.0)
-appstore 1116599239  NordVPN IKE  (6.7.0)
+appstore 1116599239  NordVPN IKE  (6.8.1)
 appstore 409203825   Numbers      (11.2)
 appstore 409201541   Pages        (11.2)
 appstore 1504940162  RocketSim    (5.1.0)
