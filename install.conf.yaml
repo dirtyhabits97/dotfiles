@@ -1,0 +1,41 @@
+- clean: ['~']
+
+- link:
+  - ~/.config: 
+  - ~/.gitconfig:
+  - ~/.lldbinit:
+  - ~/.tmux.conf:
+  - ~/.zsh:
+  - ~/.zshrc:
+  - ~/bin:
+
+- create:
+  - ~/projects
+  - ~/other_projects
+  - ~/other_projects/lsp
+  - ~/lldb
+  - ~/logs
+
+#- shell:
+#  - chsh -s $(which zsh)
+#  - command: brew file update
+#    description: Installing / Updating brew formulas
+#    quiet: true
+#  - command: npm install -g diagnostic-languageserver bash-language-server
+#    description: Installing global node packages
+#    quiet: true
+#  - command: pip install python-lsp-server
+#    description: Installing pip packages
+#    quiet: true
+#  - command: nvim --headless +PlugInstall +qa
+#    description: Installing neovim plugins
+#    quiet: true
+#  - command: git clone git@github.com:sumneko/lua-language-server.git ~/other_projects/lsp/lua-language-server
+#    description: Downloading lua-language-server. You'll have to manually install it.
+#    quiet: true
+#  - command: git clone git@github.com:DerekSelander/LLDB.git ~/lldb/LLDB
+#    description: Downloading lldb commands
+#    quiet: true
+#  - command: git clone git@github.com:facebook/chisel.git ~/lldb/chisel
+#    description: Downloading more lldb commands
+#    quiet: true
