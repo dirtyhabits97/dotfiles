@@ -2,8 +2,12 @@ import lldb
 import optparse
 import shlex
 
+
 def __lldb_init_module(debugger, internal_dict):
-    debugger.HandleCommand('command script add -f BreakAfterRegex.breakAfterRegex bar')
+    debugger.HandleCommand(
+        'command script add -f BreakAfterRegex.breakAfterRegex bar'
+    )
+
 
 def breakAfterRegex(debugger, command, result, internal_dict):
     '''Creates a regular expression breakpoint and adds it.
@@ -36,6 +40,7 @@ def breakAfterRegex(debugger, command, result, internal_dict):
         result.AppendMessage("{}".format(breakpoint))
     breakpoint.SetScriptCallbackFunction("BreakAfterRegex.breakpointHandler")
 
+
 def breakpointHandler(frame, bp_loc, dict):
     '''The fuction called when the regular
     expression breakpoint gets triggered
@@ -63,6 +68,7 @@ def breakpointHandler(frame, bp_loc, dict):
 
     return False
 
+
 def evaluateReturnedObject(debugger, thread, function_name):
     '''Grabs the reference from the return register
     and returns a string from the evaluated value.
@@ -76,20 +82,23 @@ def evaluateReturnedObject(debugger, thread, function_name):
     frame = thread.GetSelectedFrame()
     parent_function_name = frame.GetFunctionName()
 
-    expression = 'expression -l objc -O -- {}'.format(getRegisterString(target))
+    expression = 'expression -l objc -O -- {}'.format(
+        getRegisterString(target)
+    )
 
     interpreter.HandleCommand(expression, res)
 
     if res.HasResult():
         output = '{}\nbreakpoint: '\
-                '{}\nobject: '\
-                '{}\nstopped: {}'.format('*' * 80,
-                                         function_name,
-                                         res.GetOutput().replace('\n', ''),
-                                         parent_function_name)
+            '{}\nobject: '\
+            '{}\nstopped: {}'.format('*' * 80,
+                                     function_name,
+                                     res.GetOutput().replace('\n', ''),
+                                     parent_function_name)
         return output
     else:
         return None
+
 
 def getRegisterString(target):
     triple_name = target.GetTriple()
@@ -102,6 +111,7 @@ def getRegisterString(target):
     elif "arm" in triple_name:
         return "$r0"
     raise Exception('Unknown hardare.')
+
 
 def generateOptionParser():
     '''Gets the return register as a string for lldb
