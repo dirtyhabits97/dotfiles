@@ -36,6 +36,7 @@ brew jq
 brew libev
 brew libevent
 brew libidn2
+brew libnghttp2
 brew libtermkey
 brew libunistring
 brew libuv
@@ -67,6 +68,7 @@ brew pkg-config
 brew protobuf
 brew pstree
 brew pyenv
+brew python@3.10
 brew python@3.9
 brew re2
 brew readline
@@ -111,6 +113,9 @@ tap homebrew/services
 tap homebrew/cask
 cask alacritty
 cask basictex
+
+tap achannarasappa/tap
+brew ticker
 
 tap bradleyjkemp/formulae
 
