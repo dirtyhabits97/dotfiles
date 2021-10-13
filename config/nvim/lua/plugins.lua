@@ -26,9 +26,7 @@ Plug('junegunn/fzf', {                    -- Fuzzy find
 Plug 'junegunn/fzf.vim'
 Plug 'jiangmiao/auto-pairs'               -- Match (, [ and {
 
--- Plug 'ellisonleao/glow.nvim'              -- Markdown preview
 Plug 'norcalli/nvim-colorizer.lua'        -- Colorizer
--- Plug 'sunjon/shade.nvim'                  -- Dim inactive windows
 
 Plug 'tpope/vim-fugitive'                 -- Git
 Plug 'rhysd/git-messenger.vim'            -- Git
@@ -77,14 +75,6 @@ vim.g['fzf_action'] = {
 vim.g['fzf_layout'] = {
   window = { width = 0.9, height = 0.6 }
 }
-
--- Glow
--- vim.g['glow_binary_path'] = '/usr/local/bin'
-
--- Shade
--- require'shade'.setup {
---   overlay_opacity = 50,
--- }
 
 -- Git git-messenger
 vim.g['git_messenger_always_into_popup'] = true
