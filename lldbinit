@@ -1,5 +1,6 @@
 # =========================== Alias =========================== 
 command alias look expr -l objc++ -- (void *)dlopen("/Applications/Lookin.app/Contents/Resources/LookinServerFramework/LookinServer.framework/LookinServer", 0x2)
+command alias flex expr -l objc++ -- (void *)dlopen("/Users/user/Library/Developer/Xcode/DerivedData/FLEX-eufwyoqroxqkqiftukawslqouprd/Build/Products/Debug-iphonesimulator/FLEX.framework/FLEX", 0x2)
 
 # ========================== Scripts ========================== 
 command script import ~/lldb/LLDB/lldb_commands/dslldb.py
