@@ -49,4 +49,6 @@ vim.cmd [[
   au BufRead,BufNewFile Jenkinsfile     setfiletype groovy
 
   au BufRead,BufNewFile *.tex           setfiletype tex
+
+  au BufRead,BufNewFile gitconfig      setfiletype gitconfig
 ]]

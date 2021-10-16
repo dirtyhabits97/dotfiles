@@ -15,7 +15,7 @@
   rebase = true
 
 [mergetool "nvim"]
-  cmd = nvim -c  \"Gvdiffsplit!\" -f \"$MERGED\"
+  cmd = nvim -c \"Gvdiffsplit!\" -f \"$MERGED\"
 [merge]
   tool = nvim
 [mergetool]
@@ -54,7 +54,7 @@
   watchall = "!git unwatched | xargs -L 1 -I % sh -c 'git watch `echo % | cut -c 2-`'"
 
 [filter "lfs"]
-	process = git-lfs filter-process
-	required = true
-	clean = git-lfs clean -- %f
-	smudge = git-lfs smudge -- %f
+  process = git-lfs filter-process
+  required = true
+  clean = git-lfs clean -- %f
+  smudge = git-lfs smudge -- %f
