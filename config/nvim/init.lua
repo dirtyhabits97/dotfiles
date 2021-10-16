@@ -9,5 +9,6 @@ require('completion')
 require('diagnostics')
 require('linters')
 require('treesitter')
+require('git')
 
 vim.cmd 'source $HOME/.config/nvim/mappings.vim'

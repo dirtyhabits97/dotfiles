@@ -30,6 +30,8 @@ Plug 'norcalli/nvim-colorizer.lua'        -- Colorizer
 
 Plug 'tpope/vim-fugitive'                 -- Git
 Plug 'rhysd/git-messenger.vim'            -- Git
+Plug 'nvim-lua/plenary.nvim'
+Plug 'lewis6991/gitsigns.nvim'
 
 Plug 'neovim/nvim-lspconfig'              -- LSP integration
 Plug 'hrsh7th/nvim-compe'                 -- Auto complete
