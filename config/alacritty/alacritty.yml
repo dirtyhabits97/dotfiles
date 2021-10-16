@@ -51,7 +51,7 @@ colors:
     cyan: '#56b6c2'
     white: '#dcdfe4'
 
-background_opacity: 0.4
+background_opacity: 1.0
 
 key_bindings:
   - { key: Right, mods: Alt, chars: "\x1BF" }
