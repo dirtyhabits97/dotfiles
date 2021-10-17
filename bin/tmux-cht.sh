@@ -2,7 +2,7 @@
 
 # source: https://www.youtube.com/watch?v=hJzqEAf2U4I
 
-bin="$HOME/.bin/tmux"
+bin="$HOME/bin/tmux"
 selected=$(cat "$bin/cht-languages" "$bin/cht-command" | fzf)
 
 if [[ -z $selected ]]; then
