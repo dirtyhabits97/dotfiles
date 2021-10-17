@@ -23,6 +23,13 @@
 -- }
 local cmp = require('cmp')
 cmp.setup {
+  completion = {
+    autocomplete = true,
+  },
+  -- snippet = {
+  --   expand = function(args)
+  --   end,
+  -- },
   mapping = {
     ['<C-d>'] = cmp.mapping.scroll_docs(-4),
     ['<C-f>'] = cmp.mapping.scroll_docs(4),
@@ -39,20 +46,30 @@ cmp.setup {
       else
         fallback()
       end
-    end;
+    end,
     ['<S-Tab>'] = function(fallback)
       if cmp.visible() then
         cmp.select_prev_item()
       else
         fallback()
       end;
-    end
+    end,
   },
   sources = {
     { name = 'nvim_lsp' },
     { name = 'buffer' },
     { name = 'path' }
-  }
+  },
+  formatting= {
+    format = function(entry, vim_item)
+      vim_item.menu = ({
+        nvim_lsp = '[LSP]',
+        buffer = '[Buffer]',
+        path = '[Path]',
+      })[entry.source.name]
+      return vim_item
+    end,
+  },
 }
 
 -- Fix colors
@@ -60,3 +77,5 @@ vim.cmd [[
   highlight CmpItemAbbrMatch guifg=#000000
   highlight CmpItemAbbrMatchFuzzy guifg=#000000
 ]]
+
+
