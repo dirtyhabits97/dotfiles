@@ -88,7 +88,11 @@ lspconfig.rls.setup{
 -- source: https://github.com/prominic/groovy-language-server
 -- notes: install jdk-14.0.2, it won't install with jdk-16
 lspconfig.groovyls.setup{
-  cmd = { "java", "-jar", "/Users/user/other_projects/outside/groovy-language-server/build/libs/groovy-language-server-all.jar" },
+  cmd = {
+    "java",
+    "-jar",
+    "/Users/user/other_projects/outside/groovy-language-server/build/libs/groovy-language-server-all.jar"
+  },
   on_attach = on_attach
 }
 
