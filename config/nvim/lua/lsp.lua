@@ -51,36 +51,46 @@ local on_attach = function(client, bufnr)
   require'lsp_signature'.on_attach(client)
 end
 
+-- Integration with autocomplete
+local capabilities = vim.lsp.protocol.make_client_capabilities()
+capabilities = require('cmp_nvim_lsp').update_capabilities(capabilities)
+
 -- Swift
 lspconfig.sourcekit.setup{
   serverPath = '/Applications/Xcode-System.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/sourcekit-lsp',
   filetypes = {'swift'},
+  capabilities = capabilities,
   on_attach = on_attach
 }
 
 -- Python
 -- https://github.com/python-lsp/python-lsp-server
 lspconfig.pylsp.setup{
+  capabilities = capabilities,
   on_attach = on_attach
 }
 
 -- Ruby
 lspconfig.solargraph.setup{
+  capabilities = capabilities,
   on_attach = on_attach
 }
 
 -- Bash
 lspconfig.bashls.setup{
+  capabilities = capabilities,
   on_attach = on_attach
 }
 
 -- Haskell
 lspconfig.hls.setup{
+  capabilities = capabilities,
   on_attach = on_attach
 }
 
 -- Rust
 lspconfig.rls.setup{
+  capabilities = capabilities,
   on_attach = on_attach
 }
 
@@ -93,11 +103,13 @@ lspconfig.groovyls.setup{
     "-jar",
     "/Users/user/other_projects/outside/groovy-language-server/build/libs/groovy-language-server-all.jar"
   },
+  capabilities = capabilities,
   on_attach = on_attach
 }
 
 -- C
 lspconfig.clangd.setup{
+  capabilities = capabilities,
   on_attach = on_attach
 }
 
@@ -118,6 +130,7 @@ lspconfig.sumneko_lua.setup {
       },
     },
   },
+  capabilities = capabilities,
   on_attach = on_attach
 }
 

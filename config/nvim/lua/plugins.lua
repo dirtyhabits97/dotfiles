@@ -34,9 +34,13 @@ Plug 'nvim-lua/plenary.nvim'
 Plug 'lewis6991/gitsigns.nvim'
 
 Plug 'neovim/nvim-lspconfig'              -- LSP integration
-Plug 'hrsh7th/nvim-compe'                 -- Auto complete
 Plug 'ray-x/lsp_signature.nvim'           -- Method signature
 Plug 'folke/trouble.nvim'                 -- Diagnostics
+
+Plug 'hrsh7th/cmp-nvim-lsp'
+Plug 'hrsh7th/cmp-buffer'
+Plug 'hrsh7th/cmp-path'
+Plug 'hrsh7th/nvim-cmp'                 -- Auto complete
 -- To install:
 -- npm install -g diagnostic-languageserver
 Plug 'iamcco/diagnostic-languageserver'   -- Needed for linters
