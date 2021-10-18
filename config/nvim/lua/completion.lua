@@ -29,17 +29,14 @@ local lsp_symbols = {
 }
 
 local lsp_sources = {
-  nvim_lsp = '[LSP]',
-  buffer = '[Buffer]',
-  path = '[Path]',
-  vsnip = '[VSnip]'
+  nvim_lsp = 'LSP',
+  buffer = 'Buffer',
+  path = 'Path',
+  vsnip = 'VSnip'
 }
 
 local cmp = require('cmp')
 cmp.setup {
-  completion = {
-    autocomplete = true,
-  },
   snippet = {
     expand = function(args)
       vim.fn["vsnip#anonymous"](args.body)
