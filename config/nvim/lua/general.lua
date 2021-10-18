@@ -29,7 +29,7 @@ set.splitbelow      = true
 set.splitright      = true
 
 -- Completion options
-set.completeopt     = 'menuone,noselect'
+set.completeopt     = 'menu,menuone,noselect'
 
 -- Ignore these folder for completion
 set.wildignore      = '.git,'                              -- Version control

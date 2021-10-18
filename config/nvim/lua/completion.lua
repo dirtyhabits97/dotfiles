@@ -26,10 +26,11 @@ cmp.setup {
   completion = {
     autocomplete = true,
   },
-  -- snippet = {
-  --   expand = function(args)
-  --   end,
-  -- },
+  snippet = {
+    expand = function(args)
+      vim.fn["vsnip#anonymous"](args.body)
+    end,
+  },
   mapping = {
     ['<C-d>'] = cmp.mapping.scroll_docs(-4),
     ['<C-f>'] = cmp.mapping.scroll_docs(4),
@@ -58,7 +59,8 @@ cmp.setup {
   sources = {
     { name = 'nvim_lsp' },
     { name = 'buffer' },
-    { name = 'path' }
+    { name = 'path' },
+    { name = 'vsnip' }
   },
   formatting= {
     format = function(entry, vim_item)
@@ -77,5 +79,3 @@ vim.cmd [[
   highlight CmpItemAbbrMatch guifg=#000000
   highlight CmpItemAbbrMatchFuzzy guifg=#000000
 ]]
-
-
