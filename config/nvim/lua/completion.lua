@@ -1,26 +1,40 @@
 ------------------------------- Auto completion ------------------------------
 
--- local compe = require('compe')
--- compe.setup {
---   enabled = true;
---   autocomplete = true;
---   debug = false;
---   min_length = 1;
---   preselect = 'enable';
---   throttle_time = 80;
---   source_timeout = 200;
---   incomplete_delay = 400;
---   max_abbr_width = 100;
---   max_kind_width = 100;
---   max_menu_width = 100;
---   documentation = true;
+local lsp_symbols = {
+  Text = '   (Text) ',
+  Method = '   (Method)',
+  Function = '   (Function)',
+  Constructor = '   (Constructor)',
+  Field = ' ﴲ  (Field)',
+  Variable = '[] (Variable)',
+  Class = '   (Class)',
+  Interface = ' ﰮ  (Interface)',
+  Module = '   (Module)',
+  Property = ' 襁 (Property)',
+  Unit = '   (Unit)',
+  Value = '   (Value)',
+  Enum = ' 練 (Enum)',
+  Keyword = '   (Keyword)',
+  Snippet = '   (Snippet)',
+  Color = '   (Color)',
+  File = '   (File)',
+  Reference = '   (Reference)',
+  Folder = '   (Folder)',
+  EnumMember = '   (EnumMember)',
+  Constant = ' ﲀ  (Constant)',
+  Struct = ' ﳤ  (Struct)',
+  Event = '   (Event)',
+  Operator = '   (Operator)',
+  TypeParameter = '   (TypeParameter)'
+}
 
---   source = {
---     path = true;
---     buffer = true;
---     nvim_lsp = true;
---   };
--- }
+local lsp_sources = {
+  nvim_lsp = '[LSP]',
+  buffer = '[Buffer]',
+  path = '[Path]',
+  vsnip = '[VSnip]'
+}
+
 local cmp = require('cmp')
 cmp.setup {
   completion = {
@@ -64,11 +78,8 @@ cmp.setup {
   },
   formatting= {
     format = function(entry, vim_item)
-      vim_item.menu = ({
-        nvim_lsp = '[LSP]',
-        buffer = '[Buffer]',
-        path = '[Path]',
-      })[entry.source.name]
+      vim_item.kind = lsp_symbols[vim_item.kind]
+      vim_item.menu = lsp_sources[entry.source.name]
       return vim_item
     end,
   },
