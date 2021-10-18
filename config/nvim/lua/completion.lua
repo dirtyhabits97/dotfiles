@@ -2,38 +2,38 @@
 
 -- Pretty
 local lsp_symbols = {
-  Text = '   (Text) ',
-  Method = '   (Method)',
-  Function = '   (Function)',
-  Constructor = '   (Constructor)',
-  Field = ' ﴲ  (Field)',
-  Variable = '[] (Variable)',
-  Class = '   (Class)',
-  Interface = ' ﰮ  (Interface)',
-  Module = '   (Module)',
-  Property = ' 襁 (Property)',
-  Unit = '   (Unit)',
-  Value = '   (Value)',
-  Enum = ' 練 (Enum)',
-  Keyword = '   (Keyword)',
-  Snippet = '   (Snippet)',
-  Color = '   (Color)',
-  File = '   (File)',
-  Reference = '   (Reference)',
-  Folder = '   (Folder)',
-  EnumMember = '   (EnumMember)',
-  Constant = ' ﲀ  (Constant)',
-  Struct = ' ﳤ  (Struct)',
-  Event = '   (Event)',
-  Operator = '   (Operator)',
+  Text          = '   (Text) ',
+  Method        = '   (Method)',
+  Function      = '   (Function)',
+  Constructor   = '   (Constructor)',
+  Field         = ' ﴲ  (Field)',
+  Variable      = '[] (Variable)',
+  Class         = '   (Class)',
+  Interface     = ' ﰮ  (Interface)',
+  Module        = '   (Module)',
+  Property      = ' 襁 (Property)',
+  Unit          = '   (Unit)',
+  Value         = '   (Value)',
+  Enum          = ' 練 (Enum)',
+  Keyword       = '   (Keyword)',
+  Snippet       = '   (Snippet)',
+  Color         = '   (Color)',
+  File          = '   (File)',
+  Reference     = '   (Reference)',
+  Folder        = '   (Folder)',
+  EnumMember    = '   (EnumMember)',
+  Constant      = ' ﲀ  (Constant)',
+  Struct        = ' ﳤ  (Struct)',
+  Event         = '   (Event)',
+  Operator      = '   (Operator)',
   TypeParameter = '   (TypeParameter)'
 }
 
 local lsp_sources = {
   nvim_lsp = 'LSP',
-  buffer = 'Buffer',
-  path = 'Path',
-  vsnip = 'VSnip'
+  buffer   = 'Buffer',
+  path     = 'Path',
+  vsnip    = 'VSnip'
 }
 
 -- Helper
@@ -83,7 +83,7 @@ cmp.setup {
     { name = 'path' },
     { name = 'vsnip' }
   },
-  formatting= {
+  formatting = {
     format = function(entry, vim_item)
       vim_item.kind = lsp_symbols[vim_item.kind]
       vim_item.menu = lsp_sources[entry.source.name]
