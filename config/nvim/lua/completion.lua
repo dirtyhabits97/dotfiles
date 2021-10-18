@@ -1,5 +1,6 @@
 ------------------------------- Auto completion ------------------------------
 
+-- Pretty
 local lsp_symbols = {
   Text = '   (Text) ',
   Method = '   (Method)',
@@ -35,6 +36,12 @@ local lsp_sources = {
   vsnip = 'VSnip'
 }
 
+-- Helper
+local function t(key)
+  return vim.api.nvim_replace_termcodes(key, true, true, true)
+end
+
+-- Setup
 local cmp = require('cmp')
 cmp.setup {
   snippet = {
@@ -48,13 +55,14 @@ cmp.setup {
     ['<C-Space>'] = cmp.mapping.complete(),
     ['<C-e>'] = cmp.mapping.close(),
     ['<CR>'] = cmp.mapping.confirm({
-      -- TODO: test this behavior.
       behavior = cmp.ConfirmBehavior.Replace,
       select = true
     }),
     ['<Tab>'] = function(fallback)
       if cmp.visible() then
         cmp.select_next_item()
+      elseif vim.fn['vsnip#available']() == 1 then
+        vim.fn.feedkeys(t('<Plug>(vsnip-expand-or-jump)'), '')
       else
         fallback()
       end
@@ -62,6 +70,8 @@ cmp.setup {
     ['<S-Tab>'] = function(fallback)
       if cmp.visible() then
         cmp.select_prev_item()
+      elseif vim.fn['vsnip#available']() == 1 then
+        vim.fn.feedkeys(t('<Plug>(vsnip-jump-prev)'), '')
       else
         fallback()
       end;
