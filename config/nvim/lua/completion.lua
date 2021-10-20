@@ -91,9 +91,3 @@ cmp.setup {
     end,
   },
 }
-
--- Fix colors
-vim.cmd [[
-  highlight CmpItemAbbrMatch guifg=#000000
-  highlight CmpItemAbbrMatchFuzzy guifg=#000000
-]]
