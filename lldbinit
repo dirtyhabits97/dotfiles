@@ -2,6 +2,8 @@
 command alias look expr -l objc++ -- (void *)dlopen("/Applications/Lookin.app/Contents/Resources/LookinServerFramework/LookinServer.framework/LookinServer", 0x2)
 command alias flex expr -l objc++ -- (void *)dlopen("/Users/user/Library/Developer/Xcode/DerivedData/FLEX-eufwyoqroxqkqiftukawslqouprd/Build/Products/Debug-iphonesimulator/FLEX.framework/FLEX", 0x2)
 
+command regex -h "Toggle a constraint's active property." -s 'tc <constraint_address>' -- tc 's/(0x[0-9a-f]+)/expression -l objc -O -- ((NSLayoutConstraint*) %1).active = !((NSLayoutConstraint*) %1).active/'
+
 # ========================== Scripts ========================== 
 command script import ~/lldb/LLDB/lldb_commands/dslldb.py
 command script import ~/lldb/chisel/fblldb.py
