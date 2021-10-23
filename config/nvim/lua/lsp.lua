@@ -48,7 +48,7 @@ local on_attach = function(client, bufnr)
   end
 
   -- Method signature
-  require'lsp_signature'.on_attach(client)
+  require'lsp_signature'.on_attach(client, bufnr)
 end
 
 -- Integration with autocomplete
