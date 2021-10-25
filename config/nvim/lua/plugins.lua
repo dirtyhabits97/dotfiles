@@ -44,6 +44,8 @@ Plug 'hrsh7th/cmp-buffer'
 Plug 'hrsh7th/cmp-path'
 Plug 'hrsh7th/cmp-vsnip'
 
+Plug 'ellisonleao/glow.nvim'              -- Markdown preview
+
 -- To install:
 -- npm install -g diagnostic-languageserver
 Plug 'iamcco/diagnostic-languageserver'   -- Needed for linters
