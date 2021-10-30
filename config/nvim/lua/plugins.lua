@@ -54,9 +54,16 @@ Plug 'creativenull/diagnosticls-configs-nvim'   -- Linters
 Plug 'ryanoasis/vim-devicons'             -- Icons
 Plug('sonph/onehalf', { rtp = 'vim' })    -- Colors
 
+Plug 'lewis6991/impatient.nvim'           -- Performance
+
 vim.call('plug#end')
 
 ------------------------------- Config ------------------------------
+-- Performance
+-- Delete once https://github.com/neovim/neovim/pull/15436 is merged.
+local impatient = require('impatient')
+impatient.enable_profile()
+
 -- Easier navigation
 vim.g['NERDTreeMapActivateNode'] = 'l'
 vim.g['NERDTreeShowBookmarks'] = 1
