@@ -50,5 +50,7 @@ vim.cmd [[
 
   au BufRead,BufNewFile *.tex           setfiletype tex
 
-  au BufRead,BufNewFile gitconfig      setfiletype gitconfig
+  au BufRead,BufNewFile gitconfig       setfiletype gitconfig
+
+  au BufRead,BufNewFile *.Dockerfile    setfiletype dockerfile
 ]]
