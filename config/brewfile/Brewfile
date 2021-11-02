@@ -12,12 +12,14 @@ brew ca-certificates
 brew capstone
 brew carthage
 brew cmake
+brew cowsay
 brew cpplint
 brew dog
 brew duf
 brew dust
 brew exa
 brew fd
+brew fortune
 brew gdbm
 brew gettext
 brew git
@@ -143,9 +145,9 @@ appstore 405399194   Kindle       (1.33.0)
 appstore 1116599239  NordVPN IKE  (6.8.1)
 appstore 409203825   Numbers      (11.2)
 appstore 409201541   Pages        (11.2)
-appstore 1504940162  RocketSim    (5.1.0)
+appstore 1504940162  RocketSim    (5.1.1)
 appstore 803453959   Slack        (4.20.0)
-appstore 1176895641  Spark        (2.11.2)
+appstore 1176895641  Spark        (2.11.3)
 appstore 904280696   Things       (3.14.4)
 appstore 1147396723  WhatsApp     (2.2134.10)
 appstore 497799835   Xcode        (13.0)
