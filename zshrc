@@ -85,6 +85,8 @@ fi
 # zsh-autosuggestions
 # source: https://github.com/zsh-users/zsh-autosuggestions#configuration
 ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=#5c6370,bold,underline"
+# This only applies to WSL which already maps ctrl + space to something else
+# https://github.com/zsh-users/zsh-autosuggestions/issues/132#issuecomment-588621352
 if [[ "$(uname)" == "Linux" ]]; then
   bindkey '^n' autosuggest-accept
 else
