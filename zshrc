@@ -1,6 +1,6 @@
 #zmodload zsh/zprof
 
-export ZSH="/Users/user/.oh-my-zsh"
+export ZSH="$HOME/.oh-my-zsh"
 
 DISABLE_UNTRACKED_FILES_DIRTY="true"
 plugins=(zsh-autosuggestions zsh-syntax-highlighting)
@@ -29,7 +29,7 @@ zstyle :bracketed-paste-magic paste-finish pastefinish
 source $ZSH/oh-my-zsh.sh
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 # https://www.haskell.org/ghcup/
-[ -f "$HOME/.ghcup/env" ] && source "$HOME/.ghcup/env" 
+[ -f "$HOME/.ghcup/env" ] && source "$HOME/.ghcup/env"
 # https://homebrew-file.readthedocs.io/en/latest/installation.html
 if [ -f $(brew --prefix)/etc/brew-wrap ];then
   source $(brew --prefix)/etc/brew-wrap
@@ -67,10 +67,15 @@ replace() {
 # =====================================
 # If this is called later, it doesn't work
 autoload -Uz compinit
-if [ $(date +'%j') != $(stat -f '%Sm' -t '%j' ~/.zcompdump) ]; then
+# TODO: find a better way to handle this on Linux.
+if [[ "$(uname)" == "Linux" ]]; then
   compinit
 else
-  compinit -C
+  if [ $(date +'%j') != $(stat -f '%Sm' -t '%j' ~/.zcompdump) ]; then
+    compinit
+  else
+    compinit -C
+  fi
 fi
 
 # =====================================
@@ -78,9 +83,13 @@ fi
 # =====================================
 
 # zsh-autosuggestions
-# source: https://github.com/zsh-users/zsh-autosuggestions#configuration 
+# source: https://github.com/zsh-users/zsh-autosuggestions#configuration
 ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=#5c6370,bold,underline"
-bindkey '^ ' autosuggest-accept
+if [[ "$(uname)" == "Linux" ]]; then
+  bindkey '^n' autosuggest-accept
+else
+  bindkey '^ ' autosuggest-accept
+fi
 
 # fzf
 # Setting rg as the default source for fzf
@@ -111,6 +120,15 @@ eval "$(starship init zsh)"
 # pretty message
 if [[ -z $TMUX ]]; then
   neofetch
+fi
+
+# =====================================
+# Linux
+# =====================================
+if [[ "$(uname)" == "Linux" ]]; then
+  export PATH="$HOME/.linuxbrew/bin:$PATH"
+  export MANPATH="$HOME/.linuxbrew/share/man:$MANPATH"
+  export INFOPATH="$HOME/.linuxbrew/share/info:$INFOPATH"
 fi
 
 #zprof
