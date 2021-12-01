@@ -5,10 +5,10 @@ require('plugins')
 require('theme')
 
 require('completion')
--- require('lsp')
--- require('diagnostics')
--- require('linters')
--- require('treesitter')
+require('lsp')
+require('diagnostics')
+require('linters')
+require('treesitter')
 require('git')
 
 vim.cmd 'source $HOME/.config/nvim/mappings.vim'
