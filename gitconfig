@@ -8,7 +8,7 @@
 [init]
   defaultBranch = main
 [commit]
-  template = /Users/user/.stCommitMsg
+  template = ~/.stCommitMsg
 [fetch]
   prune = true
 [pull]
