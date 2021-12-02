@@ -26,6 +26,13 @@ zstyle :bracketed-paste-magic paste-finish pastefinish
 # Source
 # =====================================
 
+# Linux
+if [[ "$(uname)" == "Linux" ]]; then
+  export PATH="$HOME/.linuxbrew/bin:$PATH"
+  export MANPATH="$HOME/.linuxbrew/share/man:$MANPATH"
+  export INFOPATH="$HOME/.linuxbrew/share/info:$INFOPATH"
+fi
+
 source $ZSH/oh-my-zsh.sh
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 # https://www.haskell.org/ghcup/
@@ -122,15 +129,6 @@ eval "$(starship init zsh)"
 # pretty message
 if [[ -z $TMUX ]]; then
   neofetch
-fi
-
-# =====================================
-# Linux
-# =====================================
-if [[ "$(uname)" == "Linux" ]]; then
-  export PATH="$HOME/.linuxbrew/bin:$PATH"
-  export MANPATH="$HOME/.linuxbrew/share/man:$MANPATH"
-  export INFOPATH="$HOME/.linuxbrew/share/info:$INFOPATH"
 fi
 
 #zprof
