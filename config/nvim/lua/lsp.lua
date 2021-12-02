@@ -65,6 +65,7 @@ lspconfig.sourcekit.setup{
 
 -- Python
 -- https://github.com/python-lsp/python-lsp-server
+-- pip install 'python-language-server[all]'
 lspconfig.pylsp.setup{
   capabilities = capabilities,
   on_attach = on_attach
