@@ -26,6 +26,7 @@ zstyle :bracketed-paste-magic paste-finish pastefinish
 # Source
 # =====================================
 
+export PATH=/opt/homebrew/bin:$PATH
 source $ZSH/oh-my-zsh.sh
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 # https://www.haskell.org/ghcup/
@@ -34,6 +35,7 @@ source $ZSH/oh-my-zsh.sh
 if [ -f $(brew --prefix)/etc/brew-wrap ];then
   source $(brew --prefix)/etc/brew-wrap
 fi
+
 
 export PATH="$HOME/bin:$PATH"
 export PATH="/usr/local/opt/llvm/bin:$PATH"
