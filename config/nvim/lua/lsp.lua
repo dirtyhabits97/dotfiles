@@ -65,6 +65,7 @@ lspconfig.sourcekit.setup{
 
 -- Python
 -- https://github.com/python-lsp/python-lsp-server
+-- pip install 'python-language-server[all]'
 lspconfig.pylsp.setup{
   capabilities = capabilities,
   on_attach = on_attach
@@ -114,14 +115,7 @@ lspconfig.clangd.setup{
 }
 
 -- Lua
--- source: https://github.com/sumneko/lua-language-server/wiki/Build-and-Run-(Standalone)
--- source: https://github.com/neovim/nvim-lspconfig/blob/master/lua/lspconfig/sumneko_lua.lua
 lspconfig.sumneko_lua.setup {
-  cmd = {
-    "/Users/user/other_projects/lsp/lua-language-server/bin/macOS/lua-language-server",
-    "-E",
-    "/Users/user/other_projects/lsp/lua-language-server/main.lua"
-  },
   settings = {
     Lua = {
       diagnostics = {
