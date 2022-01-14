@@ -1,5 +1,7 @@
 [includeIf "gitdir:~/projects/"]
   path = .gitconfig-work.config
+[includeIf "gitdir:~/dotfiles/"]
+  path = .gitconfig-dev.config
 [includeIf "gitdir:~/other_projects/"]
   path = .gitconfig-dev.config
 [core]
