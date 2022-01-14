@@ -1,6 +1,6 @@
 #zmodload zsh/zprof
 
-export ZSH="/Users/user/.oh-my-zsh"
+export ZSH="~/.oh-my-zsh"
 
 DISABLE_UNTRACKED_FILES_DIRTY="true"
 plugins=(zsh-autosuggestions zsh-syntax-highlighting)
