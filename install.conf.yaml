@@ -47,7 +47,7 @@
   - command: npm install -g diagnostic-languageserver bash-language-server
     description: Installing global node packages
     quiet: true
-  - command: pip install python-lsp-server
+  - command: pip3 install python-lsp-server
     description: Installing pip packages
     quiet: true
 #  - command: nvim --headless +PlugInstall +qa
