@@ -128,13 +128,3 @@ tap rcmdnk/file
 brew brew-file
 
 tap vapor/tap
-
-# App Store applications
-appstore 682658836   GarageBand  (10.4.3)
-appstore 408981434   iMovie      (10.2.5)
-appstore 409183694   Keynote     (11.1)
-appstore 409203825   Numbers     (11.1)
-appstore 409201541   Pages       (11.1)
-appstore 803453959   Slack       (4.23.0)
-appstore 1176895641  Spark       (2.11.10)
-appstore 497799835   Xcode       (13.2.1)

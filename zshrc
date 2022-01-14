@@ -116,5 +116,11 @@ if [[ -z $TMUX ]]; then
   neofetch
 fi
 
+# =====================================
+# Flags
+# =====================================
+# https://homebrew-file.readthedocs.io/en/latest/settings.html
+export HOMEBREW_BREWFILE_APPSTORE=0
+
 #zprof
 #zmodload -u zsh/zprof
