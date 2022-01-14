@@ -48,6 +48,7 @@ brew libvterm
 brew libzip
 brew llvm
 brew lua
+brew lua-language-server
 brew luajit --HEAD
 brew luajit-openresty
 brew luarocks
