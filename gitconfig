@@ -1,5 +1,7 @@
 [includeIf "gitdir:~/projects/"]
   path = .gitconfig-work.config
+[includeIf "gitdir:~/dotfiles/"]
+  path = .gitconfig-dev.config
 [includeIf "gitdir:~/other_projects/"]
   path = .gitconfig-dev.config
 [core]
@@ -8,7 +10,7 @@
 [init]
   defaultBranch = main
 [commit]
-  template = /Users/user/.stCommitMsg
+  template = ~/.stCommitMsg
 [fetch]
   prune = true
 [pull]

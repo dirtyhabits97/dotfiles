@@ -1,6 +1,6 @@
 #zmodload zsh/zprof
 
-export ZSH="/Users/user/.oh-my-zsh"
+export ZSH="$HOME/.oh-my-zsh"
 
 DISABLE_UNTRACKED_FILES_DIRTY="true"
 plugins=(zsh-autosuggestions zsh-syntax-highlighting)
@@ -25,6 +25,9 @@ zstyle :bracketed-paste-magic paste-finish pastefinish
 # =====================================
 # Source
 # =====================================
+
+M1_HOMEBREW_PATH=/opt/homebrew/bin
+[ -d "$M1_HOMEBREW_PATH" ] && export PATH=$M1_HOMEBREW_PATH:$PATH
 
 source $ZSH/oh-my-zsh.sh
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
@@ -80,7 +83,7 @@ fi
 # zsh-autosuggestions
 # source: https://github.com/zsh-users/zsh-autosuggestions#configuration 
 ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=#5c6370,bold,underline"
-bindkey '^ ' autosuggest-accept
+bindkey '^N' autosuggest-accept
 
 # fzf
 # Setting rg as the default source for fzf
@@ -112,6 +115,12 @@ eval "$(starship init zsh)"
 if [[ -z $TMUX ]]; then
   neofetch
 fi
+
+# =====================================
+# Flags
+# =====================================
+# https://homebrew-file.readthedocs.io/en/latest/settings.html
+export HOMEBREW_BREWFILE_APPSTORE=0
 
 #zprof
 #zmodload -u zsh/zprof
