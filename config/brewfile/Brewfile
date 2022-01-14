@@ -44,7 +44,6 @@ brew libtermkey
 brew libtool
 brew libunistring
 brew libuv
-brew libvterm
 brew libzip
 brew llvm
 brew lua
@@ -114,10 +113,6 @@ tap homebrew/cask-fonts
 cask font-hack-nerd-font
 
 tap homebrew/services
-
-tap homebrew/cask
-cask alacritty
-cask basictex
 
 tap achannarasappa/tap
 brew ticker
