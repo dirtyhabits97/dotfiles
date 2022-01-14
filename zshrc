@@ -26,7 +26,9 @@ zstyle :bracketed-paste-magic paste-finish pastefinish
 # Source
 # =====================================
 
-export PATH=/opt/homebrew/bin:$PATH
+M1_HOMEBREW_PATH=/opt/homebrew/bin
+[ -d "$M1_HOMEBREW_PATH" ] && export PATH=$M1_HOMEBREW_PATH:$PATH
+
 source $ZSH/oh-my-zsh.sh
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 # https://www.haskell.org/ghcup/
@@ -35,7 +37,6 @@ source $ZSH/oh-my-zsh.sh
 if [ -f $(brew --prefix)/etc/brew-wrap ];then
   source $(brew --prefix)/etc/brew-wrap
 fi
-
 
 export PATH="$HOME/bin:$PATH"
 export PATH="/usr/local/opt/llvm/bin:$PATH"
@@ -82,7 +83,7 @@ fi
 # zsh-autosuggestions
 # source: https://github.com/zsh-users/zsh-autosuggestions#configuration 
 ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=#5c6370,bold,underline"
-bindkey '^ ' autosuggest-accept
+bindkey '^N' autosuggest-accept
 
 # fzf
 # Setting rg as the default source for fzf
