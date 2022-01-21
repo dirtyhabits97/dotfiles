@@ -15,7 +15,7 @@ treesitter.setup {
     "lua",
     "python",
     "ruby",
-    "swift",
+    -- "swift",
     "tsx",
     "toml",
     "vim",
