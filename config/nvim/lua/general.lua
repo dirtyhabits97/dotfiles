@@ -37,7 +37,7 @@ set.wildignore      = '.git,'                              -- Version control
                     .. '*.resolved'                        -- Package manager lock files
 -- source: https://stackoverflow.com/a/29787362
 set.listchars       = 'eol:¬,tab:>·,space:.'
-set.list            = false
+set.list            = true
 
 -- File types
 vim.cmd [[
