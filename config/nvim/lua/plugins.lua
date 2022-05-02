@@ -61,6 +61,7 @@ vim.call('plug#end')
 ------------------------------- Config ------------------------------
 -- Performance
 -- Delete once https://github.com/neovim/neovim/pull/15436 is merged.
+-- Conflicts with nvim-treesitter https://github.com/nvim-treesitter/nvim-treesitter/issues/2882
 local impatient = require('impatient')
 impatient.enable_profile()
 
