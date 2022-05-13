@@ -36,6 +36,7 @@ brew jemalloc
 brew jenkins-lts
 brew jenv
 brew jq
+brew jrnl
 brew libev
 brew libevent
 brew libidn2
