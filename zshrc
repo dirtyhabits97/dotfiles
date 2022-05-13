@@ -110,6 +110,7 @@ fpath=(~/.zsh/completion $fpath)
 # Starship
 # =====================================
 eval "$(starship init zsh)"
+eval "$(direnv hook zsh)"
 
 # pretty message
 if [[ -z $TMUX ]]; then
@@ -121,6 +122,7 @@ fi
 # =====================================
 # https://homebrew-file.readthedocs.io/en/latest/settings.html
 export HOMEBREW_BREWFILE_APPSTORE=0
+export HOMEBREW_BREWFILE_ON_REQUEST=1
 
 #zprof
 #zmodload -u zsh/zprof
