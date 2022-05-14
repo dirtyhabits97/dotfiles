@@ -1,7 +1,7 @@
 colors:
   body: none
-  date: none
-  tags: none
+  date: yellow
+  tags: magenta
   title: none
 default_hour: 9
 default_minute: 0
@@ -10,7 +10,9 @@ encrypt: false
 highlight: true
 indent_character: '|'
 journals:
-  default: $HOME/.local/share/jrnl/journal.txt
+  default:
+    encrypt: false
+    journal: $HOME/.local/share/jrnl/journal.txt
 linewrap: 79
 tagsymbols: '#@'
 template: false
