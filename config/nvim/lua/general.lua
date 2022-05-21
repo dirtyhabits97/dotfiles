@@ -36,7 +36,8 @@ set.wildignore      = '.git,'                              -- Version control
                     .. '*.jpg,*.bmp,*.gif,*.png,*.jpeg,'   -- Media files
                     .. '*.resolved'                        -- Package manager lock files
 -- source: https://stackoverflow.com/a/29787362
-set.listchars       = 'eol:¬,tab:>·,space:.'
+-- set.listchars       = 'eol:¬,tab:>·,space:.'
+set.listchars       = 'eol:¬,tab:>·'
 set.list            = true
 
 -- File types
