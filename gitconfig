@@ -7,6 +7,8 @@
 [core]
   excludesfile = /Users/user/.gitignore_global
   editor = nvim
+  pager = delta
+
 [init]
   defaultBranch = main
 [commit]
@@ -16,12 +18,24 @@
 [pull]
   rebase = true
 
+# ==================== Nvim ====================
+
 [mergetool "nvim"]
   cmd = nvim -c \"Gvdiffsplit!\" -f \"$MERGED\"
 [merge]
   tool = nvim
 [mergetool]
   prompt = false
+
+# ==================== Delta ====================
+#
+[interactive]
+  diffFilter = delta --color-only --features=interactive
+
+[delta]
+  line-numbers = true
+  navigate = true
+  syntax-theme = OneHalfDark
 
 [alias]
   # ==================== Shortcuts ====================
