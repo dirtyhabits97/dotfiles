@@ -27,14 +27,17 @@ local on_attach = function(client, bufnr)
   buf_set_keymap('n', ']d', '<cmd>lua vim.lsp.diagnostic.goto_next()<CR>', opts)
 
   -- Set some keybinds conditional on server capabilities
-  if client.server_capabilities.document_formatting then
-    buf_set_keymap("n", "<space>f", "<cmd>lua vim.lsp.buf.formatting()<CR>", opts)
-  elseif client.server_capabilities.document_range_formatting then
+  -- for some reason client.server_capabilities.document_formatting was not working, this fixes it
+  if client.supports_method('textDocument/formatting') then
+    buf_set_keymap("n", "<space>f", "<cmd>lua vim.lsp.buf.format { async = true }<CR>", opts)
+  elseif client.supports_method('textDocument/rangeFormatting') then
     buf_set_keymap("n", "<space>f", "<cmd>lua vim.lsp.buf.range_formatting()<CR>", opts)
   end
 
-  -- Set autocommands conditional on server_capabilities
-  if client.server_capabilities.document_highlight then
+  -- Set autocommands conditional on server capabilities
+  -- Use supports_method instead, source:
+  -- https://github.com/rafi/vim-config/commit/5ee2e8d8635afb68db5cdb2259f53926494b8478
+  if client.supports_method('textDocument/documentHighlight') then
     vim.api.nvim_exec([[
       hi LspReferenceRead cterm=bold ctermbg=red guibg=LightYellow
       hi LspReferenceText cterm=bold ctermbg=red guibg=LightYellow
