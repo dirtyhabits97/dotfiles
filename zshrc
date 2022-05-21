@@ -90,7 +90,9 @@ bindkey '^N' autosuggest-accept
 export FZF_DEFAULT_COMMAND="fd --type f --hidden --exclude '!.git' --glob"
 # To apply the command to CTRL-T as well
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
-
+# Display a small preview window to confirm the file to select.
+# Copied this one from: https://github.com/dduan/dotfiles/blob/master/config/fish/default.nix
+export FZF_DEFAULT_OPTS="--height 37.5% --reverse --preview 'file {}' --preview-window down:1"
 # =====================================
 # Completions
 # =====================================
