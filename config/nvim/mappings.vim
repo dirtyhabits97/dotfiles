@@ -24,6 +24,7 @@ command! W write
 command! Q quit
 inoremap jj <ESC>
 inoremap kk <ESC>
+cmap Wq wq
 
 " Easier navigation with wrapped lines
 nnoremap j gj
