@@ -43,7 +43,7 @@ nnoremap <silent><Leader>= :exe "vertical resize +5"<CR>
 nnoremap <silent><Leader>- :exe "vertical resize -5"<CR>
 
 " Easier FZF
-nnoremap <leader>ff :Files<cr>
+nnoremap <leader>ff :GFiles<cr>
 nnoremap <leader>fg :Rg<cr>
 nnoremap <leader>fb :Buffers<cr>
 nnoremap <leader>fh :HelpTags<cr>
