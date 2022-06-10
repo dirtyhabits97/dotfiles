@@ -2,23 +2,21 @@
 -- https://github.com/creativenull/diagnosticls-configs-nvim
 local dlsconfig = require 'diagnosticls-configs'
 
-local cpplint = require 'diagnosticls-configs.linters.cpplint'
--- luarocks install luacheck
-local luacheck = require 'diagnosticls-configs.linters.luacheck'
-local shellcheck = require 'diagnosticls-configs.linters.shellcheck'
-local swiftlint = require 'diagnosticls-configs.linters.swiftlint'
-
 dlsconfig.setup {
   ['cpp'] = {
-    linter = cpplint
+    linter = require('diagnosticls-configs.linters.cpplint')
   },
   ['lua'] = {
-    linter = luacheck
+    linter = require('diagnosticls-configs.linters.luacheck')
   },
   ['sh'] = {
-    linter = shellcheck
+    linter = require('diagnosticls-configs.linters.shellcheck')
   },
   ['swift'] = {
-    linter = swiftlint
+    linter = {
+      require('diagnosticls-configs.linters.swiftlint'),
+      require('diagnosticls-configs.linters.swiftformat'),
+    },
+    formatter = require('diagnosticls-configs.formatters.swiftformat')
   },
 }

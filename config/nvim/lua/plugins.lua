@@ -49,7 +49,8 @@ Plug 'ellisonleao/glow.nvim'              -- Markdown preview
 -- To install:
 -- npm install -g diagnostic-languageserver
 Plug 'iamcco/diagnostic-languageserver'   -- Needed for linters
-Plug 'creativenull/diagnosticls-configs-nvim'   -- Linters
+-- Plug 'creativenull/diagnosticls-configs-nvim'   -- Linters
+Plug('dirtyhabits97/diagnosticls-configs-nvim', { branch = 'formatter/swift-format' })  -- Linters
 
 Plug 'ryanoasis/vim-devicons'             -- Icons
 Plug('sonph/onehalf', { rtp = 'vim' })    -- Colors
