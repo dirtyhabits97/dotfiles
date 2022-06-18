@@ -5,6 +5,7 @@ local Plug = vim.fn['plug#']
 vim.call('plug#begin', '~/.nvim/plugged')
 
 Plug 'keith/swift.vim'                    -- Swift plugin
+Plug 'solarnz/thrift.vim'                 -- Thrift highlight
 Plug('nvim-treesitter/nvim-treesitter', { -- Language
   ['do'] = function()
     vim.call(':TSUpdate')
