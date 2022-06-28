@@ -54,6 +54,7 @@
   comf = commit --verbose --fixup=HEAD
   conf = diff --name-only --diff-filter=U
   last = diff HEAD^ HEAD
+  last-msg = !git --no-pager log --format=format:%B -1
   pul = pull
   punch = push --force-with-lease
   s = status -sb
