@@ -132,13 +132,8 @@ lspconfig.sumneko_lua.setup {
   on_attach = on_attach
 }
 
-------------------------------- Linters ------------------------------
-local dlsconfig = require 'diagnosticls-configs'
-local util = require 'lspconfig.util'
-
-dlsconfig.init {
-  on_attach = on_attach,
-  root_dir = function(fname)
-    return util.root_pattern '.git' (fname) or util.path.dirname(fname)
-  end,
+-- Expose the on_attach method for other uses
+-- (e.g. linters)
+return {
+  core_on_attach = on_attach
 }
