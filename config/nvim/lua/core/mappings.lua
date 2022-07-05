@@ -71,23 +71,19 @@ nnoremap('<leader>fh', [[:HelpTags<cr>]])
 nnoremap('<C-x>', [[:TroubleToggle<cr>]])
 
 -- Custom commands
-command(
-  'Reload',
-  function()
-    for name, _ in pairs(package.loaded) do
-      if name:match('^core') or name:match('^extension') then
-        package.loaded[name] = nil
-      end
+local Reload = function()
+  for name, _ in pairs(package.loaded) do
+    if name:match('^core') or name:match('^extension') then
+      package.loaded[name] = nil
     end
-
-    dofile(vim.env.MYVIMRC)
-    vim.notify('Nvim coniguration reloaded!', vim.log.levels.INFO)
   end
-)
 
-command(
-  'Config',
-  function()
-    vim.cmd [[:edit ~/.config/nvim/lua/core/mappings.lua]]
-  end
-)
+  dofile(vim.env.MYVIMRC)
+  vim.notify('Nvim coniguration reloaded!', vim.log.levels.INFO)
+end
+command('Reload', Reload)
+
+local Config = function()
+  vim.cmd [[:edit ~/.config/nvim/lua/core/mappings.lua]]
+end
+command('Config', Config)
