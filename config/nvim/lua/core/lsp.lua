@@ -5,12 +5,13 @@ local lspconfig = require('lspconfig')
 local on_attach = function(client, bufnr)
 
   local function buf_set_keymap(...) vim.api.nvim_buf_set_keymap(bufnr, ...) end
+
   local function buf_set_option(...) vim.api.nvim_buf_set_option(bufnr, ...) end
 
   buf_set_option('omnifunc', 'v:lua.vim.lsp.omnifunc')
 
   -- Mappings
-  local opts = { noremap=true, silent=true }
+  local opts = { noremap = true, silent = true }
   buf_set_keymap('n', 'gd', '<cmd>lua vim.lsp.buf.definition()<CR>', opts)
   buf_set_keymap('n', 'gD', '<Cmd>lua vim.lsp.buf.declaration()<CR>', opts)
   buf_set_keymap('n', 'gr', '<cmd>lua vim.lsp.buf.references()<CR>', opts)
@@ -51,7 +52,7 @@ local on_attach = function(client, bufnr)
   end
 
   -- Method signature
-  require'lsp_signature'.on_attach(client, bufnr)
+  require 'lsp_signature'.on_attach(client, bufnr)
 end
 
 -- Integration with autocomplete
@@ -59,9 +60,9 @@ local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities = require('cmp_nvim_lsp').update_capabilities(capabilities)
 
 -- Swift
-lspconfig.sourcekit.setup{
+lspconfig.sourcekit.setup {
   serverPath = '/Applications/Xcode-System.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/sourcekit-lsp',
-  filetypes = {'swift'},
+  filetypes = { 'swift' },
   capabilities = capabilities,
   on_attach = on_attach
 }
@@ -69,31 +70,31 @@ lspconfig.sourcekit.setup{
 -- Python
 -- https://github.com/python-lsp/python-lsp-server
 -- pip install 'python-language-server[all]'
-lspconfig.pylsp.setup{
+lspconfig.pylsp.setup {
   capabilities = capabilities,
   on_attach = on_attach
 }
 
 -- Ruby
-lspconfig.solargraph.setup{
+lspconfig.solargraph.setup {
   capabilities = capabilities,
   on_attach = on_attach
 }
 
 -- Bash
-lspconfig.bashls.setup{
+lspconfig.bashls.setup {
   capabilities = capabilities,
   on_attach = on_attach
 }
 
 -- Haskell
-lspconfig.hls.setup{
+lspconfig.hls.setup {
   capabilities = capabilities,
   on_attach = on_attach
 }
 
 -- Rust
-lspconfig.rls.setup{
+lspconfig.rls.setup {
   capabilities = capabilities,
   on_attach = on_attach
 }
@@ -101,7 +102,7 @@ lspconfig.rls.setup{
 -- Groovy
 -- source: https://github.com/prominic/groovy-language-server
 -- notes: install jdk-14.0.2, it won't install with jdk-16
-lspconfig.groovyls.setup{
+lspconfig.groovyls.setup {
   cmd = {
     "java",
     "-jar",
@@ -112,7 +113,7 @@ lspconfig.groovyls.setup{
 }
 
 -- C
-lspconfig.clangd.setup{
+lspconfig.clangd.setup {
   capabilities = capabilities,
   on_attach = on_attach
 }
@@ -123,7 +124,7 @@ lspconfig.sumneko_lua.setup {
     Lua = {
       diagnostics = {
         -- Get the language server to recognize the `vim` global
-        globals = {'vim'},
+        globals = { 'vim' },
       },
     },
   },
@@ -138,6 +139,6 @@ local util = require 'lspconfig.util'
 dlsconfig.init {
   on_attach = on_attach,
   root_dir = function(fname)
-    return util.root_pattern '.git'(fname) or util.path.dirname(fname)
+    return util.root_pattern '.git' (fname) or util.path.dirname(fname)
   end,
 }
