@@ -1,7 +1,18 @@
+------------------------------- Linters ------------------------------
+
+local dlsconfig = require('diagnosticls-configs')
+local on_attach = require('core.lsp').core_on_attach
+local util = require('lspconfig.util')
+
+dlsconfig.init {
+  on_attach = on_attach,
+  root_dir = function(fname)
+    return util.root_pattern '.git' (fname) or util.path.dirname(fname)
+  end,
+}
+
 -- source:
 -- https://github.com/creativenull/diagnosticls-configs-nvim
-local dlsconfig = require 'diagnosticls-configs'
-
 dlsconfig.setup {
   ['cpp'] = {
     linter = require('diagnosticls-configs.linters.cpplint')
