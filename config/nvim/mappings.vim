@@ -1,12 +1,12 @@
 " -------------------------------------- Mappings --------------------------------------
 
 " Easier reload
-command! Reload :luafile ~/.config/nvim/init.lua
+" command! Reload :luafile ~/.config/nvim/init.lua
 command! Config :edit ~/.config/nvim/mappings.vim
 
 " Leader key
 "let g:mapleader=","
-let g:mapleader="\<Space>"
+" let g:mapleader="\<Space>"
 
 nnoremap <C-n> :NERDTreeToggle<cr>
 nnoremap <C-m> :NERDTreeFind<cr>
