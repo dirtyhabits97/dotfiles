@@ -1,5 +1,5 @@
 ------------------------------- Linters ------------------------------
--- setup
+
 local dlsconfig = require('diagnosticls-configs')
 local on_attach = require('core.lsp').core_on_attach
 local util = require('lspconfig.util')

@@ -87,3 +87,8 @@ local Config = function()
   vim.cmd [[:edit ~/.config/nvim/lua/core/mappings.lua]]
 end
 command('Config', Config)
+
+local Plugins = function()
+  vim.cmd [[:edit ~/.config/nvim/lua/core/plugins.lua]]
+end
+command('Plugins', Plugins)
