@@ -10,5 +10,3 @@ require('extension.diagnostics')
 require('extension.linters')
 require('extension.treesitter')
 require('extension.git')
--- TODO: delete this
-vim.cmd 'source $HOME/.config/nvim/mappings.vim'
