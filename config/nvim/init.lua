@@ -1,14 +1,12 @@
-require('general')
-require('plugins')
-
+require('core.general')
+require('core.plugins')
+require('core.mappings')
 -- Colors have to be set before the lsp
-require('theme')
+require('core.theme')
+require('core.lsp')
 
-require('completion')
-require('lsp')
-require('diagnostics')
-require('linters')
-require('treesitter')
-require('git')
-
-vim.cmd 'source $HOME/.config/nvim/mappings.vim'
+require('extension.completion')
+require('extension.diagnostics')
+require('extension.linters')
+require('extension.treesitter')
+require('extension.git')
