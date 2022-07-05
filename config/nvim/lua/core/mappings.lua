@@ -1,52 +1,74 @@
 ------------------------------- Mappings ------------------------------
 
+-- Helpers
+local cmap = function(alias, cmd)
+  vim.api.nvim_set_keymap('c', alias, cmd, {})
+end
+
+local nmap = function(alias, cmd)
+  vim.api.nvim_set_keymap('n', alias, cmd, {})
+end
+
+local vmap = function(alias, cmd)
+  vim.api.nvim_set_keymap('v', alias, cmd, {})
+end
+
+local inoremap = function(alias, cmd)
+  vim.api.nvim_set_keymap('i', alias, cmd, { noremap = true })
+end
+
+local nnoremap = function(alias, cmd)
+  vim.api.nvim_set_keymap('n', alias, cmd, { noremap = true })
+end
+
+local command = function(name, f)
+  vim.api.nvim_create_user_command(name, f, { nargs = 0 })
+end
+
 -- Leader key
 vim.g.mapleader = " "
 
-local command = vim.api.nvim_create_user_command
-local map = vim.api.nvim_set_keymap
-
-map('n', '<C-n>', [[:NERDTreeToggle<cr>]], { noremap = true })
-map('n', '<C-m>', [[:NERDTreeFind<cr>]], { noremap = true })
+nnoremap('<C-n>', [[:NERDTreeToggle<cr>]])
+nnoremap('<C-m>', [[:NERDTreeFind<cr>]])
 
 -- Easier code comment
-map('n', '<C-_>', [[<Plug>NERDCommenterToggle]], {})
-map('v', '<C-_>', [[<Plug>NERDCommenterToggle<Bar>gv]], {})
+nmap('<C-_>', [[<Plug>NERDCommenterToggle]])
+vmap('<C-_>', [[<Plug>NERDCommenterToggle<Bar>gv]])
 
 -- Easier write and quit
-command('W', [[write]], { nargs = 0 })
-command('Q', [[quit]], { nargs = 0 })
-map('c', 'Wq', 'wq', {})
-map('c', 'WQ', 'wq', {})
+command('W', [[write]])
+command('Q', [[quit]])
+cmap('Wq', 'wq')
+cmap('WQ', 'wq')
 
 -- Easier escape
-map('i', 'jj', '<ESC>', { noremap = true })
-map('i', 'kk', '<ESC>', { noremap = true })
+inoremap('jj', '<ESC>')
+inoremap('kk', '<ESC>')
 
 -- Easier navigation with wrapped lines
-map('n', 'j', 'gj', { noremap = true })
-map('n', 'k', 'gk', { noremap = true })
+nnoremap('j', 'gj')
+nnoremap('k', 'gk')
 
 -- Easier navigation between buffers
-map('n', '<leader>1', [[:bp<cr>]], {})
-map('n', '<leader>2', [[:bn<cr>]], {})
+nmap('<leader>1', [[:bp<cr>]])
+nmap('<leader>2', [[:bn<cr>]])
 
 -- Easier merge solving with fugitive
-map('n', '<leader>gj', [[:diffget //3<CR>]], {})
-map('n', '<leader>gf', [[:diffget //2<CR>]], {})
+nmap('<leader>gj', [[:diffget //3<CR>]])
+nmap('<leader>gf', [[:diffget //2<CR>]])
 
 -- Easier resize
-map('n', '<silent><leader>=', [[:exe "vertical resize +5"<CR>]], { noremap = true })
-map('n', '<silent><leader>-', [[:exe "vertical resize -5"<CR>]], { noremap = true })
+nnoremap('<silent><leader>=', [[:exe "vertical resize +5"<CR>]])
+nnoremap('<silent><leader>-', [[:exe "vertical resize -5"<CR>]])
 
 -- Easier FZF
-map('n', '<leader>ff', [[:GFiles<cr>]], { noremap = true })
-map('n', '<leader>fg', [[:Rg<cr>]], { noremap = true })
-map('n', '<leader>fb', [[:Buffers<cr>]], { noremap = true })
-map('n', '<leader>fh', [[:HelpTags<cr>]], { noremap = true })
+nnoremap('<leader>ff', [[:GFiles<cr>]])
+nnoremap('<leader>fg', [[:Rg<cr>]])
+nnoremap('<leader>fb', [[:Buffers<cr>]])
+nnoremap('<leader>fh', [[:HelpTags<cr>]])
 
 -- Easier Trouble
-map('n', '<C-x>', [[:TroubleToggle<cr>]], { noremap = true })
+nnoremap('<C-x>', [[:TroubleToggle<cr>]])
 
 -- Custom commands
 command(
@@ -60,14 +82,12 @@ command(
 
     dofile(vim.env.MYVIMRC)
     vim.notify('Nvim coniguration reloaded!', vim.log.levels.INFO)
-  end,
-  { nargs = 0 }
+  end
 )
 
-vim.api.nvim_create_user_command(
+command(
   'Config',
   function()
     vim.cmd [[:edit ~/.config/nvim/lua/core/mappings.lua]]
-  end,
-  { nargs = 0 }
+  end
 )
