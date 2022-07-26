@@ -1,4 +1,4 @@
-require('core.general')
+require('core.set')
 require('core.plugins')
 require('core.mappings')
 -- Colors have to be set before the lsp
