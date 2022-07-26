@@ -73,7 +73,7 @@ nnoremap('<C-x>', [[:TroubleToggle<cr>]])
 -- Custom commands
 local Reload = function()
   for name, _ in pairs(package.loaded) do
-    if name:match('^core') or name:match('^extension') then
+    if name:match('^core') then
       package.loaded[name] = nil
     end
   end
