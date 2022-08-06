@@ -1,2 +1,2 @@
+require('extra.lualine')
 require('extra.colors')
-require('extra.statusline')
