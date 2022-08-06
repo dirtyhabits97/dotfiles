@@ -15,8 +15,7 @@ Plug('nvim-treesitter/nvim-treesitter', { -- Language
 Plug 'preservim/nerdtree'                 -- File browsing
 Plug 'preservim/nerdcommenter'            -- Easier comment
 Plug 'christoomey/vim-tmux-navigator'     -- Vim + Tmux
--- Plug 'vim-airline/vim-airline'            -- Status bar
--- Plug 'vim-airline/vim-airline-themes'
+Plug 'nvim-lualine/lualine.nvim'          -- Status bar
 Plug 'tpope/vim-surround'                 -- Surround text objects
 Plug 'tpope/vim-commentary'               -- Comment code
 Plug('junegunn/fzf', {                    -- Fuzzy find
@@ -53,6 +52,7 @@ Plug 'iamcco/diagnostic-languageserver'   -- Needed for linters
 Plug 'creativenull/diagnosticls-configs-nvim'   -- Linters
 
 Plug 'ryanoasis/vim-devicons'             -- Icons
+Plug 'kyazdani42/nvim-web-devicons'       -- Icons
 Plug('sonph/onehalf', { rtp = 'vim' })    -- Colors
 
 Plug 'lewis6991/impatient.nvim'           -- Performance
