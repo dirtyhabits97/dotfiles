@@ -15,8 +15,8 @@ Plug('nvim-treesitter/nvim-treesitter', { -- Language
 Plug 'preservim/nerdtree'                 -- File browsing
 Plug 'preservim/nerdcommenter'            -- Easier comment
 Plug 'christoomey/vim-tmux-navigator'     -- Vim + Tmux
-Plug 'vim-airline/vim-airline'            -- Status bar
-Plug 'vim-airline/vim-airline-themes'
+-- Plug 'vim-airline/vim-airline'            -- Status bar
+-- Plug 'vim-airline/vim-airline-themes'
 Plug 'tpope/vim-surround'                 -- Surround text objects
 Plug 'tpope/vim-commentary'               -- Comment code
 Plug('junegunn/fzf', {                    -- Fuzzy find
@@ -84,9 +84,9 @@ vim.g['NERDCustomDelimiters'] = {
 vim.g['NERDDefaultAlign'] = 'left'
 
 -- Tabs
-vim.g['airline#extensions#tabline#enabled'] = 1
-vim.g['airline#extensions#tabline#formatter'] = 'unique_tail'
-vim.g['airline#extensions#tabline#buffer_nr_show'] = 1
+-- vim.g['airline#extensions#tabline#enabled'] = 1
+-- vim.g['airline#extensions#tabline#formatter'] = 'unique_tail'
+-- vim.g['airline#extensions#tabline#buffer_nr_show'] = 1
 
 -- FZF
 vim.g['fzf_action'] = {
