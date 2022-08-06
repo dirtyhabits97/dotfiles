@@ -83,11 +83,6 @@ vim.g['NERDCustomDelimiters'] = {
 -- Align the comments
 vim.g['NERDDefaultAlign'] = 'left'
 
--- Tabs
--- vim.g['airline#extensions#tabline#enabled'] = 1
--- vim.g['airline#extensions#tabline#formatter'] = 'unique_tail'
--- vim.g['airline#extensions#tabline#buffer_nr_show'] = 1
-
 -- FZF
 vim.g['fzf_action'] = {
   ['ctrl-x'] = 'split',
