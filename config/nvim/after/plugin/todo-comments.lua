@@ -1,1 +1,6 @@
-require('todo-comments').setup()
+local todoComments = require('todo-comments')
+todoComments.setup {
+  keywords = {
+    MARK = { icon = " ", color = "hint" }
+  }
+}
