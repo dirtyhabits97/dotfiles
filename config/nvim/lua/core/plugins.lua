@@ -78,6 +78,7 @@ vim.g['NERDCustomDelimiters'] = {
   lua   = { left = '-- ' },
   vim   = { left = '" ' },
   c     = { left = '// ', right = '' },
+  cpp   = { left = '// ', right = '' },
 }
 
 -- Align the comments
