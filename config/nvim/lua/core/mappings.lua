@@ -62,10 +62,10 @@ nnoremap('<silent><leader>=', [[:exe "vertical resize +5"<CR>]])
 nnoremap('<silent><leader>-', [[:exe "vertical resize -5"<CR>]])
 
 -- Easier FZF
-nnoremap('<leader>ff', [[:GFiles<cr>]])
-nnoremap('<leader>fg', [[:Rg<cr>]])
-nnoremap('<leader>fb', [[:Buffers<cr>]])
-nnoremap('<leader>fh', [[:HelpTags<cr>]])
+nnoremap('<leader>ff', [[:Telescope git_files<cr>]])
+nnoremap('<leader>fg', [[:Telescope live_grep<cr>]])
+nnoremap('<leader>fb', [[:Telescope buffers<cr>]])
+nnoremap('<leader>fh', [[:Telescope lsp_document_symbols<cr>]])
 
 -- Easier Trouble
 nnoremap('<C-x>', [[:TroubleToggle<cr>]])

@@ -18,12 +18,14 @@ Plug 'christoomey/vim-tmux-navigator'     -- Vim + Tmux
 Plug 'nvim-lualine/lualine.nvim'          -- Status bar
 Plug 'tpope/vim-surround'                 -- Surround text objects
 Plug 'tpope/vim-commentary'               -- Comment code
-Plug('junegunn/fzf', {                    -- Fuzzy find
-  ['do'] = function()
-    vim.call('fzf#install')
-  end
-})
-Plug 'junegunn/fzf.vim'
+-- TODO: consider removing this now that we have Telescope
+-- Plug('junegunn/fzf', {                    -- Fuzzy find
+--   ['do'] = function()
+--     vim.call('fzf#install')
+--   end
+-- })
+-- Plug 'junegunn/fzf.vim'
+Plug('nvim-telescope/telescope.nvim', { tag = '0.1.0' })
 Plug 'jiangmiao/auto-pairs'               -- Match (, [ and {
 
 Plug 'norcalli/nvim-colorizer.lua'        -- Colorizer
