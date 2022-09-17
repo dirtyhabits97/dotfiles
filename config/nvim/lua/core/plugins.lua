@@ -36,6 +36,7 @@ Plug 'lewis6991/gitsigns.nvim'
 Plug 'neovim/nvim-lspconfig'              -- LSP integration
 Plug 'ray-x/lsp_signature.nvim'           -- Method signature
 Plug 'folke/trouble.nvim'                 -- Diagnostics
+Plug 'folke/todo-comments.nvim'           -- Pretty notes
 
 Plug 'hrsh7th/nvim-cmp'                   -- Auto complete
 Plug 'hrsh7th/vim-vsnip'                  -- Snippets
