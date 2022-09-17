@@ -24,6 +24,7 @@ Plug('junegunn/fzf', {                    -- Fuzzy find
   end
 })
 Plug 'junegunn/fzf.vim'
+Plug('nvim-telescope/telescope.nvim', { tag = '0.1.0' })
 Plug 'jiangmiao/auto-pairs'               -- Match (, [ and {
 
 Plug 'norcalli/nvim-colorizer.lua'        -- Colorizer
