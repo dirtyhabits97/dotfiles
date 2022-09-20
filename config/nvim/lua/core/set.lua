@@ -58,3 +58,5 @@ vim.cmd [[
 
   au BufRead,BufNewFile *.Dockerfile    setfiletype dockerfile
 ]]
+
+vim.o.winbar = "%{%v:lua.require'nvim-navic'.get_location()%}"

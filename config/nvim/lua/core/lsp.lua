@@ -53,6 +53,9 @@ local on_attach = function(client, bufnr)
 
   -- Method signature
   require 'lsp_signature'.on_attach(client, bufnr)
+
+  local navic = require("nvim-navic")
+  navic.attach(client, bufnr)
 end
 
 -- Integration with autocomplete

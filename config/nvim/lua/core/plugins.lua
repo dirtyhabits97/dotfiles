@@ -36,6 +36,7 @@ Plug 'creativenull/diagnosticls-configs-nvim'   -- Linters
 -- Status & Buffer lines
 Plug 'nvim-lualine/lualine.nvim'
 Plug 'akinsho/bufferline.nvim'
+Plug "SmiteshP/nvim-navic"
 
 -- Utils
 Plug 'nvim-telescope/telescope.nvim'
