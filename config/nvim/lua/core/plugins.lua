@@ -16,6 +16,7 @@ Plug 'preservim/nerdtree'                 -- File browsing
 Plug 'preservim/nerdcommenter'            -- Easier comment
 Plug 'christoomey/vim-tmux-navigator'     -- Vim + Tmux
 Plug 'nvim-lualine/lualine.nvim'          -- Status bar
+Plug 'akinsho/bufferline.nvim'
 Plug 'tpope/vim-surround'                 -- Surround text objects
 Plug 'tpope/vim-commentary'               -- Comment code
 
