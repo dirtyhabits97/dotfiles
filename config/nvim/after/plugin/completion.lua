@@ -49,6 +49,10 @@ cmp.setup {
       vim.fn["vsnip#anonymous"](args.body)
     end,
   },
+  window = {
+    completion = cmp.config.window.bordered(),
+    documentation = cmp.config.window.bordered(),
+  },
   mapping = {
     ['<C-d>'] = cmp.mapping.scroll_docs(-4),
     ['<C-f>'] = cmp.mapping.scroll_docs(4),
@@ -56,7 +60,7 @@ cmp.setup {
     ['<C-e>'] = cmp.mapping.close(),
     ['<CR>'] = cmp.mapping.confirm({
       behavior = cmp.ConfirmBehavior.Replace,
-      -- select = true
+      select = false
     }),
     ['<Tab>'] = function(fallback)
       if cmp.visible() then
@@ -90,4 +94,7 @@ cmp.setup {
       return vim_item
     end,
   },
+  experimental = {
+    ghost_text = true,
+  }
 }
