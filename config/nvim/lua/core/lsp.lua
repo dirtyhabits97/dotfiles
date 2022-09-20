@@ -132,6 +132,13 @@ lspconfig.sumneko_lua.setup {
   on_attach = on_attach
 }
 
+-- javascript
+-- install: npm install -g typescript typescript-language-serve
+lspconfig.tsserver.setup {
+  capabilities = capabilities,
+  on_attach = on_attach
+}
+
 -- Expose the on_attach method for other uses
 -- (e.g. linters)
 return {
