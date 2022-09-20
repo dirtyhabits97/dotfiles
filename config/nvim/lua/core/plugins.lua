@@ -25,14 +25,13 @@ Plug 'hrsh7th/cmp-path'
 Plug 'hrsh7th/cmp-vsnip'
 
 -- Diagnostics
-Plug 'folke/trouble.nvim'                           -- Diagnostics
-Plug 'https://git.sr.ht/~whynothugo/lsp_lines.nvim' -- Diagnostics
-Plug 'folke/todo-comments.nvim'                     -- Pretty notes
+Plug 'folke/trouble.nvim'
+Plug 'https://git.sr.ht/~whynothugo/lsp_lines.nvim'
+Plug 'folke/todo-comments.nvim' -- Pretty notes
 -- To install:
 -- npm install -g diagnostic-languageserver
-Plug 'iamcco/diagnostic-languageserver'   -- Needed for linters
+Plug 'iamcco/diagnostic-languageserver'         -- Needed for linters
 Plug 'creativenull/diagnosticls-configs-nvim'   -- Linters
-
 
 -- Status & Buffer lines
 Plug 'nvim-lualine/lualine.nvim'
