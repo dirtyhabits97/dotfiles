@@ -12,6 +12,7 @@ treesitter.setup {
     "c",
     "cpp",
     "json",
+    "javascript",
     "lua",
     "python",
     "ruby",
