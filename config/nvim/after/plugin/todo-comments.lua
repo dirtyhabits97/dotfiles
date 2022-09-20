@@ -1,3 +1,5 @@
+-- source: https://github.com/folke/todo-comments.nvim
+
 local todoComments = require('todo-comments')
 todoComments.setup {
   keywords = {
