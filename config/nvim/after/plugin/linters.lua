@@ -1,8 +1,12 @@
 ------------------------------- Linters ------------------------------
 
 local dlsconfig = require('diagnosticls-configs')
-local on_attach = require('core.lsp').core_on_attach
 local util = require('lspconfig.util')
+
+local on_attach = function(client, bufnr)
+  local core_on_attach = require('core.lsp').core_on_attach
+  core_on_attach(client, bufnr, { disableCodeContext = true })
+end
 
 dlsconfig.init {
   on_attach = on_attach,

@@ -2,7 +2,8 @@
 
 -- source: https://github.com/neovim/nvim-lspconfig
 local lspconfig = require('lspconfig')
-local on_attach = function(client, bufnr)
+-- TODO: document mainOpts field
+local on_attach = function(client, bufnr, mainOpts)
 
   local function buf_set_keymap(...) vim.api.nvim_buf_set_keymap(bufnr, ...) end
 
@@ -54,8 +55,11 @@ local on_attach = function(client, bufnr)
   -- Method signature
   require 'lsp_signature'.on_attach(client, bufnr)
 
-  local navic = require("nvim-navic")
-  navic.attach(client, bufnr)
+  -- Show code context
+  if mainOpts == nil or mainOpts.disableCodeContext == false then
+    local navic = require("nvim-navic")
+    navic.attach(client, bufnr)
+  end
 end
 
 -- Integration with autocomplete
