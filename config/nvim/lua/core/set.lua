@@ -40,6 +40,9 @@ set.wildignore      = '.git,'                              -- Version control
 set.listchars       = 'eol:¬,tab:>·'
 set.list            = true
 
+-- No mouse
+set.mouse           = nil
+
 -- File types
 vim.cmd [[
   au BufRead,BufNewFile Podfile         setfiletype ruby
