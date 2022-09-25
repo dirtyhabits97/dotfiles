@@ -2,7 +2,11 @@
 
 -- source: https://github.com/neovim/nvim-lspconfig
 local lspconfig = require('lspconfig')
--- TODO: document mainOpts field
+
+--- The method that gets called when the language-server is attached
+-- @param client the client to which the language-server will attach
+-- @param bufnr the buffer
+-- @param mainOpts disableCodeContext disables nvim-navic context helper
 local on_attach = function(client, bufnr, mainOpts)
 
   local function buf_set_keymap(...) vim.api.nvim_buf_set_keymap(bufnr, ...) end
