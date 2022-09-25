@@ -2,7 +2,12 @@
 
 -- source: https://github.com/neovim/nvim-lspconfig
 local lspconfig = require('lspconfig')
-local on_attach = function(client, bufnr)
+
+--- The method that gets called when the language-server is attached
+-- @param client the client to which the language-server will attach
+-- @param bufnr the buffer
+-- @param mainOpts disableCodeContext disables nvim-navic context helper
+local on_attach = function(client, bufnr, mainOpts)
 
   local function buf_set_keymap(...) vim.api.nvim_buf_set_keymap(bufnr, ...) end
 
@@ -53,6 +58,12 @@ local on_attach = function(client, bufnr)
 
   -- Method signature
   require 'lsp_signature'.on_attach(client, bufnr)
+
+  -- Show code context
+  if mainOpts == nil or mainOpts.disableCodeContext == false then
+    local navic = require("nvim-navic")
+    navic.attach(client, bufnr)
+  end
 end
 
 -- Integration with autocomplete

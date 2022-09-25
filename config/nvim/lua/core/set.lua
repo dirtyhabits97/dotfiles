@@ -43,6 +43,9 @@ set.list            = true
 -- No mouse
 set.mouse           = nil
 
+-- Show code context if available
+set.winbar = "%{%v:lua.require'nvim-navic'.get_location()%}"
+
 -- File types
 vim.cmd [[
   au BufRead,BufNewFile Podfile         setfiletype ruby
