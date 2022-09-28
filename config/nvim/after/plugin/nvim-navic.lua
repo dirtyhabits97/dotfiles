@@ -13,7 +13,7 @@ navic.setup {
     Field         = " ",
     Constructor   = " ",
     Enum          = "練",
-    Interface     = "ﰮ",
+    Interface     = "ﰮ ",
     Function      = " ",
     Variable      = " ",
     Constant      = " ",
