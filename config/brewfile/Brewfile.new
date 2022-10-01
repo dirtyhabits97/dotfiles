@@ -1,6 +1,7 @@
 # Taps
 
 tap "vapor/tap"
+tap "homebrew/cask-fonts"
 
 # Main
 
