@@ -41,9 +41,12 @@
   - ~/logs
 
 - shell:
-#  - command: brew file install
-#    description: Installing / Updating brew formulas
-#    quiet: true
+  - command: /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+    description: Installing homebrew
+    quiet: true
+  #- command: brew file install
+  #  description: Installing / Updating brew formulas
+  #  quiet: true
   #- command: npm install -g diagnostic-languageserver bash-language-server
   #  description: Installing global node packages
   #  quiet: true
