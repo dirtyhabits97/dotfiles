@@ -5,7 +5,7 @@
 
 # MARK: Main:
 # Install homebrew - requires password
-/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+#/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 
 # Install homebrew stuff
 brew bundle
