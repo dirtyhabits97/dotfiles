@@ -22,6 +22,7 @@ brew "htop"
 brew "httpie"
 brew "jq"
 brew "llvm"
+brew "mas"
 brew "neofetch"
 brew "neovim", args: ["HEAD"]
 brew "node"
