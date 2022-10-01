@@ -1,0 +1,24 @@
+#!/usr/bin/env zsh
+
+# MARK: Requirements:
+# 1. Setup ssh config with github. doc: https://docs.gitlab.com/ee/user/ssh.html
+
+# MARK: Main:
+# 1. Run dotbot to create all initial links
+./install
+
+# 2. Install homebrew - requires password
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+
+# 3. Install homebrew stuff
+brew bundle
+
+# MARK: - Zsh
+
+# MARK: - Neovim
+# Install neovim stuff
+# TODO: add neovim commands here
+
+# 5. Install lldb scripts
+git clone git@github.com:DerekSelander/LLDB.git ~/lldb/LLDB
+git clone git@github.com:facebook/chisel.git ~/lldb/chisel
