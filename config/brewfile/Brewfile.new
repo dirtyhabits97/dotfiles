@@ -7,6 +7,7 @@ tap "homebrew/cask-fonts"
 
 brew "bat"
 brew "cpplint"
+brew "direnv"
 brew "duf"
 brew "dust"
 brew "exa"
@@ -58,6 +59,7 @@ cask "font-hack-nerd-font"
 # * Hopper disassembler
 
 cask "alacritty"
+cask "alfred"
 cask "firefox"
 cask "proxyman"
 cask "slack"
