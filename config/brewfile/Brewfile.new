@@ -1,0 +1,63 @@
+# Taps
+
+tap "vapor/tap"
+
+# Main
+
+brew "bat"
+brew "cpplint"
+brew "duf"
+brew "dust"
+brew "exa"
+brew "fd"
+brew "fzf"
+brew "git"
+brew "git-delta"
+brew "git-lfs"
+brew "glow"
+brew "highlight"
+brew "htop"
+brew "httpie"
+brew "jq"
+brew "llvm"
+brew "neofetch"
+brew "neovim", args: ["--HEAD"]
+brew "node"
+brew "ripgrep"
+brew "shellcheck"
+brew "sourcekitten"
+brew "sqlite"
+brew "starship"
+brew "swiftformat"
+brew "swiftlint"
+brew "telnet"
+brew "tig"
+brew "tldr"
+brew "tmux"
+brew "tokei"
+brew "tree-sitter"
+brew "vapor"
+brew "vifm"
+
+# Misc
+
+brew "cowsay"
+brew "fortune"
+brew "jrnl"
+
+cask "font-hack-nerd-font"
+
+# Applications
+# TODO: add mas support
+# * Notion
+# * Bear
+# * Spark
+# * Things
+# * Reveal
+# * Hopper disassembler
+
+cask "alacritty"
+cask "firefox"
+cask "proxyman"
+cask "slack"
+cask "1password"
