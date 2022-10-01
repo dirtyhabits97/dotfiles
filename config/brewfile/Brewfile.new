@@ -21,7 +21,7 @@ brew "httpie"
 brew "jq"
 brew "llvm"
 brew "neofetch"
-brew "neovim", args: ["--HEAD"]
+brew "neovim", args: ["HEAD"]
 brew "node"
 brew "ripgrep"
 brew "shellcheck"
