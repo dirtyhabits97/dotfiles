@@ -1,17 +1,19 @@
-# Taps
+# MARK: Taps
 
 tap "vapor/tap"
 tap "homebrew/cask-fonts"
 
-# Main
+# MARK: Formulas
 
 brew "bat"
+brew "cowsay"
 brew "cpplint"
 brew "direnv"
 brew "duf"
 brew "dust"
 brew "exa"
 brew "fd"
+brew "fortune"
 brew "fzf"
 brew "git"
 brew "git-delta"
@@ -21,6 +23,7 @@ brew "highlight"
 brew "htop"
 brew "httpie"
 brew "jq"
+brew "jrnl"
 brew "llvm"
 brew "mas"
 brew "neofetch"
@@ -42,27 +45,23 @@ brew "tree-sitter"
 brew "vapor"
 brew "vifm"
 
-# Misc
-
-brew "cowsay"
-brew "fortune"
-brew "jrnl"
+# MARK: Fonts
 
 cask "font-hack-nerd-font"
 
-# Applications
-# TODO: add mas support
-# * Notion
-# * Bear
-# * Spark
-# * Things
-# * Reveal
-# * Hopper disassembler
+# MARK: Applications
 
 cask "alacritty"
 cask "alfred"
 cask "firefox"
+cask "notion"
 cask "proxyman"
+cask "reveal"
 cask "slack"
 cask "via"
 cask "1password"
+
+mas "Bear", id: 1091189122
+mas "Kindle", id: 405399194
+mas "Spark", id: 1176895641
+mas "Things", id: 904280696
