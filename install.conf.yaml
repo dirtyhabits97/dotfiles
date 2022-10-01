@@ -41,9 +41,11 @@
   - ~/logs
 
 - shell:
-  - command: /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-    description: Installing homebrew
-    quiet: true
+  # Doesn't work, requires sudo
+  #- command: /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+  #  description: Installing homebrew
+  #  quiet: true
+  #
   #- command: brew file install
   #  description: Installing / Updating brew formulas
   #  quiet: true

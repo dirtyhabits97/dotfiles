@@ -125,6 +125,7 @@ fi
 # https://homebrew-file.readthedocs.io/en/latest/settings.html
 export HOMEBREW_BREWFILE_APPSTORE=0
 export HOMEBREW_BREWFILE_ON_REQUEST=1
+export HOMEBREW_BUNDLE_FILE=~/.config/brewfile/Brewfile.new
 
 #zprof
 #zmodload -u zsh/zprof
