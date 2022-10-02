@@ -1698,6 +1698,12 @@
         "options": {
           "full_name": "google-drive"
         }
+      },
+      "1password-cli": {
+        "version": "2.7.1",
+        "options": {
+          "full_name": "1password/tap/1password-cli"
+        }
       }
     },
     "mas": {
