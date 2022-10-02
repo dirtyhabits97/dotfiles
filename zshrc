@@ -33,10 +33,6 @@ source $ZSH/oh-my-zsh.sh
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 # https://www.haskell.org/ghcup/
 [ -f "$HOME/.ghcup/env" ] && source "$HOME/.ghcup/env" 
-# https://homebrew-file.readthedocs.io/en/latest/installation.html
-if [ -f $(brew --prefix)/etc/brew-wrap ];then
-  source $(brew --prefix)/etc/brew-wrap
-fi
 
 export PATH="$HOME/bin:$PATH"
 export PATH="/usr/local/opt/llvm/bin:$PATH"
@@ -52,7 +48,6 @@ alias lt="exa --tree -L 3 --icons"
 alias nn="nvim"
 # source: https://github.com/julienXX/terminal-notifier
 alias notify='terminal-notifier -title "Terminal" -message "Done with task! Exit status: $?"' -activate com.apple.Terminal
-alias stocks="ticker --config=/Users/$(whoami)/.config/ticker.yaml"
 alias tree="exa --tree --icons"
 alias :q="exit"
 alias :Q="exit"
@@ -123,8 +118,6 @@ fi
 # Flags
 # =====================================
 # https://homebrew-file.readthedocs.io/en/latest/settings.html
-export HOMEBREW_BREWFILE_APPSTORE=0
-export HOMEBREW_BREWFILE_ON_REQUEST=1
 export HOMEBREW_BUNDLE_FILE=~/.config/brewfile/Brewfile.new
 
 #zprof
