@@ -1692,6 +1692,12 @@
         "options": {
           "full_name": "1password"
         }
+      },
+      "google-drive": {
+        "version": "64.0.4",
+        "options": {
+          "full_name": "google-drive"
+        }
       }
     },
     "mas": {
