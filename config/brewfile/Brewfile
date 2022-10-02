@@ -7,7 +7,6 @@ tap "homebrew/cask-fonts"
 
 brew "bat"
 brew "cowsay"
-brew "cpplint"
 brew "direnv"
 brew "duf"
 brew "dust"
@@ -30,7 +29,6 @@ brew "mas"
 brew "neofetch"
 brew "node"
 brew "ripgrep"
-brew "shellcheck"
 brew "sourcekitten"
 brew "sqlite"
 brew "starship"
@@ -42,14 +40,17 @@ brew "tig"
 brew "tldr"
 brew "tmux"
 brew "tokei"
-brew "tree-sitter"
 brew "vapor"
 brew "vifm"
 
 # MARK: - Neovim
 
 brew "neovim", args: ["HEAD"]
+
+brew "cpplint"
+brew "shellcheck"
 brew "lua-language-server"
+brew "tree-sitter"
 
 # MARK: Fonts
 
