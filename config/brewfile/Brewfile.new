@@ -53,6 +53,7 @@ cask "font-hack-nerd-font"
 
 cask "alacritty"
 cask "alfred"
+cask "batteries"
 cask "daisydisk"
 cask "firefox"
 cask "notion"
