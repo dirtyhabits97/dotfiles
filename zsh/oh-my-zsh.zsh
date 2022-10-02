@@ -5,7 +5,7 @@ plugins=(zsh-autosuggestions zsh-syntax-highlighting)
 
 source $ZSH/oh-my-zsh.sh
 
-# NOTE: - Slow paste fix
+# NOTE: Slow paste fix
 # sources:
 # * https://github.com/zsh-users/zsh-autosuggestions/issues/238#issuecomment-303402980
 # * https://gist.github.com/magicdude4eva/2d4748f8ef3e6bf7b1591964c201c1ab
@@ -20,3 +20,8 @@ local pastefinish() {
 
 zstyle :bracketed-paste-magic paste-init pasteinit
 zstyle :bracketed-paste-magic paste-finish pastefinish
+
+# zsh-autosuggestions
+# source: https://github.com/zsh-users/zsh-autosuggestions#configuration 
+ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=#5c6370,bold,underline"
+bindkey '^N' autosuggest-accept
