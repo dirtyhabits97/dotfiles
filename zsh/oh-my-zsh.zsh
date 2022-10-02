@@ -20,8 +20,3 @@ local pastefinish() {
 
 zstyle :bracketed-paste-magic paste-init pasteinit
 zstyle :bracketed-paste-magic paste-finish pastefinish
-
-# zsh-autosuggestions
-# source: https://github.com/zsh-users/zsh-autosuggestions#configuration 
-ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=#5c6370,bold,underline"
-bindkey '^N' autosuggest-accept
