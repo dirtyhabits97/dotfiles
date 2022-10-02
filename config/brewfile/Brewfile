@@ -1,128 +1,73 @@
+# MARK: Taps
 
-# tap repositories and their packages
+tap "vapor/tap"
+tap "homebrew/cask-fonts"
 
-tap homebrew/core
-brew autoconf
-brew bat
-brew bazelisk
-brew bloaty
-brew brotli
-brew c-ares
-brew ca-certificates
-brew capstone
-brew carthage
-brew cmake
-brew cowsay
-brew cpplint
-brew dog
-brew duf
-brew dust
-brew exa
-brew fd
-brew fortune
-brew fzf
-brew gdbm
-brew gettext
-brew git
-brew git-delta
-brew git-lfs
-brew glow
-brew grpcurl
-brew highlight
-brew htop
-brew httpie
-brew hyperfine
-brew icu4c
-brew jemalloc
-brew jenkins-lts
-brew jenv
-brew jq
-brew jrnl
-brew libev
-brew libevent
-brew libidn2
-brew libnghttp2
-brew libtermkey
-brew libtool
-brew libunistring
-brew libuv
-brew libzip
-brew llvm
-brew lua
-brew lua-language-server
-brew luajit --HEAD
-brew luajit-openresty
-brew luarocks
-brew luv
-brew m4
-brew mas
-brew mint
-brew mpdecimal
-brew msgpack
-brew ncurses
-brew neofetch
-brew neovim --HEAD
-brew nghttp2
-brew ninja
-brew node
-brew oniguruma
-brew openjdk
-brew openjdk@11
-brew openssl@1.1
-brew pcre2
-brew pkg-config
-brew protobuf
-brew pstree
-brew pyenv
-brew python@3.10
-brew python@3.9
-brew re2
-brew readline
-brew reattach-to-user-namespace
-brew ripgrep
-brew sccache
-brew screenresolution
-brew sdl2
-brew shellcheck
-brew six
-brew sourcekitten
-brew sqlite
-brew starship
-brew swift-protobuf
-brew swiftformat
-brew swiftlint
-brew telnet
-brew terminal-notifier
-brew tig
-brew tldr
-brew tmux
-brew tokei
-brew tree-sitter
-brew unibilium
-brew utf8proc
-brew vapor
-brew vifm
-brew wget
-brew xcbeautify
-brew xclogparser
-brew xcodegen
-brew xz
-brew zstd
+# MARK: Formulas
 
-tap homebrew/bundle
+brew "bat"
+brew "cowsay"
+brew "cpplint"
+brew "direnv"
+brew "duf"
+brew "dust"
+brew "exa"
+brew "fd"
+brew "fortune"
+# NOTE: run `$(brew --prefix)/opt/fzf/install`  in terminal after installation
+brew "fzf"
+brew "git"
+brew "git-delta"
+brew "git-lfs"
+brew "glow"
+brew "highlight"
+brew "htop"
+brew "httpie"
+brew "jq"
+brew "jrnl"
+brew "llvm"
+brew "mas"
+brew "neofetch"
+brew "neovim", args: ["HEAD"]
+brew "node"
+brew "ripgrep"
+brew "shellcheck"
+brew "sourcekitten"
+brew "sqlite"
+brew "starship"
+brew "swiftformat"
+brew "swiftlint"
+brew "telnet"
+brew "tig"
+brew "tldr"
+brew "tmux"
+brew "tokei"
+brew "tree-sitter"
+brew "vapor"
+brew "vifm"
 
-tap homebrew/cask-fonts
-cask font-hack-nerd-font
+# MARK: Fonts
 
-tap homebrew/services
+cask "font-hack-nerd-font"
 
-tap achannarasappa/tap
-brew ticker
+# MARK: Applications
 
-tap peripheryapp/periphery
-cask periphery
+cask "alacritty"
+cask "alfred"
+cask "batteries"
+cask "daisydisk"
+cask "firefox"
+cask "notion"
+cask "proxyman"
+cask "reveal"
+cask "sensei"
+cask "slack"
+cask "via"
+cask "1password"
 
-tap rcmdnk/file
-brew brew-file
-
-tap vapor/tap
+mas "Bear", id: 1091189122
+mas "Kindle", id: 405399194
+mas "RocketSim", id: 1504940162
+mas "Spark", id: 1176895641
+mas "Things", id: 904280696
+mas "1Password for Safari", id: 1569813296
