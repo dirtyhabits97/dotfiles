@@ -28,7 +28,6 @@ brew "jrnl"
 brew "llvm"
 brew "mas"
 brew "neofetch"
-brew "neovim", args: ["HEAD"]
 brew "node"
 brew "ripgrep"
 brew "shellcheck"
@@ -46,6 +45,11 @@ brew "tokei"
 brew "tree-sitter"
 brew "vapor"
 brew "vifm"
+
+# MARK: - Neovim
+
+brew "neovim", args: ["HEAD"]
+brew "lua-language-server"
 
 # MARK: Fonts
 
