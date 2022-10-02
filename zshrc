@@ -118,7 +118,7 @@ fi
 # Flags
 # =====================================
 # https://homebrew-file.readthedocs.io/en/latest/settings.html
-export HOMEBREW_BUNDLE_FILE=~/.config/brewfile/Brewfile.new
+export HOMEBREW_BUNDLE_FILE=~/.config/brewfile/Brewfile
 
 #zprof
 #zmodload -u zsh/zprof
