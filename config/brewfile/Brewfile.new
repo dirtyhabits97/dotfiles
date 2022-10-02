@@ -14,6 +14,7 @@ brew "dust"
 brew "exa"
 brew "fd"
 brew "fortune"
+# NOTE: run `$(brew --prefix)/opt/fzf/install`  in terminal after installation
 brew "fzf"
 brew "git"
 brew "git-delta"
