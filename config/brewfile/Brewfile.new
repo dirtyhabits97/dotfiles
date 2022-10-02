@@ -65,5 +65,7 @@ cask "1password"
 
 mas "Bear", id: 1091189122
 mas "Kindle", id: 405399194
+mas "RocketSim", id: 1504940162
 mas "Spark", id: 1176895641
 mas "Things", id: 904280696
+mas "1Password for Safari", id: 1569813296
