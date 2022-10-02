@@ -45,7 +45,7 @@ brew "tokei"
 brew "vapor"
 brew "vifm"
 
-# MARK: - Neovim
+# MARK: Neovim
 
 brew "neovim", args: ["HEAD"]
 
