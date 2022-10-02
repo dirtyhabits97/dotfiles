@@ -72,7 +72,6 @@ capabilities = require('cmp_nvim_lsp').update_capabilities(capabilities)
 
 -- Swift
 lspconfig.sourcekit.setup {
-  serverPath = '/Applications/Xcode-System.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/sourcekit-lsp',
   filetypes = { 'swift' },
   capabilities = capabilities,
   on_attach = on_attach

@@ -1,12 +1,16 @@
 #zmodload zsh/zprof
 
+# =====================================
+# MARK: - oh-my-zsh
+# =====================================
+
 export ZSH="$HOME/.oh-my-zsh"
 
 DISABLE_UNTRACKED_FILES_DIRTY="true"
 plugins=(zsh-autosuggestions zsh-syntax-highlighting)
 
 # =====================================
-# Slow paste fix
+# NOTE: - Slow paste fix
 # =====================================
 # sources:
 # * https://github.com/zsh-users/zsh-autosuggestions/issues/238#issuecomment-303402980
@@ -23,7 +27,7 @@ zstyle :bracketed-paste-magic paste-init pasteinit
 zstyle :bracketed-paste-magic paste-finish pastefinish
 
 # =====================================
-# Source
+# MARK: - Source
 # =====================================
 
 M1_HOMEBREW_PATH=/opt/homebrew/bin
@@ -33,16 +37,12 @@ source $ZSH/oh-my-zsh.sh
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 # https://www.haskell.org/ghcup/
 [ -f "$HOME/.ghcup/env" ] && source "$HOME/.ghcup/env" 
-# https://homebrew-file.readthedocs.io/en/latest/installation.html
-if [ -f $(brew --prefix)/etc/brew-wrap ];then
-  source $(brew --prefix)/etc/brew-wrap
-fi
 
 export PATH="$HOME/bin:$PATH"
 export PATH="/usr/local/opt/llvm/bin:$PATH"
 
 # =====================================
-# Alias
+# MARK: - Alias
 # =====================================
 
 alias ee="exa --icons"
@@ -52,7 +52,6 @@ alias lt="exa --tree -L 3 --icons"
 alias nn="nvim"
 # source: https://github.com/julienXX/terminal-notifier
 alias notify='terminal-notifier -title "Terminal" -message "Done with task! Exit status: $?"' -activate com.apple.Terminal
-alias stocks="ticker --config=/Users/$(whoami)/.config/ticker.yaml"
 alias tree="exa --tree --icons"
 alias :q="exit"
 alias :Q="exit"
@@ -66,9 +65,9 @@ replace() {
 }
 
 # =====================================
-# Optimizations
+# MARK: - Optimizations
 # =====================================
-# If this is called later, it doesn't work
+# PERF: - If this is called later, it doesn't work
 autoload -Uz compinit
 if [ $(date +'%j') != $(stat -f '%Sm' -t '%j' ~/.zcompdump) ]; then
   compinit
@@ -77,7 +76,7 @@ else
 fi
 
 # =====================================
-# Plugins
+# MARK: - Plugins
 # =====================================
 
 # zsh-autosuggestions
@@ -93,8 +92,9 @@ export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 # Display a small preview window to confirm the file to select.
 # Copied this one from: https://github.com/dduan/dotfiles/blob/master/config/fish/default.nix
 #export FZF_DEFAULT_OPTS="--height 37.5% --reverse --preview 'file {}' --preview-window down:1"
+
 # =====================================
-# Completions
+# MARK: - Completions
 # =====================================
 # https://github.com/apple/swift-argument-parser/pull/123/files
 # https://unix.stackexchange.com/a/240192
@@ -109,7 +109,7 @@ fpath=(~/.zsh/completion $fpath)
 #(jenv rehash &) 2> /dev/null
 
 # =====================================
-# Starship
+# MARK: - Starship
 # =====================================
 eval "$(starship init zsh)"
 eval "$(direnv hook zsh)"
@@ -120,11 +120,15 @@ if [[ -z $TMUX ]]; then
 fi
 
 # =====================================
-# Flags
+# MARK: - Homebrew
 # =====================================
-# https://homebrew-file.readthedocs.io/en/latest/settings.html
-export HOMEBREW_BREWFILE_APPSTORE=0
-export HOMEBREW_BREWFILE_ON_REQUEST=1
+export HOMEBREW_BUNDLE_FILE=~/.config/brewfile/Brewfile
+
+# =====================================
+# MARK: - Gems
+# =====================================
+export GEM_HOME="$(ruby -e 'puts Gem.user_dir')"
+export PATH="$PATH:$GEM_HOME/bin"
 
 #zprof
 #zmodload -u zsh/zprof
