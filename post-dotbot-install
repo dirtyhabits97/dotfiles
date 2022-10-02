@@ -23,7 +23,9 @@ git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:
 # install vim-plug: https://github.com/junegunn/vim-plug
 nvim --headless +PlugInstall +qa
 
-npm install -g diagnostic-languageserver bash-language-server
+npm install -g diagnostic-languageserver 
+npm install -g bash-language-server 
+npm install -g typescript typescript-language-serve
 luarocks install luacheck
 noglob pip3 install python-lsp-server[all]
 
