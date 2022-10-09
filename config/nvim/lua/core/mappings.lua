@@ -92,3 +92,11 @@ local Plugins = function()
   vim.cmd [[:edit ~/.config/nvim/lua/core/plugins.lua]]
 end
 command('Plugins', Plugins)
+
+-- TODO: use one of the helpers
+vim.keymap.set(
+  "",
+  "<leader>l",
+  require('lsp_lines').toggle,
+  { desc = "Toggle lsp_lines" }
+)
