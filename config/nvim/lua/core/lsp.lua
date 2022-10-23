@@ -67,8 +67,7 @@ local on_attach = function(client, bufnr, mainOpts)
 end
 
 -- Integration with autocomplete
-local capabilities = vim.lsp.protocol.make_client_capabilities()
-capabilities = require('cmp_nvim_lsp').update_capabilities(capabilities)
+local capabilities = require('cmp_nvim_lsp').default_capabilities()
 
 -- Swift
 lspconfig.sourcekit.setup {
