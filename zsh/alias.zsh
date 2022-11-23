@@ -18,7 +18,7 @@ startup() {
 }
 
 replace() {
-  rg -l "$1" | xargs sed -i '' -e "s/$1/$2/"
+  rg -l "$1" | xargs -I {} sed -i '' -e "s/$1/$2/" "{}"
 }
 
 gitgo() {
