@@ -13,7 +13,6 @@ return {
 
   -- Code completion
   {
-
     'hrsh7th/nvim-cmp', -- Auto complete
     dependencies = {
       'hrsh7th/vim-vsnip', -- Snippets
@@ -25,7 +24,6 @@ return {
   },
 
   -- Diagnostics
-  'folke/trouble.nvim',
   'https://git.sr.ht/~whynothugo/lsp_lines.nvim',
   'folke/todo-comments.nvim', -- Pretty notes
   -- To install:
@@ -58,7 +56,6 @@ return {
   'tpope/vim-surround', -- Surround text objects
   'tpope/vim-commentary', -- Comment code
   'jiangmiao/auto-pairs', -- Match (, [ and {
-  'ellisonleao/glow.nvim', -- Markdown preview
 
   -- Git
   'tpope/vim-fugitive',
@@ -67,10 +64,7 @@ return {
   'lewis6991/gitsigns.nvim',
 
   -- Colors & Icons
-  {
-    'kyazdani42/nvim-web-devicons',
-    lazy = false,
-  },
+  'kyazdani42/nvim-web-devicons',
   'norcalli/nvim-colorizer.lua',
 
   -- Performance
