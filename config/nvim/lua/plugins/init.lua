@@ -56,14 +56,6 @@ return {
   -- Colors & Icons
   'ryanoasis/vim-devicons',
   'kyazdani42/nvim-web-devicons',
-  -- Can't call onehalf directly,
-  -- issue: https://github.com/folke/lazy.nvim/issues/183
-  {
-    "sonph/onehalf",
-    config = function(plugin)
-      vim.opt.rtp:append(plugin.dir .. "/vim")
-    end,
-  },
   'norcalli/nvim-colorizer.lua',
 
   -- Performance
