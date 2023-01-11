@@ -31,20 +31,6 @@ return {
   'creativenull/diagnosticls-configs-nvim', -- Linters
 
   -- Utils
-  {
-    'preservim/nerdtree', -- File browsing
-    lazy = false,
-    init = function()
-      -- Easier navigation
-      vim.g['NERDTreeMapActivateNode'] = 'l'
-      vim.g['NERDTreeShowBookmarks'] = 1
-      -- workaround for: https://github.com/preservim/nerdtree/issues/1321
-      vim.g['NERDTreeMinimalMenu'] = 1
-    end,
-    dependencies = {
-      'ryanoasis/vim-devicons'
-    }
-  },
   'preservim/nerdcommenter', -- Easier comment
   'christoomey/vim-tmux-navigator', -- Vim + Tmux
   'tpope/vim-surround', -- Surround text objects

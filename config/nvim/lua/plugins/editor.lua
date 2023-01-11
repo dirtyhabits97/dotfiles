@@ -1,6 +1,20 @@
 -- inspired from: https://github.com/LazyVim/LazyVim/blob/main/lua/lazyvim/plugins/editor.lua
 return {
   {
+    'preservim/nerdtree', -- File browsing
+    lazy = false,
+    init = function()
+      -- Easier navigation
+      vim.g['NERDTreeMapActivateNode'] = 'l'
+      vim.g['NERDTreeShowBookmarks'] = 1
+      -- workaround for: https://github.com/preservim/nerdtree/issues/1321
+      vim.g['NERDTreeMinimalMenu'] = 1
+    end,
+    dependencies = {
+      'ryanoasis/vim-devicons'
+    }
+  },
+  {
     'nvim-telescope/telescope.nvim',
     cmd = 'Telescope',
     keys = {
@@ -21,6 +35,9 @@ return {
   {
     'lewis6991/gitsigns.nvim',
     event = 'BufReadPre',
+    keys = {
+      { '<leader>hp', '<cmd>Gitsigns preview_hunk<cr>', desc = 'GitMessenger' }
+    },
     opts = {
       signs = {
         add          = { text = '│' },
