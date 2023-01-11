@@ -1,3 +1,4 @@
+require('core.lazy')
 require('core.plugins')
 require('core.set')
 require('core.mappings')

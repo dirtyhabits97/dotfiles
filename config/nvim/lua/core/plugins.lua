@@ -88,14 +88,5 @@ vim.g['NERDCustomDelimiters'] = {
 -- Align the comments
 vim.g['NERDDefaultAlign'] = 'left'
 
--- FZF
-vim.g['fzf_action'] = {
-  ['ctrl-x'] = 'split',
-  ['ctrl-t'] = 'vsplit',
-}
-vim.g['fzf_layout'] = {
-  window = { width = 0.9, height = 0.6 }
-}
-
 -- Git git-messenger
 vim.g['git_messenger_always_into_popup'] = true
