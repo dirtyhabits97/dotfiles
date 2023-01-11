@@ -1,2 +1,3 @@
-local gitsigns = require('gitsigns')
-gitsigns.setup()
+-- TODO: delete this file
+-- local gitsigns = require('gitsigns')
+-- gitsigns.setup()

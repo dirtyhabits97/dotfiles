@@ -57,7 +57,10 @@ return {
   'tpope/vim-fugitive',
   'rhysd/git-messenger.vim',
   'nvim-lua/plenary.nvim',
-  'lewis6991/gitsigns.nvim',
+  {
+    'lewis6991/gitsigns.nvim',
+    event = 'BufReadPre'
+  },
 
   -- Colors & Icons
   'kyazdani42/nvim-web-devicons',
