@@ -1,70 +1,89 @@
 ------------------------------- Plugins ------------------------------
 
-local Plug = vim.fn['plug#']
+-- TODO: remove this soon
+-- Leader key
+vim.g.mapleader = " "
 
-vim.call('plug#begin', '~/.nvim/plugged')
+local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
+if not vim.loop.fs_stat(lazypath) then
+  vim.fn.system({
+    "git",
+    "clone",
+    "--filter=blob:none",
+    "https://github.com/folke/lazy.nvim.git",
+    "--branch=stable", -- latest stable release
+    lazypath,
+  })
+end
+vim.opt.rtp:prepend(lazypath)
 
--- LSP & Languages
-Plug 'neovim/nvim-lspconfig'              -- LSP integration
-Plug 'ray-x/lsp_signature.nvim'           -- Method signature
-Plug 'keith/swift.vim'                    -- Swift plugin
-Plug 'solarnz/thrift.vim'                 -- Thrift highlight
+require('lazy').setup('plugins')
 
-Plug('nvim-treesitter/nvim-treesitter', { -- Language
-  ['do'] = function()
-    vim.call(':TSUpdate')
-  end
-})
+-- local Plug = vim.fn['plug#']
 
--- Code completion
-Plug 'hrsh7th/nvim-cmp'                   -- Auto complete
-Plug 'hrsh7th/vim-vsnip'                  -- Snippets
-Plug 'hrsh7th/cmp-nvim-lsp'
-Plug 'hrsh7th/cmp-buffer'
-Plug 'hrsh7th/cmp-path'
-Plug 'hrsh7th/cmp-vsnip'
+-- vim.call('plug#begin', '~/.nvim/plugged')
 
--- Diagnostics
-Plug 'folke/trouble.nvim'
-Plug 'https://git.sr.ht/~whynothugo/lsp_lines.nvim'
-Plug 'folke/todo-comments.nvim' -- Pretty notes
--- To install:
--- npm install -g diagnostic-languageserver
-Plug 'iamcco/diagnostic-languageserver'         -- Needed for linters
-Plug 'creativenull/diagnosticls-configs-nvim'   -- Linters
+-- -- LSP & Languages
+-- Plug 'neovim/nvim-lspconfig'              -- LSP integration
+-- Plug 'ray-x/lsp_signature.nvim'           -- Method signature
+-- Plug 'keith/swift.vim'                    -- Swift plugin
+-- Plug 'solarnz/thrift.vim'                 -- Thrift highlight
 
--- Status & Buffer lines
-Plug 'nvim-lualine/lualine.nvim'
-Plug 'akinsho/bufferline.nvim'
-Plug "SmiteshP/nvim-navic"
+-- Plug('nvim-treesitter/nvim-treesitter', { -- Language
+--   ['do'] = function()
+--     vim.call(':TSUpdate')
+--   end
+-- })
 
--- Utils
-Plug 'nvim-telescope/telescope.nvim'
-Plug 'preservim/nerdtree'                 -- File browsing
-Plug 'preservim/nerdcommenter'            -- Easier comment
-Plug 'christoomey/vim-tmux-navigator'     -- Vim + Tmux
-Plug 'tpope/vim-surround'                 -- Surround text objects
-Plug 'tpope/vim-commentary'               -- Comment code
-Plug 'jiangmiao/auto-pairs'               -- Match (, [ and {
-Plug 'ellisonleao/glow.nvim'              -- Markdown preview
+-- -- Code completion
+-- Plug 'hrsh7th/nvim-cmp'                   -- Auto complete
+-- Plug 'hrsh7th/vim-vsnip'                  -- Snippets
+-- Plug 'hrsh7th/cmp-nvim-lsp'
+-- Plug 'hrsh7th/cmp-buffer'
+-- Plug 'hrsh7th/cmp-path'
+-- Plug 'hrsh7th/cmp-vsnip'
 
--- Git
-Plug 'tpope/vim-fugitive'
-Plug 'rhysd/git-messenger.vim'
-Plug 'nvim-lua/plenary.nvim'
-Plug 'lewis6991/gitsigns.nvim'
+-- -- Diagnostics
+-- Plug 'folke/trouble.nvim'
+-- Plug 'https://git.sr.ht/~whynothugo/lsp_lines.nvim'
+-- Plug 'folke/todo-comments.nvim' -- Pretty notes
+-- -- To install:
+-- -- npm install -g diagnostic-languageserver
+-- Plug 'iamcco/diagnostic-languageserver'         -- Needed for linters
+-- Plug 'creativenull/diagnosticls-configs-nvim'   -- Linters
 
--- Colors & Icons
-Plug 'ryanoasis/vim-devicons'
-Plug 'kyazdani42/nvim-web-devicons'
-Plug('sonph/onehalf', { rtp = 'vim' })
-Plug 'norcalli/nvim-colorizer.lua'
+-- -- Status & Buffer lines
+-- Plug 'nvim-lualine/lualine.nvim'
+-- Plug 'akinsho/bufferline.nvim'
+-- Plug "SmiteshP/nvim-navic"
 
--- Performance
-Plug 'lewis6991/impatient.nvim'
-Plug 'dstein64/vim-startuptime'
+-- -- Utils
+-- Plug 'nvim-telescope/telescope.nvim'
+-- Plug 'preservim/nerdtree'                 -- File browsing
+-- Plug 'preservim/nerdcommenter'            -- Easier comment
+-- Plug 'christoomey/vim-tmux-navigator'     -- Vim + Tmux
+-- Plug 'tpope/vim-surround'                 -- Surround text objects
+-- Plug 'tpope/vim-commentary'               -- Comment code
+-- Plug 'jiangmiao/auto-pairs'               -- Match (, [ and {
+-- Plug 'ellisonleao/glow.nvim'              -- Markdown preview
 
-vim.call('plug#end')
+-- -- Git
+-- Plug 'tpope/vim-fugitive'
+-- Plug 'rhysd/git-messenger.vim'
+-- Plug 'nvim-lua/plenary.nvim'
+-- Plug 'lewis6991/gitsigns.nvim'
+
+-- -- Colors & Icons
+-- Plug 'ryanoasis/vim-devicons'
+-- Plug 'kyazdani42/nvim-web-devicons'
+-- Plug('sonph/onehalf', { rtp = 'vim' })
+-- Plug 'norcalli/nvim-colorizer.lua'
+
+-- -- Performance
+-- Plug 'lewis6991/impatient.nvim'
+-- Plug 'dstein64/vim-startuptime'
+
+-- vim.call('plug#end')
 
 ------------------------------- Config ------------------------------
 
