@@ -2,16 +2,27 @@ return {
   -- LSP & Languages
   'neovim/nvim-lspconfig', -- LSP integration
   'ray-x/lsp_signature.nvim', -- Method signature
-  'keith/swift.vim', -- Swift plugin
-  'solarnz/thrift.vim', -- Thrift highlight
+  {
+    'keith/swift.vim', -- Swift plugin
+    ft = 'swift'
+  },
+  {
+    'solarnz/thrift.vim', -- Thrift highlight
+    ft = 'thrift'
+  },
 
   -- Code completion
-  'hrsh7th/nvim-cmp', -- Auto complete
-  'hrsh7th/vim-vsnip', -- Snippets
-  'hrsh7th/cmp-nvim-lsp',
-  'hrsh7th/cmp-buffer',
-  'hrsh7th/cmp-path',
-  'hrsh7th/cmp-vsnip',
+  {
+
+    'hrsh7th/nvim-cmp', -- Auto complete
+    dependencies = {
+      'hrsh7th/vim-vsnip', -- Snippets
+      'hrsh7th/cmp-nvim-lsp',
+      'hrsh7th/cmp-buffer',
+      'hrsh7th/cmp-path',
+      'hrsh7th/cmp-vsnip',
+    }
+  },
 
   -- Diagnostics
   'folke/trouble.nvim',
@@ -37,7 +48,10 @@ return {
       vim.g['NERDTreeShowBookmarks'] = 1
       -- workaround for: https://github.com/preservim/nerdtree/issues/1321
       vim.g['NERDTreeMinimalMenu'] = 1
-    end
+    end,
+    dependencies = {
+      'ryanoasis/vim-devicons'
+    }
   },
   'preservim/nerdcommenter', -- Easier comment
   'christoomey/vim-tmux-navigator', -- Vim + Tmux
@@ -53,8 +67,10 @@ return {
   'lewis6991/gitsigns.nvim',
 
   -- Colors & Icons
-  'ryanoasis/vim-devicons',
-  'kyazdani42/nvim-web-devicons',
+  {
+    'kyazdani42/nvim-web-devicons',
+    lazy = false,
+  },
   'norcalli/nvim-colorizer.lua',
 
   -- Performance
