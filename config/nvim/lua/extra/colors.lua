@@ -1,7 +1,7 @@
 ------------------------------- Theme ------------------------------
 
 vim.go.t_Co = '256'
-vim.cmd('colorscheme onehalfdark')
+vim.cmd('colorscheme tokyonight')
 
 vim.cmd[[
   if exists('+termguicolors')
@@ -12,12 +12,12 @@ vim.cmd[[
 ]]
 
 -- Override colors
-vim.cmd[[
-  highlight Pmenu       guibg=#2c323c guifg=#dcdfe4
-  highlight PmenuSel    guibg=#4b5263
-  highlight PmenuSbar   guibg=#24282c
-  highlight PmenuThumb  guibg=#abb2bf
-]]
+-- vim.cmd[[
+--   highlight Pmenu       guibg=#2c323c guifg=#dcdfe4
+--   highlight PmenuSel    guibg=#4b5263
+--   highlight PmenuSbar   guibg=#24282c
+--   highlight PmenuThumb  guibg=#abb2bf
+-- ]]
 
 -- Colorizer
 require'colorizer'.setup()
