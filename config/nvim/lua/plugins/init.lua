@@ -24,7 +24,6 @@ return {
 
   -- Status & Buffer lines
   'nvim-lualine/lualine.nvim',
-  'akinsho/bufferline.nvim',
   'SmiteshP/nvim-navic',
 
   -- Utils
