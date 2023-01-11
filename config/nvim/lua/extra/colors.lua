@@ -21,4 +21,4 @@ vim.go.t_Co = '256'
 -- ]]
 
 -- Colorizer
-require'colorizer'.setup()
+-- require'colorizer'.setup()

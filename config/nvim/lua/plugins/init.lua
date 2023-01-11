@@ -65,7 +65,6 @@ return {
 
   -- Colors & Icons
   'kyazdani42/nvim-web-devicons',
-  'norcalli/nvim-colorizer.lua',
 
   -- Performance
   'lewis6991/impatient.nvim',
