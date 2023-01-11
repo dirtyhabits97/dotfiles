@@ -5,13 +5,6 @@ return {
   'keith/swift.vim', -- Swift plugin
   'solarnz/thrift.vim', -- Thrift highlight
 
-  {
-    'nvim-treesitter/nvim-treesitter',
-    build = function()
-      vim.call(':TSUpdate')
-    end,
-  },
-
   -- Code completion
   'hrsh7th/nvim-cmp', -- Auto complete
   'hrsh7th/vim-vsnip', -- Snippets
@@ -36,7 +29,18 @@ return {
 
   -- Utils
   'nvim-telescope/telescope.nvim',
-  'preservim/nerdtree', -- File browsing
+  {
+    'preservim/nerdtree', -- File browsing
+    lazy = false,
+    config = function()
+      -- TODO: this doesn't work yet
+      -- Easier navigation
+      vim.g['NERDTreeMapActivateNode'] = 'l'
+      vim.g['NERDTreeShowBookmarks'] = 1
+      -- workaround for: https://github.com/preservim/nerdtree/issues/1321
+      vim.g['NERDTreeMinimalMenu'] = 1
+    end
+  },
   'preservim/nerdcommenter', -- Easier comment
   'christoomey/vim-tmux-navigator', -- Vim + Tmux
   'tpope/vim-surround', -- Surround text objects
