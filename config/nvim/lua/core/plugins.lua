@@ -57,7 +57,8 @@ Plug 'lewis6991/gitsigns.nvim'
 -- Colors & Icons
 Plug 'ryanoasis/vim-devicons'
 Plug 'kyazdani42/nvim-web-devicons'
-Plug('sonph/onehalf', { rtp = 'vim' })
+-- Plug('sonph/onehalf', { rtp = 'vim' })
+Plug 'folke/tokyonight.nvim'
 Plug 'norcalli/nvim-colorizer.lua'
 
 -- Performance

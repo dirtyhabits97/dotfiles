@@ -70,6 +70,9 @@ nnoremap('<leader>fh', [[:Telescope lsp_document_symbols<cr>]])
 -- Easier Trouble
 nnoremap('<C-x>', [[:TroubleToggle<cr>]])
 
+-- Preview hunk from gitsigns
+nnoremap('<leader>hp', [[:Gitsigns preview_hunk<cr>]])
+
 -- Custom commands
 local Reload = function()
   for name, _ in pairs(package.loaded) do
