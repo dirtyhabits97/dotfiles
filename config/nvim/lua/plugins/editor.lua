@@ -31,7 +31,6 @@ return {
       }
     }
   },
-  -- TODO: add a keymap to preview hunk easily
   {
     'lewis6991/gitsigns.nvim',
     event = 'BufReadPre',
