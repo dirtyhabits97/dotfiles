@@ -87,12 +87,6 @@ require('lazy').setup('plugins')
 
 ------------------------------- Config ------------------------------
 
--- Easier navigation
-vim.g['NERDTreeMapActivateNode'] = 'l'
-vim.g['NERDTreeShowBookmarks'] = 1
--- workaround for: https://github.com/preservim/nerdtree/issues/1321
-vim.g['NERDTreeMinimalMenu'] = 1
-
 -- Better comments
 vim.g['NERDCustomDelimiters'] = {
   swift = { left = '// ', right = '' },

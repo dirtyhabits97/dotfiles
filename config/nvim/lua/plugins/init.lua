@@ -32,8 +32,7 @@ return {
   {
     'preservim/nerdtree', -- File browsing
     lazy = false,
-    config = function()
-      -- TODO: this doesn't work yet
+    init = function()
       -- Easier navigation
       vim.g['NERDTreeMapActivateNode'] = 'l'
       vim.g['NERDTreeShowBookmarks'] = 1
