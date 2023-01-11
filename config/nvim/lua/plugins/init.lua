@@ -31,10 +31,6 @@ return {
   'iamcco/diagnostic-languageserver', -- Needed for linters
   'creativenull/diagnosticls-configs-nvim', -- Linters
 
-  -- Status & Buffer lines
-  'nvim-lualine/lualine.nvim',
-  'SmiteshP/nvim-navic',
-
   -- Utils
   'nvim-telescope/telescope.nvim',
   {

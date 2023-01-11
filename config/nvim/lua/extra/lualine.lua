@@ -1,13 +1,14 @@
 -- source: https://github.com/nvim-lualine/lualine.nvim
+-- TODO: delete this file.
 
-local lualine = require('lualine')
-lualine.setup {
-  sections = {
-    lualine_c = {
-      {
-        'filename',
-        path = 1
-      }
-    }
-  }
-}
+-- local lualine = require('lualine')
+-- lualine.setup {
+--   sections = {
+--     lualine_c = {
+--       {
+--         'filename',
+--         path = 1
+--       }
+--     }
+--   }
+-- }
