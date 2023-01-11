@@ -25,7 +25,6 @@ return {
 
   -- Diagnostics
   'https://git.sr.ht/~whynothugo/lsp_lines.nvim',
-  'folke/todo-comments.nvim', -- Pretty notes
   -- To install:
   -- npm install -g diagnostic-languageserver
   'iamcco/diagnostic-languageserver', -- Needed for linters
@@ -55,12 +54,11 @@ return {
 
   -- Git
   'tpope/vim-fugitive',
-  'rhysd/git-messenger.vim',
-  'nvim-lua/plenary.nvim',
   {
-    'lewis6991/gitsigns.nvim',
-    event = 'BufReadPre'
+    'rhysd/git-messenger.vim',
+    cmd = 'GitMessenger'
   },
+  'nvim-lua/plenary.nvim',
 
   -- Colors & Icons
   'kyazdani42/nvim-web-devicons',
