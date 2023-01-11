@@ -1,8 +1,36 @@
 -- inspired from: https://github.com/LazyVim/LazyVim/blob/main/lua/lazyvim/plugins/editor.lua
 return {
   {
+    'nvim-telescope/telescope.nvim',
+    cmd = 'Telescope',
+    keys = {
+      -- TODO: figure out how to set the keybinds here.
+    },
+    opts = {
+      defaults = {
+        mappings = {
+          i = {
+            ["<C-t>"] = 'select_vertical',
+            ["<C-x>"] = 'select_horizontal',
+          }
+        }
+      }
+    }
+  },
+  -- TODO: add a keymap to preview hunk easily
+  {
     'lewis6991/gitsigns.nvim',
-    event = 'BufReadPre'
+    event = 'BufReadPre',
+    opts = {
+      signs = {
+        add          = { text = '│' },
+        change       = { text = '│' },
+        delete       = { text = '_' },
+        topdelete    = { text = '‾' },
+        changedelete = { text = '~' },
+        untracked    = { text = '┆' },
+      },
+    }
   },
   {
     'folke/trouble.nvim',

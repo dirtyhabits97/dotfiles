@@ -31,7 +31,6 @@ return {
   'creativenull/diagnosticls-configs-nvim', -- Linters
 
   -- Utils
-  'nvim-telescope/telescope.nvim',
   {
     'preservim/nerdtree', -- File browsing
     lazy = false,
@@ -53,10 +52,16 @@ return {
   'jiangmiao/auto-pairs', -- Match (, [ and {
 
   -- Git
-  'tpope/vim-fugitive',
+  -- 'tpope/vim-fugitive',
   {
     'rhysd/git-messenger.vim',
-    cmd = 'GitMessenger'
+    cmd = 'GitMessenger',
+    keys = {
+      { '<leader>gm', '<cmd>GitMessenger<cr>', desc = 'GitMessenger' }
+    },
+    init = function()
+      vim.g['git_messenger_always_into_popup'] = true
+    end
   },
   'nvim-lua/plenary.nvim',
 
