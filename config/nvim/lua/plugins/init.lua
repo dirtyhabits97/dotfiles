@@ -60,7 +60,6 @@ return {
   -- issue: https://github.com/folke/lazy.nvim/issues/183
   {
     "sonph/onehalf",
-    lazy = false,
     config = function(plugin)
       vim.opt.rtp:append(plugin.dir .. "/vim")
     end,
