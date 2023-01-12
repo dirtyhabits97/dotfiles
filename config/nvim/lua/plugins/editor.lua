@@ -9,6 +9,15 @@ return {
       vim.g['NERDTreeShowBookmarks'] = 1
       -- workaround for: https://github.com/preservim/nerdtree/issues/1321
       vim.g['NERDTreeMinimalMenu'] = 1
+      -- NOTE: Vim-plug (my previous plugin manager) used to run this code which made NERDTree run fine!
+      -- issue: https://github.com/ryanoasis/vim-devicons/issues/215#issuecomment-708882992
+      vim.cmd [[
+        filetype plugin indent on
+        if has('vim_starting')
+          if has('syntax') && !exists('g:syntax_on')
+            syntax enable
+          end
+      ]]
     end,
     dependencies = {
       'ryanoasis/vim-devicons'
@@ -29,6 +38,9 @@ return {
           }
         }
       }
+    },
+    dependencies = {
+      'nvim-lua/plenary.nvim',
     }
   },
   {

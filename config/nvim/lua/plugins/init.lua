@@ -37,8 +37,6 @@ return {
   'tpope/vim-commentary', -- Comment code
   'jiangmiao/auto-pairs', -- Match (, [ and {
 
-  -- Git
-  'nvim-lua/plenary.nvim',
 
   -- Colors & Icons
   'kyazdani42/nvim-web-devicons',
