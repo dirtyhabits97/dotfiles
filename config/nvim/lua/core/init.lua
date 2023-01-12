@@ -1,4 +1,5 @@
 require('core.lazy')
+require('core.colorscheme')
 require('core.mappings')
 require('core.set')
 require('core.lsp')

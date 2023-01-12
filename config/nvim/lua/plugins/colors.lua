@@ -1,11 +1,19 @@
 return {
   {
     "folke/tokyonight.nvim",
-    lazy = false,
-    priority = 1000,
-    config = function()
-      vim.cmd('colorscheme tokyonight')
-    end,
+    lazy = true,
+  },
+  {
+    "catppuccin/nvim",
+    name = 'catppuccin',
+    lazy = true,
+  },
+  {
+    "navarasu/onedark.nvim",
+    lazy = true,
+    opts = {
+      style = 'cool'
+    }
   },
   {
     "NvChad/nvim-colorizer.lua",
