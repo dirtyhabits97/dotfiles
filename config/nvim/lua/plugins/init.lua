@@ -38,7 +38,7 @@ return {
   'jiangmiao/auto-pairs', -- Match (, [ and {
 
   -- Git
-  -- 'tpope/vim-fugitive',
+  'tpope/vim-fugitive',
   {
     'rhysd/git-messenger.vim',
     cmd = 'GitMessenger',
