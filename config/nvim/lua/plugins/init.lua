@@ -31,7 +31,24 @@ return {
   'creativenull/diagnosticls-configs-nvim', -- Linters
 
   -- Utils
-  'preservim/nerdcommenter', -- Easier comment
+  {
+    'preservim/nerdcommenter', -- Easier comment
+    init = function()
+      -- Better comments
+      vim.g['NERDCustomDelimiters'] = {
+        swift = { left = '// ', right = '' },
+        ruby  = { left = '# ' },
+        bash  = { left = '# ' },
+        lua   = { left = '-- ' },
+        vim   = { left = '" ' },
+        c     = { left = '// ', right = '' },
+        cpp   = { left = '// ', right = '' },
+      }
+
+      -- Align the comments
+      vim.g['NERDDefaultAlign'] = 'left'
+    end
+  },
   'christoomey/vim-tmux-navigator', -- Vim + Tmux
   'tpope/vim-surround', -- Surround text objects
   'tpope/vim-commentary', -- Comment code
