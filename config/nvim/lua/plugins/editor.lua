@@ -32,23 +32,6 @@ return {
     }
   },
   {
-    'lewis6991/gitsigns.nvim',
-    event = 'BufReadPre',
-    keys = {
-      { '<leader>hp', '<cmd>Gitsigns preview_hunk<cr>', desc = 'GitMessenger' }
-    },
-    opts = {
-      signs = {
-        add          = { text = '│' },
-        change       = { text = '│' },
-        delete       = { text = '_' },
-        topdelete    = { text = '‾' },
-        changedelete = { text = '~' },
-        untracked    = { text = '┆' },
-      },
-    }
-  },
-  {
     'folke/trouble.nvim',
     cmd = { "TroubleToggle", "Trouble" },
     opts = {

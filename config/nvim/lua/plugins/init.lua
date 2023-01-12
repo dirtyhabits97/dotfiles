@@ -38,23 +38,8 @@ return {
   'jiangmiao/auto-pairs', -- Match (, [ and {
 
   -- Git
-  'tpope/vim-fugitive',
-  {
-    'rhysd/git-messenger.vim',
-    cmd = 'GitMessenger',
-    keys = {
-      { '<leader>gm', '<cmd>GitMessenger<cr>', desc = 'GitMessenger' }
-    },
-    init = function()
-      vim.g['git_messenger_always_into_popup'] = true
-    end
-  },
   'nvim-lua/plenary.nvim',
 
   -- Colors & Icons
   'kyazdani42/nvim-web-devicons',
-
-  -- Performance
-  'lewis6991/impatient.nvim',
-  'dstein64/vim-startuptime',
 }
