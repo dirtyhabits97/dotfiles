@@ -89,7 +89,7 @@ end
 command('Config', Config)
 
 local Plugins = function()
-  vim.cmd [[:edit ~/.config/nvim/lua/core/plugins.lua]]
+  vim.cmd [[:edit ~/.config/nvim/lua/plugins/init.lua]]
 end
 command('Plugins', Plugins)
 
