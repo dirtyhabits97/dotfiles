@@ -2,6 +2,8 @@
 # https://github.com/apple/swift-argument-parser/pull/123/files
 # https://unix.stackexchange.com/a/240192
 fpath=(~/.zsh/completion $fpath)
+# https://github.com/keith/zsh-xcode-completions
+fpath=(/opt/homebrew/share/zsh/site-functions $fpath)
 
 # MARK: - Plugins
 # zsh-autosuggestions
