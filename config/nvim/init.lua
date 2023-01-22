@@ -8,5 +8,5 @@ if ok then
 end
 
 require('core')
-require('extra')
 require('ide')
+require('pretty')
