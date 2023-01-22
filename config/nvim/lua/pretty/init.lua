@@ -1,2 +1,2 @@
 require('pretty.colorizer')
-require('pretty.nvim-navic')
+require('pretty.nvim_navic')
