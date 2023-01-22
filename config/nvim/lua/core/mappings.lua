@@ -73,29 +73,6 @@ nnoremap('<C-x>', [[:TroubleToggle<cr>]])
 -- Preview hunk from gitsigns
 nnoremap('<leader>hp', [[:Gitsigns preview_hunk<cr>]])
 
--- Custom commands
-local Reload = function()
-  for name, _ in pairs(package.loaded) do
-    if name:match('^core') or name:match('^extra') then
-      package.loaded[name] = nil
-    end
-  end
-
-  dofile(vim.env.MYVIMRC)
-  vim.notify('Nvim coniguration reloaded!', vim.log.levels.INFO)
-end
-command('Reload', Reload)
-
-local Config = function()
-  vim.cmd [[:edit ~/.config/nvim/lua/core/mappings.lua]]
-end
-command('Config', Config)
-
-local Plugins = function()
-  vim.cmd [[:edit ~/.config/nvim/lua/core/plugins.lua]]
-end
-command('Plugins', Plugins)
-
 -- TODO: use one of the helpers
 vim.keymap.set(
   "",
