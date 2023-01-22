@@ -1,5 +1,4 @@
 -- source: https://github.com/akinsho/bufferline.nvim
-
 local bufferline = require("bufferline")
 bufferline.setup {
   options = {
@@ -11,6 +10,19 @@ bufferline.setup {
     -- Not needed if no mouse
     hover = {
       enabled = false
+    }
+  }
+}
+
+-- source: https://github.com/nvim-lualine/lualine.nvim
+local lualine = require('lualine')
+lualine.setup {
+  sections = {
+    lualine_c = {
+      {
+        'filename',
+        path = 1
+      }
     }
   }
 }
