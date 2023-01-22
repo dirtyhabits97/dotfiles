@@ -9,3 +9,4 @@ end
 
 require('core')
 require('extra')
+require('ide')
