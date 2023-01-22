@@ -151,5 +151,5 @@ lspconfig.tsserver.setup {
 -- Expose the on_attach method for other uses
 -- (e.g. linters)
 return {
-  core_on_attach = on_attach
+  lsp_on_attach = on_attach
 }

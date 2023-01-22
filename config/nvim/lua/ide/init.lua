@@ -1,3 +1,4 @@
+require('ide.lsp')
 require('ide.completion')
 require('ide.diagnostics')
 require('ide.git')
