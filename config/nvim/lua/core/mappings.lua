@@ -1,82 +1,59 @@
 ------------------------------- Mappings ------------------------------
 
--- Helpers
-local cmap = function(alias, cmd)
-  vim.api.nvim_set_keymap('c', alias, cmd, {})
-end
-
-local nmap = function(alias, cmd)
-  vim.api.nvim_set_keymap('n', alias, cmd, {})
-end
-
-local vmap = function(alias, cmd)
-  vim.api.nvim_set_keymap('v', alias, cmd, {})
-end
-
-local inoremap = function(alias, cmd)
-  vim.api.nvim_set_keymap('i', alias, cmd, { noremap = true })
-end
-
-local nnoremap = function(alias, cmd)
-  vim.api.nvim_set_keymap('n', alias, cmd, { noremap = true })
-end
-
-local command = function(name, f)
-  vim.api.nvim_create_user_command(name, f, { nargs = 0 })
-end
+local keymap = require('utils.keymap')
 
 -- Leader key
 vim.g.mapleader = " "
 
-nnoremap('<C-n>', [[:NERDTreeToggle<cr>]])
-nnoremap('<C-m>', [[:NERDTreeFind<cr>]])
+keymap.nnoremap('<C-n>', [[:NERDTreeToggle<cr>]])
+keymap.nnoremap('<C-m>', [[:NERDTreeFind<cr>]])
 
 -- Easier code comment
-nmap('<C-_>', [[<Plug>NERDCommenterToggle]])
-vmap('<C-_>', [[<Plug>NERDCommenterToggle<Bar>gv]])
+keymap.nmap('<C-_>', [[<Plug>NERDCommenterToggle]])
+keymap.vmap('<C-_>', [[<Plug>NERDCommenterToggle<Bar>gv]])
 
 -- Easier write and quit
-command('W', [[write]])
-command('Q', [[quit]])
-cmap('Wq', 'wq')
-cmap('WQ', 'wq')
+keymap.command('W', [[write]])
+keymap.command('Q', [[quit]])
+keymap.cmap('Wq', 'wq')
+keymap.cmap('WQ', 'wq')
 
 -- Easier escape
-inoremap('jj', '<ESC>')
-inoremap('kk', '<ESC>')
+keymap.inoremap('jj', '<ESC>')
+keymap.inoremap('kk', '<ESC>')
 
 -- Easier navigation with wrapped lines
-nnoremap('j', 'gj')
-nnoremap('k', 'gk')
+keymap.nnoremap('j', 'gj')
+keymap.nnoremap('k', 'gk')
 
 -- Easier navigation between buffers
-nmap('<leader>1', [[:bp<cr>]])
-nmap('<leader>2', [[:bn<cr>]])
+keymap.nmap('<leader>1', [[:bp<cr>]])
+keymap.nmap('<leader>2', [[:bn<cr>]])
 
 -- Easier merge solving with fugitive
-nmap('<leader>gj', [[:diffget //3<CR>]])
-nmap('<leader>gf', [[:diffget //2<CR>]])
+keymap.nmap('<leader>gj', [[:diffget //3<CR>]])
+keymap.nmap('<leader>gf', [[:diffget //2<CR>]])
 
 -- Easier resize
-nnoremap('<silent><leader>=', [[:exe "vertical resize +5"<CR>]])
-nnoremap('<silent><leader>-', [[:exe "vertical resize -5"<CR>]])
+keymap.nnoremap('<silent><leader>=', [[:exe "vertical resize +5"<CR>]])
+keymap.nnoremap('<silent><leader>-', [[:exe "vertical resize -5"<CR>]])
 
--- Easier FZF
-nnoremap('<leader>ff', [[:Telescope find_files<cr>]])
-nnoremap('<leader>fg', [[:Telescope live_grep<cr>]])
-nnoremap('<leader>fb', [[:Telescope buffers<cr>]])
-nnoremap('<leader>fh', [[:Telescope lsp_document_symbols<cr>]])
+-- Easier Telescope
+keymap.nnoremap('<leader>ff', [[:Telescope find_files<cr>]])
+keymap.nnoremap('<leader>fg', [[:Telescope live_grep<cr>]])
+keymap.nnoremap('<leader>fb', [[:Telescope buffers<cr>]])
+keymap.nnoremap('<leader>fh', [[:Telescope lsp_document_symbols<cr>]])
 
 -- Easier Trouble
-nnoremap('<C-x>', [[:TroubleToggle<cr>]])
+keymap.nnoremap('<C-x>', [[:TroubleToggle<cr>]])
 
 -- Preview hunk from gitsigns
-nnoremap('<leader>hp', [[:Gitsigns preview_hunk<cr>]])
+keymap.nnoremap('<leader>hp', [[:Gitsigns preview_hunk<cr>]])
 
--- TODO: use one of the helpers
-vim.keymap.set(
-  "",
-  "<leader>l",
+-- Easier lsp_lines
+keymap.set(
+  '',
+  '<leader>l',
   require('lsp_lines').toggle,
   { desc = "Toggle lsp_lines" }
 )
