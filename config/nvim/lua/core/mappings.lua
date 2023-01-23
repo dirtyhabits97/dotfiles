@@ -50,10 +50,10 @@ keymap.nnoremap('<C-x>', [[:TroubleToggle<cr>]])
 -- Preview hunk from gitsigns
 keymap.nnoremap('<leader>hp', [[:Gitsigns preview_hunk<cr>]])
 
--- TODO: use one of the helpers
-vim.keymap.set(
-  "",
-  "<leader>l",
+-- Easier lsp_lines
+keymap.set(
+  '',
+  '<leader>l',
   require('lsp_lines').toggle,
   { desc = "Toggle lsp_lines" }
 )

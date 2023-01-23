@@ -1,5 +1,9 @@
 local M = {}
 
+M.set = function(modes, alias, cmd, desc)
+  vim.keymap.set(modes, alias, cmd, { desc = desc })
+end
+
 M.cmap = function(alias, cmd)
   vim.api.nvim_set_keymap('c', alias, cmd, {})
 end
