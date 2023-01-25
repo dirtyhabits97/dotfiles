@@ -21,6 +21,10 @@ replace() {
   rg -l "$1" | xargs -I {} sed -i '' -e "s/$1/$2/" "{}"
 }
 
+delete_line() {
+  rg -l "$1" | xargs -I {} sed -i '' -e "/$1/d" "{}"
+}
+
 gitgo() {
   branches=$(git branch --all | grep -v HEAD)
   branch=$(echo "$branches" | fzf-tmux -d 40 +m)
