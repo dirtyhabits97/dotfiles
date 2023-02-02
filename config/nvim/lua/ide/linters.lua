@@ -18,9 +18,9 @@ dlsconfig.init {
 -- source:
 -- https://github.com/creativenull/diagnosticls-configs-nvim
 dlsconfig.setup {
-  ['cpp'] = {
-    linter = require('diagnosticls-configs.linters.cpplint')
-  },
+  -- ['cpp'] = {
+  --   linter = require('diagnosticls-configs.linters.cpplint')
+  -- },
   ['lua'] = {
     linter = require('diagnosticls-configs.linters.luacheck')
   },
