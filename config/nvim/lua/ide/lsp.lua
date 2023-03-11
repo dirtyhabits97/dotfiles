@@ -61,8 +61,10 @@ local on_attach = function(client, bufnr, mainOpts)
 
   -- Show code context
   if mainOpts == nil or mainOpts.disableCodeContext == false then
-    local navic = require("nvim-navic")
-    navic.attach(client, bufnr)
+    if client.supports_method('textDocument/documentSymbol') then
+      local navic = require("nvim-navic")
+      navic.attach(client, bufnr)
+    end
   end
 end
 
