@@ -9,4 +9,4 @@ end
 
 require('core')
 require('ide')
-require('pretty')
+require('optional')
