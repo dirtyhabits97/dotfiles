@@ -34,7 +34,7 @@ dlsconfig.setup {
     },
     formatter = require('diagnosticls-configs.formatters.swiftformat')
   },
-  ['yaml'] = {
-    linter = require('diagnosticls-configs.linters.yamllint')
-  },
+  -- ['yaml'] = {
+  --   linter = require('diagnosticls-configs.linters.yamllint')
+  -- },
 }
