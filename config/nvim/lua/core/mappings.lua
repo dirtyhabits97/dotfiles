@@ -29,7 +29,7 @@ end
 vim.g.mapleader = " "
 
 nnoremap('<C-n>', [[:NvimTreeToggle<cr>]])
-nnoremap('<C-m>', [[:NvimTreeFindFile<cr>]])
+nnoremap('<C-m>', [[:NvimTreeFindFileToggle<cr>]])
 
 -- Easier code comment
 nmap('<C-_>', [[<Plug>NERDCommenterToggle]])
