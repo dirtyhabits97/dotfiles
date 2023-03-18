@@ -28,8 +28,8 @@ end
 -- Leader key
 vim.g.mapleader = " "
 
-nnoremap('<C-n>', [[:NERDTreeToggle<cr>]])
-nnoremap('<C-m>', [[:NERDTreeFind<cr>]])
+nnoremap('<C-n>', [[:NvimTreeToggle<cr>]])
+nnoremap('<C-m>', [[:NvimTreeFindFile<cr>]])
 
 -- Easier code comment
 nmap('<C-_>', [[<Plug>NERDCommenterToggle]])
