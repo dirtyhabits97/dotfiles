@@ -40,13 +40,13 @@ Plug "SmiteshP/nvim-navic"
 
 -- Utils
 Plug 'nvim-telescope/telescope.nvim'
-Plug 'preservim/nerdtree'                 -- File browsing
 Plug 'preservim/nerdcommenter'            -- Easier comment
 Plug 'christoomey/vim-tmux-navigator'     -- Vim + Tmux
 Plug 'tpope/vim-surround'                 -- Surround text objects
 Plug 'tpope/vim-commentary'               -- Comment code
 Plug 'jiangmiao/auto-pairs'               -- Match (, [ and {
 Plug 'ellisonleao/glow.nvim'              -- Markdown preview
+Plug 'nvim-tree/nvim-tree.lua'
 
 -- Git
 Plug 'tpope/vim-fugitive'

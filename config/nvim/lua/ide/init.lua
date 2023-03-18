@@ -1,3 +1,4 @@
+require('ide.file_explorer')
 require('ide.lsp')
 require('ide.completion')
 require('ide.diagnostics')
