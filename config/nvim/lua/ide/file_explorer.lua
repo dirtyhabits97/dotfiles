@@ -9,6 +9,7 @@ nvim_tree.setup {
         -- Remove / Replace default mappings
         { key = "o", action = "" },
         { key = "<C-t>", action = "vsplit" },
+        { key = "s", action = "vsplit" },
         -- New mappings
         { key = "l", action = "edit" },
         { key = "h", action = "close_node" },
