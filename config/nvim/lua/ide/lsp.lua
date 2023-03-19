@@ -40,10 +40,7 @@ local on_attach = function(client, bufnr, mainOpts)
     buf_set_keymap("n", "<space>f", "<cmd>lua vim.lsp.buf.range_formatting()<CR>", opts)
   end
 
-  -- Set autocommands conditional on server capabilities
-  -- Use supports_method instead, source:
-  -- https://github.com/rafi/vim-config/commit/5ee2e8d8635afb68db5cdb2259f53926494b8478
-  if client.supports_method('textDocument/documentHighlight') then
+  if client.server_capabilities.documentHighlight then
     vim.api.nvim_exec([[
       hi LspReferenceRead cterm=bold ctermbg=red guibg=LightYellow
       hi LspReferenceText cterm=bold ctermbg=red guibg=LightYellow
