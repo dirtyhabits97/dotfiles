@@ -8,6 +8,7 @@ tap "homebrew/cask-fonts"
 # MARK: Formulas
 
 brew "bat"
+brew "bazelisk"
 brew "bloaty"
 brew "cowsay"
 brew "direnv"
