@@ -16,6 +16,7 @@ treesitter.setup {
     "lua",
     "python",
     "ruby",
+    "starlark",
     -- currently, the swift parser is slowing down redraws.
     -- "swift",
     "tsx",
