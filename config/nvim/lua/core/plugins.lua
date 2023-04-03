@@ -6,7 +6,6 @@ vim.call('plug#begin', '~/.nvim/plugged')
 
 -- LSP & Languages
 Plug 'neovim/nvim-lspconfig'              -- LSP integration
-Plug 'ray-x/lsp_signature.nvim'           -- Method signature
 Plug 'keith/swift.vim'                    -- Swift plugin
 Plug 'solarnz/thrift.vim'                 -- Thrift highlight
 
@@ -43,7 +42,6 @@ Plug 'nvim-telescope/telescope.nvim'
 Plug 'preservim/nerdcommenter'            -- Easier comment
 Plug 'christoomey/vim-tmux-navigator'     -- Vim + Tmux
 Plug 'tpope/vim-surround'                 -- Surround text objects
-Plug 'tpope/vim-commentary'               -- Comment code
 Plug 'jiangmiao/auto-pairs'               -- Match (, [ and {
 Plug 'ellisonleao/glow.nvim'              -- Markdown preview
 Plug 'nvim-tree/nvim-tree.lua'
@@ -55,9 +53,7 @@ Plug 'nvim-lua/plenary.nvim'
 Plug 'lewis6991/gitsigns.nvim'
 
 -- Colors & Icons
-Plug 'ryanoasis/vim-devicons'
 Plug 'kyazdani42/nvim-web-devicons'
--- Plug('sonph/onehalf', { rtp = 'vim' })
 Plug 'folke/tokyonight.nvim'
 Plug 'norcalli/nvim-colorizer.lua'
 

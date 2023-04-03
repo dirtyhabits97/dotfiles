@@ -53,9 +53,6 @@ local on_attach = function(client, bufnr, mainOpts)
     ]], false)
   end
 
-  -- Method signature
-  require 'lsp_signature'.on_attach(client, bufnr)
-
   -- Show code context
   if mainOpts == nil or mainOpts.disableCodeContext == false then
     if client.supports_method('textDocument/documentSymbol') then
