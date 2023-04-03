@@ -81,7 +81,6 @@ cask "sensei"
 cask "slack"
 cask "via"
 cask "1password"
-cask "1password/tap/1password-cli"
 
 mas "Bear", id: 1091189122
 mas "Kindle", id: 405399194
