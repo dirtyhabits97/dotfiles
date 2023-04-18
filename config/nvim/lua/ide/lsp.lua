@@ -111,7 +111,7 @@ lspconfig.groovyls.setup {
   cmd = {
     "java",
     "-jar",
-    "/Users/user/other_projects/outside/groovy-language-server/build/libs/groovy-language-server-all.jar"
+    "/Users/gonzalo.reyes/other_projects/groovy-language-server/build/libs/groovy-language-server-all.jar"
   },
   capabilities = capabilities,
   on_attach = on_attach
