@@ -50,6 +50,7 @@ brew "tmux"
 brew "tokei"
 brew "vapor"
 brew "vifm"
+brew "wget"
 brew "yamllint"
 
 # MARK: Neovim
