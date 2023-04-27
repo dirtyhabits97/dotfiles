@@ -55,7 +55,8 @@ brew "yamllint"
 
 # MARK: Neovim
 
-brew "neovim", args: ["HEAD"]
+#brew "neovim", args: ["HEAD"]
+brew "neovim"
 
 brew "cpplint"
 brew "shellcheck"
