@@ -2,6 +2,10 @@
 M1_HOMEBREW_PATH=/opt/homebrew/bin
 [ -d "$M1_HOMEBREW_PATH" ] && export PATH=$M1_HOMEBREW_PATH:$PATH
 
+# Add homebrew's ruby to the PATH.
+#export PATH="/opt/homebrew/opt/ruby@3.0/bin:$PATH"
+export PATH="/opt/homebrew/opt/ruby@3.1/bin:$PATH"
+
 # https://www.haskell.org/ghcup/
 [ -f "$HOME/.ghcup/env" ] && source "$HOME/.ghcup/env" 
 
