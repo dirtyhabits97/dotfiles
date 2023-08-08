@@ -1,2 +1,3 @@
 config/vifm/vifminfo.json
 .DS_Store
+config/brewfile/Brewfile.lock.json
