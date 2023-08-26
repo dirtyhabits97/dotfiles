@@ -53,6 +53,7 @@ vim.cmd [[
   au BufRead,BufNewFile Gemfile         setfiletype ruby
   au BufRead,BufNewFile *.podspec       setfiletype ruby
   au BufRead,BufNewFile Fastfile        setfiletype ruby
+  au BufRead,BufNewFile Brewfile        setfiletype ruby
 
   au BufRead,BufNewFile Jenkinsfile     setfiletype groovy
 
