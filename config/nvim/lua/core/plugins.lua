@@ -70,6 +70,7 @@ vim.g['NERDCustomDelimiters'] = {
   swift = { left = '// ', right = '' },
   ruby  = { left = '# ' },
   bash  = { left = '# ' },
+  zsh   = { left = '# ' },
   lua   = { left = '-- ' },
   vim   = { left = '" ' },
   c     = { left = '// ', right = '' },
