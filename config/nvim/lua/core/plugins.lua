@@ -69,6 +69,7 @@ vim.call('plug#end')
 vim.g['NERDCustomDelimiters'] = {
   swift = { left = '// ', right = '' },
   ruby  = { left = '# ' },
+  sh    = { left = '# ' },
   bash  = { left = '# ' },
   zsh   = { left = '# ' },
   lua   = { left = '-- ' },
