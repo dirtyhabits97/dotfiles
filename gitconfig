@@ -53,7 +53,7 @@
   coma = commit --verbose --amend --no-edit
   comf = commit --verbose --fixup=HEAD
   conf = diff --name-only --diff-filter=U
-  last = diff HEAD^ HEAD
+  last = log -p -1
   last-msg = !git --no-pager log --format=format:%B -1
   pul = pull
   punch = push --force-with-lease
