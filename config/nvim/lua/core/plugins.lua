@@ -88,6 +88,6 @@ vim.g['NERDDefaultAlign'] = 'left'
 vim.g['git_messenger_always_into_popup'] = true
 
 -- Copilot config
--- vim.g.copilot_no_tab_map = true
--- vim.api.nvim_set_keymap("i", "<C-J>", 'copilot#Accept("<CR>")', { silent = true, expr = true })
-vim.g.copilot_assume_mapped = true
+vim.g.copilot_no_tab_map = true
+vim.api.nvim_set_keymap("i", "<C-N>", 'copilot#Accept("<CR>")', { silent = true, expr = true })
+-- vim.g.copilot_assume_mapped = true
