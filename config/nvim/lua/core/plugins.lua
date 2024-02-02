@@ -58,7 +58,7 @@ Plug 'folke/tokyonight.nvim'
 Plug 'norcalli/nvim-colorizer.lua'
 
 -- AI
-Plug 'github/copilot.vim'
+-- Plug 'github/copilot.vim'
 
 -- Performance
 Plug 'lewis6991/impatient.nvim'
