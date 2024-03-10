@@ -1,12 +1,16 @@
+# ==================== Dev env ====================
 [includeIf "gitdir:~/projects/"]
   path = .gitconfig-work.config
 [includeIf "gitdir:~/dotfiles/"]
   path = .gitconfig-dev.config
 [includeIf "gitdir:~/other_projects/"]
   path = .gitconfig-dev.config
+
+# ==================== Misc ====================
 [core]
-  excludesfile = /Users/user/.gitignore_global
+  attributesfile = ~/.gitattributes
   editor = nvim
+  excludesfile = /Users/user/.gitignore_global
   pager = delta
 [init]
   defaultBranch = main
@@ -45,6 +49,9 @@
   newMoved = italic brightblue "#002800"
   oldMovedAlternative = italic brightmagenta "#3f0001"
   newMovedAlternative = italic brightblue "#002800"
+# source: https://juripakaste.fi/swift-git-attributes/
+[diff "swift"]
+  xfuncname = ^[ \t]*(((private |public |internal |final |open )*class|(private |public |internal )*struct|(private |public |internal )*actor|(private |public |internal )*func|(private |public |internal )*extension|(private |public |internal )*enum)[ \t].*)$
 
 [alias]
   # ==================== Shortcuts ====================
