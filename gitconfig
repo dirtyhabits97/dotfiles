@@ -8,7 +8,6 @@
   excludesfile = /Users/user/.gitignore_global
   editor = nvim
   pager = delta
-
 [init]
   defaultBranch = main
 [commit]
@@ -20,24 +19,32 @@
 [rerere]
   enabled = true
 
-# ==================== Nvim ====================
-
-[mergetool "nvim"]
-  cmd = nvim -c \"Gvdiffsplit!\" -f \"$MERGED\"
+# ==================== Merge ====================
 [merge]
   tool = nvim
+[mergetool "nvim"]
+  cmd = nvim -c \"Gvdiffsplit!\" -f \"$MERGED\"
+  trustExitCode = true
 [mergetool]
   prompt = false
+  keepBackup = false
 
-# ==================== Delta ====================
-#
+# ==================== Diff ====================
+[diff]
+  algorithm = histogram
+  colorMoved = zebra
 [interactive]
   diffFilter = delta --color-only --features=interactive
-
 [delta]
   line-numbers = true
   navigate = true
   syntax-theme = OneHalfDark
+[color "diff"]
+  # Using the background from: delta --show-config | grep style
+  oldMoved = italic brightmagenta "#3f0001"
+  newMoved = italic brightblue "#002800"
+  oldMovedAlternative = italic brightmagenta "#3f0001"
+  newMovedAlternative = italic brightblue "#002800"
 
 [alias]
   # ==================== Shortcuts ====================
