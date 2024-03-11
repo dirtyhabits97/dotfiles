@@ -6,6 +6,7 @@
 
 - link:
     ~/bin:
+    ~/.gitattributes:
     ~/.gitconfig:
     ~/.gitconfig-dev.config:
     ~/.lldbinit:
@@ -35,8 +36,8 @@
       path: lldb/scripts
 
 - create:
-  - ~/projects
-  - ~/other_projects
-  - ~/other_projects/lsp
   - ~/lldb
   - ~/logs
+  - ~/mocks
+  - ~/other_projects
+  - ~/projects

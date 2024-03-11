@@ -1,0 +1,8 @@
+# Sources:
+# * https://tekin.co.uk/2020/10/better-git-diff-output-for-ruby-python-elixir-and-more
+# * https://juripakaste.fi/swift-git-attributes/
+*.cpp diff=cpp
+*.md diff=markdown
+*.py diff=python
+*.rb diff=ruby
+*.swift diff=swift
