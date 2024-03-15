@@ -81,6 +81,7 @@ cask "rectangle"
 cask "sensei"
 cask "slack"
 cask "via"
+cask "whatsapp"
 cask "1password"
 
 mas "Bear", id: 1091189122
