@@ -1,13 +1,13 @@
 # MARK: - Alias
 
-alias ee="exa --icons"
+alias ee="eza --icons"
 alias fm="vifm"
-alias ll="exa -l --no-user --icons"
-alias lt="exa --tree -L 3 --icons"
+alias ll="eza -l --no-user --icons"
+alias lt="eza --tree -L 3 --icons"
 alias nn="nvim"
 # source: https://github.com/julienXX/terminal-notifier
 alias notify='terminal-notifier -title "Terminal" -message "Done with task! Exit status: $?"' -activate com.apple.Terminal
-alias tree="exa --tree --icons"
+alias tree="eza --tree --icons"
 alias :q="exit"
 alias :Q="exit"
 

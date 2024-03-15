@@ -15,7 +15,7 @@ brew "cowsay"
 brew "direnv"
 brew "duf"
 brew "dust"
-brew "exa"
+brew "eza"
 brew "fd"
 brew "fortune"
 # NOTE: run `$(brew --prefix)/opt/fzf/install`  in terminal after installation
