@@ -7,6 +7,7 @@ tap "homebrew/cask-fonts"
 
 # MARK: Formulas
 
+brew "aria2"
 brew "bat"
 brew "bazelisk"
 brew "bloaty"
@@ -69,6 +70,7 @@ cask "font-hack-nerd-font"
 
 cask "alacritty"
 cask "alfred"
+cask "bartender"
 cask "batteries"
 cask "daisydisk"
 cask "firefox"
