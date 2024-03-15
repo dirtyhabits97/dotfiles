@@ -25,7 +25,7 @@ nvim --headless +PlugInstall +qa
 
 npm install -g diagnostic-languageserver 
 npm install -g bash-language-server 
-npm install -g typescript typescript-language-serve
+npm install -g typescript typescript-language-server
 luarocks install luacheck
 noglob pip3 install python-lsp-server[all]
 gem install solargraph --user-install
