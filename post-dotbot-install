@@ -26,8 +26,8 @@ nvim --headless +PlugInstall +qa
 npm install -g diagnostic-languageserver 
 npm install -g bash-language-server 
 npm install -g typescript typescript-language-server
-luarocks install luacheck
-noglob pip3 install python-lsp-server[all]
+# luarocks install luacheck
+noglob pip3 install python-lsp-server[all] --break-system-packages
 gem install solargraph --user-install
 
 # MARK: - LLDB
