@@ -14,6 +14,7 @@ treesitter.setup {
     "json",
     "javascript",
     "lua",
+    "make",
     "python",
     "ruby",
     "starlark",
