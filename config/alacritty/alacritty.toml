@@ -1,26 +1,7 @@
-[colors.bright]
-black = "#282c34"
-blue = "#61afef"
-cyan = "#56b6c2"
-green = "#98c379"
-magenta = "#c678dd"
-red = "#e06c75"
-white = "#dcdfe4"
-yellow = "#e5c07b"
-
-[colors.normal]
-black = "#282c34"
-blue = "#61afef"
-cyan = "#56b6c2"
-green = "#98c379"
-magenta = "#c678dd"
-red = "#e06c75"
-white = "#dcdfe4"
-yellow = "#e5c07b"
-
-[colors.primary]
-background = "#282c34"
-foreground = "#dcdfe4"
+import = [
+  "~/.config/alacritty/themes/tokyo-night.toml"
+  #"~/.config/alacritty/themes/onehalf-dark.toml"
+]
 
 [env]
 TERM = "xterm-256color"
