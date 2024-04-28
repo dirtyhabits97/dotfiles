@@ -6,7 +6,7 @@ command alias stop process interrupt
 command regex -h "Toggle a constraint's active property." -s 'tc <constraint_address>' -- tc 's/(0x[0-9a-f]+)/expression -l objc -O -- ((NSLayoutConstraint*) %1).active = !((NSLayoutConstraint*) %1).active/'
 
 # ========================== Scripts ========================== 
-command script import /Applications/Reveal.app/Contents/SharedSupport/Scripts/RevealServerCommands.py
+#command script import /Applications/Reveal.app/Contents/SharedSupport/Scripts/RevealServerCommands.py
 
 command script import ~/lldb/LLDB/lldb_commands/dslldb.py
 command script import ~/lldb/chisel/fblldb.py
