@@ -7,6 +7,10 @@ def __lldb_init_module(debugger, internal_dict):
     )
 
 
+# I found this useful when debugging SwiftUI views in
+# the UI inspector / debugger.
+#
+# 1. Copy a mangled Swift symbol to your pasteboard
+# 2. Upon running this command, it will attempt to demangle said symbol
 def swiftDemangle(debugger, command, result, internal_dict):
-    # TODO: document this
     debugger.HandleCommand('sys pbpaste | xcrun swift-demangle')
