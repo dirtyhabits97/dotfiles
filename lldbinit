@@ -15,10 +15,11 @@ command regex -h "Toggle a constraint's active property." -s 'tc <constraint_add
 # MARK: Debug tools
 
 # Flex: https://github.com/FLEXTool/FLEX
-command alias flex expr -l objc++ -- (void *)dlopen("/Users/user/Library/Developer/Xcode/DerivedData/FLEX-eufwyoqroxqkqiftukawslqouprd/Build/Products/Debug-iphonesimulator/FLEX.framework/FLEX", 0x2)
+command alias flex expr -l objc++ -- (void *)dlopen("/Users/gonzalorehu/Library/Developer/Xcode/DerivedData/HelloDebugTools-ayjputndabnehgbpakxqkxnlifmr/Build/Products/Debug-iphonesimulator/FLEX/FLEX.framework/FLEX", 0x2)
+command alias flex_toggle expr -l objc -- [[FLEXManager sharedManager] toggleExplorer];
 
 # Lookin: https://github.com/hughkli/Lookin/
-command alias look expr -l objc++ -- (void *)dlopen("/Applications/Lookin.app/Contents/Resources/LookinServerFramework/LookinServer.framework/LookinServer", 0x2)
+command alias look expr -l objc++ -- (void *)dlopen("/Users/gonzalorehu/Library/Developer/Xcode/DerivedData/HelloDebugTools-ayjputndabnehgbpakxqkxnlifmr/Build/Products/Debug-iphonesimulator/LookinServer/LookinServer.framework/LookinServer", 0x2)
 
 # Reveal: https://revealapp.com/
 command alias load_reveal expr -l objc++ -- (void *)dlopen("/Users/gonzalorehu/Library/Application Support/Reveal/RevealServer/RevealServer.xcframework/ios-arm64_x86_64-simulator/RevealServer.framework/RevealServer", 0x2)
