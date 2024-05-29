@@ -1,4 +1,4 @@
-vim.go.t_Co = '256'
+-- vim.go.t_Co = '256'
 vim.cmd('colorscheme tokyonight-night')
 
 vim.cmd[[
