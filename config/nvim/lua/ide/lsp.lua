@@ -8,7 +8,6 @@ local lspconfig = require('lspconfig')
 -- @param bufnr the buffer
 -- @param mainOpts disableCodeContext disables nvim-navic context helper
 local on_attach = function(client, bufnr, mainOpts)
-
   local function buf_set_keymap(...) vim.api.nvim_buf_set_keymap(bufnr, ...) end
 
   local function buf_set_option(...) vim.api.nvim_buf_set_option(bufnr, ...) end
@@ -64,10 +63,13 @@ end
 
 -- Integration with autocomplete
 local capabilities = require('cmp_nvim_lsp').default_capabilities()
+local util = require('lspconfig.util')
 
 -- Swift
+-- There's a bug with the default root_dir: https://github.com/neovim/nvim-lspconfig/issues/3191
 lspconfig.sourcekit.setup {
   filetypes = { 'swift' },
+  root_dir = util.root_pattern('Package.swift', 'buildServer.json', 'compile_commands.json', '.git'),
   capabilities = capabilities,
   on_attach = on_attach
 }
