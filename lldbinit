@@ -27,3 +27,10 @@ command alias load_reveal expr -l objc++ -- (void *)dlopen("/Users/gonzalorehu/L
 ### Reveal LLDB commands support - DO NOT MODIFY
 command script import /Users/gonzalorehu/Library/Application\ Support/Reveal/RevealLLDBCommands/reveallldb
 ###
+
+# MARK: Jailbreak config
+# I haven't tested this yet.
+# I've created this "/var/mobile/debug_libs" directory in my jailbroken iphone.
+# I'm storing debugging frameworks such as FLEX and Lookin here
+command alias flex_iphone expr -l objc++ -- (void *)dlopen("/var/mobile/debug_libs/FLEX.framework/FLEX", 0x2)
+command alias look_iphone expr -l objc++ -- (void *)dlopen("/var/mobile/debug_libs/LookinServer.framework/LookinServer", 0x2)
