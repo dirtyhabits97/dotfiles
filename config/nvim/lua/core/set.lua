@@ -41,7 +41,7 @@ set.listchars       = 'eol:¬,tab:>·'
 set.list            = true
 
 -- No mouse
-set.mouse           = nil
+set.mouse           = ""
 
 -- Show code context if available
 set.winbar = "%{%v:lua.require'nvim-navic'.get_location()%}"
