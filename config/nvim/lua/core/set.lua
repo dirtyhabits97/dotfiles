@@ -62,4 +62,6 @@ vim.cmd [[
   au BufRead,BufNewFile gitattributes   setfiletype gitattributes
 
   au BufRead,BufNewFile *.Dockerfile    setfiletype dockerfile
+
+  au BufRead,BufNewFile *.m set filetype=objc
 ]]
