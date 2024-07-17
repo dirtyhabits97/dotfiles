@@ -72,7 +72,8 @@ nnoremap('<leader>xx', '<cmd>Trouble diagnostics toggle<cr>')
 nnoremap('<leader>xX', '<cmd>Trouble diagnostics toggle filter.buf=0<cr>')
 
 -- Preview hunk from gitsigns
-nnoremap('<leader>hp', [[:Gitsigns preview_hunk<cr>]])
+nnoremap('<leader>gb', [[:Git blame<cr>]])
+nnoremap('<leader>gp', [[:Gitsigns preview_hunk<cr>]])
 
 -- TODO: use one of the helpers
 vim.keymap.set(
