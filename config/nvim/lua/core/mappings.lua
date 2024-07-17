@@ -68,7 +68,8 @@ nnoremap('<leader>fb', [[:Telescope buffers<cr>]])
 nnoremap('<leader>fh', [[:Telescope lsp_document_symbols<cr>]])
 
 -- Easier Trouble
-nnoremap('<C-x>', [[:TroubleToggle<cr>]])
+nnoremap('<leader>xx', '<cmd>Trouble diagnostics toggle<cr>')
+nnoremap('<leader>xX', '<cmd>Trouble diagnostics toggle filter.buf=0<cr>')
 
 -- Preview hunk from gitsigns
 nnoremap('<leader>hp', [[:Gitsigns preview_hunk<cr>]])

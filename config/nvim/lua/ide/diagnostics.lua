@@ -1,9 +1,7 @@
 ------------------------------- Diagnostics ------------------------------
 
 local trouble = require('trouble')
-trouble.setup {
-  icons = false, -- use devicons for filenames
-}
+trouble.setup()
 
 -- doc: https://git.sr.ht/~whynothugo/lsp_lines.nvim
 local lsp_lines = require('lsp_lines')
