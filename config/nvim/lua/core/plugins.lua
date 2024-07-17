@@ -61,7 +61,6 @@ Plug 'norcalli/nvim-colorizer.lua'
 -- Plug 'github/copilot.vim'
 
 -- Performance
-Plug 'lewis6991/impatient.nvim'
 Plug 'dstein64/vim-startuptime'
 
 vim.call('plug#end')
