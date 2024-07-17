@@ -62,14 +62,12 @@ nnoremap('<silent><leader>=', [[:exe "vertical resize +5"<CR>]])
 nnoremap('<silent><leader>-', [[:exe "vertical resize -5"<CR>]])
 
 -- Easier FZF
+nnoremap('<leader>fb', [[:Telescope buffers<cr>]])
+nnoremap('<leader>fd', [[:Telescope diagnostics bufnr=0<cr>]])
 nnoremap('<leader>ff', [[:Telescope find_files<cr>]])
 nnoremap('<leader>fg', [[:Telescope live_grep<cr>]])
-nnoremap('<leader>fb', [[:Telescope buffers<cr>]])
-nnoremap('<leader>fh', [[:Telescope lsp_document_symbols<cr>]])
-
--- Easier Trouble
-nnoremap('<leader>xx', '<cmd>Trouble diagnostics toggle<cr>')
-nnoremap('<leader>xX', '<cmd>Trouble diagnostics toggle filter.buf=0<cr>')
+nnoremap('<leader>fr', [[:Telescope lsp_references<cr>]])
+nnoremap('<leader>fs', [[:Telescope lsp_document_symbols<cr>]])
 
 -- Preview hunk from gitsigns
 nnoremap('<leader>gb', [[:Git blame<cr>]])

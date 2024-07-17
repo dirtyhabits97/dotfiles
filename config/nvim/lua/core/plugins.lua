@@ -24,7 +24,6 @@ Plug 'hrsh7th/cmp-path'
 Plug 'hrsh7th/cmp-vsnip'
 
 -- Diagnostics
-Plug 'folke/trouble.nvim'
 Plug 'https://git.sr.ht/~whynothugo/lsp_lines.nvim'
 Plug 'folke/todo-comments.nvim' -- Pretty notes
 -- To install:
