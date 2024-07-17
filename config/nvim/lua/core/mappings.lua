@@ -68,6 +68,7 @@ nnoremap('<leader>ff', [[:Telescope find_files<cr>]])
 nnoremap('<leader>fg', [[:Telescope live_grep<cr>]])
 nnoremap('<leader>fr', [[:Telescope lsp_references<cr>]])
 nnoremap('<leader>fs', [[:Telescope lsp_document_symbols<cr>]])
+nnoremap('<leader>ft', [[:TodoTelescope keywords=TODO,FIX<cr>]])
 
 -- Preview hunk from gitsigns
 nnoremap('<leader>gb', [[:Git blame<cr>]])

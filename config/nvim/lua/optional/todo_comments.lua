@@ -5,10 +5,7 @@ local ok, todo_comments = pcall(require, "todo-comments")
 if ok then
   todo_comments.setup {
     keywords = {
-      MARK = { icon = " ", color = "mark" }
+      MARK = { icon = " ", color = "#a9b1d6" }
     },
-    colors = {
-      mark = { "#61afef" }
-    }
   }
 end
