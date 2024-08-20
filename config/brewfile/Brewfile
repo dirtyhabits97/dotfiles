@@ -2,8 +2,8 @@
 
 # MARK: Taps
 
-tap "vapor/tap"
-tap "homebrew/cask-fonts"
+tap "keith/formulae"
+tap "xcodesorg/made"
 
 # MARK: Formulas
 
@@ -38,7 +38,6 @@ brew "mgba"
 brew "neofetch"
 brew "node"
 brew "ripgrep"
-brew "robotsandpencils/made/xcodes"
 brew "ruby@3.1"
 brew "sqlite"
 brew "starship"
@@ -52,6 +51,7 @@ brew "tmux"
 brew "tokei"
 brew "vifm"
 brew "wget"
+brew "xcodesorg/made/xcodes"
 brew "yamllint"
 
 # MARK: Neovim
