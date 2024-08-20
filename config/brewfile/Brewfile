@@ -52,6 +52,9 @@ brew "tokei"
 brew "vifm"
 brew "wget"
 brew "xcodesorg/made/xcodes"
+# Use xcodeproj with vim
+# related: https://wojciechkulik.pl/ios/the-complete-guide-to-ios-macos-development-in-neovim
+brew "xcode-build-server"
 brew "yamllint"
 
 # MARK: Neovim
