@@ -63,13 +63,10 @@ end
 
 -- Integration with autocomplete
 local capabilities = require('cmp_nvim_lsp').default_capabilities()
-local util = require('lspconfig.util')
 
 -- Swift
--- There's a bug with the default root_dir: https://github.com/neovim/nvim-lspconfig/issues/3191
+-- A bug regarding the root_dir has been fixed: https://github.com/neovim/nvim-lspconfig/pull/3192/files
 lspconfig.sourcekit.setup {
-  filetypes = { 'swift' },
-  root_dir = util.root_pattern('Package.swift', 'buildServer.json', 'compile_commands.json', '.git'),
   capabilities = capabilities,
   on_attach = on_attach
 }
