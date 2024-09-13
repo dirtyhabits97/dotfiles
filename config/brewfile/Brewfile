@@ -59,7 +59,6 @@ brew "yamllint"
 
 # MARK: Neovim
 
-#brew "neovim", args: ["HEAD"]
 brew "neovim"
 
 brew "cpplint"
@@ -75,11 +74,9 @@ cask "font-hack-nerd-font"
 
 cask "alacritty"
 cask "alfred"
-cask "bartender"
 cask "batteries"
 cask "daisydisk"
 cask "firefox"
-cask "google-drive"
 cask "openemu"
 cask "proxyman"
 cask "rectangle"
