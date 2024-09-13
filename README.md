@@ -1,6 +1,18 @@
 # How to install
 
 1. Setup ssh config with github [doc](https://docs.gitlab.com/ee/user/ssh.html)
+```config
+Host github
+  User git
+  Hostname github.com
+  PreferredAuthentications publickey
+  IdentityFile <path_to_identity_file>
+
+Host iphone
+  User mobile
+  Hostname <ip_address>
+```
+
 2. Clone this repo into `$HOME`
 3. Setup [oh-my-zsh](https://ohmyz.sh/#install) (for terminal) and [vim-plug](https://github.com/junegunn/vim-plug) (for neovim)
 
