@@ -8,6 +8,7 @@ tap "xcodesorg/made"
 # MARK: Formulas
 
 brew "aria2"
+brew "ast-grep"
 brew "bat"
 brew "bazelisk"
 brew "bloaty"
