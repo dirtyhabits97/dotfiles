@@ -138,10 +138,11 @@ lspconfig.lua_ls.setup {
 
 -- javascript
 -- install: npm install -g typescript typescript-language-serve
-lspconfig.tsserver.setup {
-  capabilities = capabilities,
-  on_attach = on_attach
-}
+-- TODO: Replace with `ts_ls`. tsserver is deprecated.
+-- lspconfig.tsserver.setup {
+--   capabilities = capabilities,
+--   on_attach = on_attach
+-- }
 
 -- Expose the on_attach method for other uses
 -- (e.g. linters)
