@@ -15,6 +15,7 @@ treesitter.setup {
     "javascript",
     "lua",
     "make",
+    "objc",
     "python",
     "ruby",
     "starlark",
