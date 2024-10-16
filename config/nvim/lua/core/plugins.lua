@@ -1,5 +1,8 @@
 ------------------------------- Plugins ------------------------------
 
+-- WARN:
+-- Prefer :PlugUpdate10 over :PlugUpdate to avoid github limit:
+-- https://github.com/junegunn/vim-plug/issues/1093
 local Plug = vim.fn['plug#']
 
 vim.call('plug#begin', '~/.nvim/plugged')
