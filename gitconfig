@@ -67,7 +67,7 @@
   coma = commit --verbose --amend --no-edit
   comf = commit --verbose --fixup=HEAD
   conf = diff --name-only --diff-filter=U
-  l = log --pretty=format:'%C(blue)%h %C(magenta)%ad %C(reset)| %C(white)%s %C(green)(%an)%C(reset)' --date=short --color
+  l = log --pretty=format:'%C(blue)%h %C(magenta)%ad %C(reset)| %C(blue)%d %C(white)%s %C(green)(%an)%C(reset)' --date=short --color
   last = log -p -1
   last-msg = !git --no-pager log --format=format:%B -1
   pul = pull
