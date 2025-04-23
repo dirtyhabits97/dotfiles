@@ -6,3 +6,4 @@
 *.py diff=python
 *.rb diff=ruby
 *.swift diff=swift
+*.m diff=objc
