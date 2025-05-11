@@ -18,6 +18,7 @@ treesitter.setup {
     "objc",
     "python",
     "ruby",
+    "rust",
     "starlark",
     -- currently, the swift parser is slowing down redraws.
     -- "swift",
