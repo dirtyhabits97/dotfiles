@@ -193,7 +193,7 @@ fileviewer *.flac soxi
 
 " Video
 filetype {*.avi,*.mp4,*.wmv,*.dat,*.3gp,*.ogv,*.mkv,*.mpg,*.mpeg,*.vob,
-         \*.fl[icv],*.m2v,*.mov,*.webm,*.ts,*.mts,*.m4v,*.r[am],*.qt,*.divx,
+         \*.fl[icv],*.m2v,*.mov,*.webm,*.mts,*.m4v,*.r[am],*.qt,*.divx,
          \*.as[fx]},
         \<video/*>
        \ {Open in VLC}
@@ -203,21 +203,21 @@ filetype {*.avi,*.mp4,*.wmv,*.dat,*.3gp,*.ogv,*.mkv,*.mpg,*.mpeg,*.vob,
        \ {Open in MPlayerX}
        \ open -a MPlayerX.app,
 fileviewer {*.avi,*.mp4,*.wmv,*.dat,*.3gp,*.ogv,*.mkv,*.mpg,*.mpeg,*.vob,
-           \*.fl[icv],*.m2v,*.mov,*.webm,*.ts,*.mts,*.m4v,*.r[am],*.qt,*.divx,
+           \*.fl[icv],*.m2v,*.mov,*.webm,*.mts,*.m4v,*.r[am],*.qt,*.divx,
            \*.as[fx]},
           \<video/*>
          \ ffprobe -pretty %c 2>&1
 
 " Web
 filetype {*.html,*.htm},<text/html>
+       \ {Open in nvim}
+       \ nvim,
        \ {Open in Safari}
        \ open -a Safari.app,
        \ {Open in Firefox}
        \ open -a Firefox.app,
        \ {Open in Chrome}
        \ open -a Google\ Chrome.app,
-       \ {Open in vim}
-       \ vim,
 fileviewer {*.html,*.htm},<text/html> w3m -dump -T text/html
 
 " Object
@@ -301,22 +301,8 @@ fileviewer {*.docx},
 " Explicitly set highlight type for some extensions
 "
 " 256-color terminal
-" /usr/local/Cellar/highlight/3.60/share/highlight/themes
-fileviewer *.rb  highlight -O xterm256 -s dusk %c
-fileviewer *.py  highlight -O xterm256 -s dusk %c
-fileviewer *.vim highlight -O xterm256 -s dusk %c
-fileviewer *.lua highlight -O xterm256 -s dusk %c
-fileviewer *.json highlight -O xterm256 -s dusk %c
+fileviewer *.json,*.lua,*.py,*.rb,*.sh,*.swift,*.ts,*.vim highlight -O xterm256 -s base16/rebecca %c
 
-fileviewer *.sh highlight -O xterm256 -s dusk --syntax bash %c
-fileviewer *.swift highlight -O xterm256 -s dusk --syntax swift %c
-" fileviewer *.rb  highlight -O xterm256 -s onehalf %c
-" fileviewer *.py  highlight -O xterm256 -s onehalf %c
-" fileviewer *.vim highlight -O xterm256 -s onehalf %c
-" fileviewer *.lua highlight -O xterm256 -s onehalf %c
-
-" fileviewer *.sh highlight -O xterm256 -s onehalf --syntax bash %c
-" fileviewer *.swift highlight -O xterm256 -s onehalf --syntax swift %c
 " fileviewer *.[ch],*.[ch]pp highlight -O xterm256 -s dante --syntax c %c
 " fileviewer Makefile,Makefile.* highlight -O xterm256 -s dante --syntax make %c
 "
