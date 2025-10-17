@@ -1,7 +1,7 @@
 ------------------------------- LSP ------------------------------
 
 -- source: https://github.com/neovim/nvim-lspconfig
-local lspconfig = require('lspconfig')
+local lspconfig = vim.lsp.config
 
 --- The method that gets called when the language-server is attached
 -- @param client the client to which the language-server will attach
@@ -66,47 +66,53 @@ local capabilities = require('cmp_nvim_lsp').default_capabilities()
 
 -- Swift
 -- A bug regarding the root_dir has been fixed: https://github.com/neovim/nvim-lspconfig/pull/3192/files
-lspconfig.sourcekit.setup {
+lspconfig('sourcekit', {
   capabilities = capabilities,
   on_attach = on_attach
-}
+})
+vim.lsp.enable('sourcekit')
 
 -- Python
 -- https://github.com/python-lsp/python-lsp-server
 -- pip install 'python-language-server[all]'
-lspconfig.pylsp.setup {
+lspconfig('pylsp', {
   capabilities = capabilities,
   on_attach = on_attach
-}
+})
+vim.lsp.enable('pylsp')
 
 -- Ruby
-lspconfig.solargraph.setup {
+lspconfig('solargraph', {
   capabilities = capabilities,
   on_attach = on_attach
-}
+})
+vim.lsp.enable('solargraph')
 
 -- Bash
-lspconfig.bashls.setup {
+lspconfig('bashls', {
   capabilities = capabilities,
   on_attach = on_attach
-}
+})
+vim.lsp.enable('bashls')
 
 -- Haskell
-lspconfig.hls.setup {
+lspconfig('hsl', {
   capabilities = capabilities,
   on_attach = on_attach
-}
+})
+vim.lsp.enable('hsl')
 
 -- Rust
-lspconfig.rust_analyzer.setup {
+lspconfig('rust_analyzer', {
   capabilities = capabilities,
   on_attach = on_attach
-}
+})
+vim.lsp.enable('rust_analyzer')
 
 -- Groovy
 -- source: https://github.com/prominic/groovy-language-server
 -- notes: install jdk-14.0.2, it won't install with jdk-16
-lspconfig.groovyls.setup {
+lspconfig('groovyls', {
   cmd = {
     "java",
     "-jar",
@@ -114,16 +120,17 @@ lspconfig.groovyls.setup {
   },
   capabilities = capabilities,
   on_attach = on_attach
-}
+})
+vim.lsp.enable('groovyls')
 
 -- C
-lspconfig.clangd.setup {
+lspconfig('clangd', {
   capabilities = capabilities,
   on_attach = on_attach
-}
+})
 
 -- Lua
-lspconfig.lua_ls.setup {
+lspconfig('lua_ls', {
   settings = {
     Lua = {
       diagnostics = {
@@ -134,7 +141,8 @@ lspconfig.lua_ls.setup {
   },
   capabilities = capabilities,
   on_attach = on_attach
-}
+})
+vim.lsp.enable('lua_ls')
 
 -- javascript
 -- install: npm install -g typescript typescript-language-serve
@@ -143,6 +151,9 @@ lspconfig.lua_ls.setup {
 --   capabilities = capabilities,
 --   on_attach = on_attach
 -- }
+
+-- proto
+vim.lsp.enable('buf_ls')
 
 -- Expose the on_attach method for other uses
 -- (e.g. linters)
