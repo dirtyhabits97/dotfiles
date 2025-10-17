@@ -90,7 +90,7 @@ cask "whatsapp"
 cask "1password"
 
 mas "Bear", id: 1091189122
-mas "Kindle", id: 405399194
+mas "Kindle", id: 302584613
 mas "RocketSim", id: 1504940162
 mas "Spark", id: 1176895641
 mas "Things", id: 904280696
