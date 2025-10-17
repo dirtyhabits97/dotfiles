@@ -5,6 +5,7 @@
 - clean: ['~']
 
 - link:
+    ~/.aerospace.toml:
     ~/bin:
     ~/.gitattributes:
     ~/.gitconfig:
