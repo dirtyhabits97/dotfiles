@@ -4,6 +4,7 @@
 
 tap "keith/formulae"
 tap "xcodesorg/made"
+tap "sst/tap"
 
 # MARK: Formulas
 
@@ -38,11 +39,11 @@ brew "mas"
 brew "mgba"
 brew "neofetch"
 brew "node"
+brew "opencode"
 brew "ripgrep"
 brew "ruby@3.1"
 brew "sqlite"
 brew "starship"
-brew "sst/tap/opencode"
 brew "swiftformat"
 brew "swiftgen"
 brew "swiftlint"
