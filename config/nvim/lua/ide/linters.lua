@@ -11,7 +11,24 @@ end
 dlsconfig.init {
   on_attach = on_attach,
   root_dir = function(fname)
-    return util.root_pattern '.git' (fname) or util.path.dirname(fname)
+    local fname
+
+    if type(arg) == "number" then
+      -- Neovim 0.11+ (bufnr)
+      fname = vim.api.nvim_buf_get_name(arg)
+    elseif type(arg) == "string" then
+      -- Older / compatibility path
+      fname = arg
+    elseif type(arg) == "table" and arg.bufnr then
+      -- Defensive: some wrappers pass { bufnr = ... }
+      fname = vim.api.nvim_buf_get_name(arg.bufnr)
+    end
+
+    if fname == "" then
+      return nil
+    end
+
+    return util.root_pattern(".git")(fname) or util.path.dirname(fname)
   end,
 }
 
