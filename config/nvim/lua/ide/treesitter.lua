@@ -1,12 +1,9 @@
 ------------------------------- Language ------------------------------
-local treesitter = require('nvim-treesitter.configs')
-treesitter.setup {
-  highlight = {
-    enable = true,
-  },
-  indent = {
-    enable = false,
-  },
+-- nvim-treesitter 1.0 uses a new API (the old nvim-treesitter.configs module was removed)
+-- Add nvim-treesitter/runtime to runtimepath for query files (highlights, folds, etc.)
+vim.opt.runtimepath:append('~/.nvim/plugged/nvim-treesitter/runtime')
+
+require('nvim-treesitter').setup {
   ensure_installed = {
     "bash",
     "c",
@@ -28,3 +25,10 @@ treesitter.setup {
     "yaml",
   },
 }
+
+-- Enable treesitter-based highlighting (built into Neovim 0.10+)
+vim.api.nvim_create_autocmd("FileType", {
+  callback = function()
+    pcall(vim.treesitter.start)
+  end,
+})
