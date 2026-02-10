@@ -72,6 +72,7 @@
   last-msg = !git --no-pager log --format=format:%B -1
   pul = pull
   punch = push --force-with-lease
+  root = rev-parse --show-toplevel
   s = status -sb
   unstage = reset --
   undo = reset --soft HEAD^
