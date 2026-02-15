@@ -144,13 +144,13 @@ lspconfig('lua_ls', {
 })
 vim.lsp.enable('lua_ls')
 
--- javascript
--- install: npm install -g typescript typescript-language-serve
--- TODO: Replace with `ts_ls`. tsserver is deprecated.
--- lspconfig.tsserver.setup {
---   capabilities = capabilities,
---   on_attach = on_attach
--- }
+-- TypeScript/JavaScript
+-- install: npm install -g typescript typescript-language-server
+lspconfig('ts_ls', {
+  capabilities = capabilities,
+  on_attach = on_attach
+})
+vim.lsp.enable('ts_ls')
 
 -- proto
 vim.lsp.enable('buf_ls')
