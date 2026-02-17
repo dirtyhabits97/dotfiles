@@ -80,9 +80,6 @@ require("lazy").setup({
   { 'norcalli/nvim-colorizer.lua', event = 'BufReadPost',
     config = function() require('ui.colorizer') end },
 
-  -- AI
-  -- { 'github/copilot.vim', event = 'InsertEnter' },
-
   -- Performance
   { 'dstein64/vim-startuptime', cmd = 'StartupTime' },
 })
@@ -107,8 +104,3 @@ vim.g['NERDDefaultAlign'] = 'left'
 
 -- Git git-messenger
 vim.g['git_messenger_always_into_popup'] = true
-
--- Copilot config
--- vim.g.copilot_no_tab_map = true
--- vim.api.nvim_set_keymap("i", "<C-N>", 'copilot#Accept("<CR>")', { silent = true, expr = true })
--- vim.g.copilot_assume_mapped = true
