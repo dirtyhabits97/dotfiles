@@ -1,71 +1,88 @@
 ------------------------------- Plugins ------------------------------
 
--- WARN:
--- Prefer :PlugUpdate10 over :PlugUpdate to avoid github limit:
--- https://github.com/junegunn/vim-plug/issues/1093
-local Plug = vim.fn['plug#']
+-- Bootstrap lazy.nvim
+local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
+if not vim.loop.fs_stat(lazypath) then
+  vim.fn.system({
+    "git", "clone", "--filter=blob:none",
+    "https://github.com/folke/lazy.nvim.git",
+    "--branch=stable", lazypath,
+  })
+end
+vim.opt.rtp:prepend(lazypath)
 
-vim.call('plug#begin', '~/.nvim/plugged')
+require("lazy").setup({
+  -- Colorscheme (load immediately)
+  { 'folke/tokyonight.nvim', lazy = false, priority = 1000 },
 
--- LSP & Languages
-Plug 'neovim/nvim-lspconfig'              -- LSP integration
-Plug 'keith/swift.vim'                    -- Swift plugin
-Plug 'solarnz/thrift.vim'                 -- Thrift highlight
+  -- LSP & Languages
+  { 'neovim/nvim-lspconfig', event = 'BufReadPre',
+    config = function() require('ide.lsp') end },
+  { 'keith/swift.vim', ft = 'swift' },
+  { 'solarnz/thrift.vim', ft = 'thrift' },
+  { 'nvim-treesitter/nvim-treesitter', event = 'BufReadPost', build = ':TSUpdate',
+    config = function() require('ide.treesitter') end },
 
-Plug('nvim-treesitter/nvim-treesitter', { -- Language
-  ['do'] = function()
-    vim.call(':TSUpdate')
-  end
+  -- Code completion
+  { 'hrsh7th/nvim-cmp', event = 'InsertEnter',
+    dependencies = {
+      'hrsh7th/vim-vsnip',
+      'hrsh7th/cmp-nvim-lsp',
+      'hrsh7th/cmp-buffer',
+      'hrsh7th/cmp-path',
+      'hrsh7th/cmp-vsnip',
+    },
+    config = function() require('ide.completion') end },
+
+  -- Diagnostics
+  { 'https://git.sr.ht/~whynothugo/lsp_lines.nvim', event = 'LspAttach',
+    config = function() require('ide.diagnostics') end },
+  { 'folke/todo-comments.nvim', event = 'BufReadPost',
+    dependencies = { 'nvim-lua/plenary.nvim' },
+    config = function() require('optional.todo_comments') end },
+  -- To install: npm install -g diagnostic-languageserver
+  { 'iamcco/diagnostic-languageserver', event = 'BufReadPre' },
+  { 'creativenull/diagnosticls-configs-nvim', event = 'BufReadPre',
+    config = function() require('ide.linters') end },
+
+  -- Status & Buffer lines
+  { 'nvim-lualine/lualine.nvim', event = 'VeryLazy',
+    dependencies = { 'akinsho/bufferline.nvim', 'nvim-web-devicons' },
+    config = function() require('ide.statusbars') end },
+  { 'SmiteshP/nvim-navic', event = 'LspAttach',
+    config = function() require('optional.nvim_navic') end },
+
+  -- Utils
+  { 'nvim-telescope/telescope.nvim', cmd = 'Telescope',
+    dependencies = { 'nvim-lua/plenary.nvim' },
+    config = function() require('ide.telescope') end },
+  { 'preservim/nerdcommenter', event = 'BufReadPost' },
+  { 'christoomey/vim-tmux-navigator', event = 'VeryLazy' },
+  { 'tpope/vim-surround', event = 'BufReadPost' },
+  { 'jiangmiao/auto-pairs', event = 'InsertEnter' },
+  { 'ellisonleao/glow.nvim', cmd = 'Glow', ft = 'markdown',
+    config = function() require('optional.glow') end },
+  { 'nvim-tree/nvim-tree.lua', cmd = { 'NvimTreeToggle', 'NvimTreeFindFileToggle' },
+    config = function() require('ide.file_explorer') end },
+
+  -- Git
+  { 'tpope/vim-fugitive', cmd = { 'Git', 'G', 'Gdiff', 'Gblame' } },
+  { 'rhysd/git-messenger.vim', cmd = 'GitMessenger' },
+  { 'nvim-lua/plenary.nvim', lazy = true },
+  { 'lewis6991/gitsigns.nvim', event = 'BufReadPre',
+    config = function() require('ide.git') end },
+
+  -- Colors & Icons
+  { 'kyazdani42/nvim-web-devicons', lazy = true },
+  { 'norcalli/nvim-colorizer.lua', event = 'BufReadPost',
+    config = function() require('optional.colorizer') end },
+
+  -- AI
+  -- { 'github/copilot.vim', event = 'InsertEnter' },
+
+  -- Performance
+  { 'dstein64/vim-startuptime', cmd = 'StartupTime' },
 })
-
--- Code completion
-Plug 'hrsh7th/nvim-cmp'                   -- Auto complete
-Plug 'hrsh7th/vim-vsnip'                  -- Snippets
-Plug 'hrsh7th/cmp-nvim-lsp'
-Plug 'hrsh7th/cmp-buffer'
-Plug 'hrsh7th/cmp-path'
-Plug 'hrsh7th/cmp-vsnip'
-
--- Diagnostics
-Plug 'https://git.sr.ht/~whynothugo/lsp_lines.nvim'
-Plug 'folke/todo-comments.nvim' -- Pretty notes
--- To install:
--- npm install -g diagnostic-languageserver
-Plug 'iamcco/diagnostic-languageserver'         -- Needed for linters
-Plug 'creativenull/diagnosticls-configs-nvim'   -- Linters
-
--- Status & Buffer lines
-Plug 'nvim-lualine/lualine.nvim'
-Plug 'akinsho/bufferline.nvim'
-Plug "SmiteshP/nvim-navic"
-
--- Utils
-Plug 'nvim-telescope/telescope.nvim'
-Plug 'preservim/nerdcommenter'            -- Easier comment
-Plug 'christoomey/vim-tmux-navigator'     -- Vim + Tmux
-Plug 'tpope/vim-surround'                 -- Surround text objects
-Plug 'jiangmiao/auto-pairs'               -- Match (, [ and {
-Plug 'ellisonleao/glow.nvim'              -- Markdown preview
-Plug 'nvim-tree/nvim-tree.lua'
-
--- Git
-Plug 'tpope/vim-fugitive'
-Plug 'rhysd/git-messenger.vim'
-Plug 'nvim-lua/plenary.nvim'
-Plug 'lewis6991/gitsigns.nvim'
-
--- Colors & Icons
-Plug 'kyazdani42/nvim-web-devicons'
-Plug 'folke/tokyonight.nvim'
-Plug 'norcalli/nvim-colorizer.lua'
-
--- AI
--- Plug 'github/copilot.vim'
-
--- Performance
-Plug 'dstein64/vim-startuptime'
-
-vim.call('plug#end')
 
 ------------------------------- Config ------------------------------
 

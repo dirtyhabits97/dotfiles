@@ -74,10 +74,10 @@ nnoremap('<leader>ft', [[:TodoTelescope keywords=TODO,FIX<cr>]])
 nnoremap('<leader>gb', [[:Git blame<cr>]])
 nnoremap('<leader>gp', [[:Gitsigns preview_hunk<cr>]])
 
--- TODO: use one of the helpers
+-- Toggle lsp_lines (deferred to avoid loading plugin at startup)
 vim.keymap.set(
   "",
   "<leader>l",
-  require('lsp_lines').toggle,
+  function() require('lsp_lines').toggle() end,
   { desc = "Toggle lsp_lines" }
 )
