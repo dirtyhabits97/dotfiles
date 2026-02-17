@@ -132,7 +132,7 @@ require("lazy").setup({
     'MeanderingProgrammer/render-markdown.nvim',
     ft = 'markdown',
     dependencies = { 'nvim-treesitter/nvim-treesitter', 'nvim-web-devicons' },
-    config = function() require('ui.render_markdown') end
+    opts = {},
   },
 
   -- Performance
