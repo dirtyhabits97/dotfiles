@@ -128,6 +128,12 @@ require("lazy").setup({
     ft = 'markdown',
     config = function() require('ui.glow') end
   },
+  {
+    'MeanderingProgrammer/render-markdown.nvim',
+    ft = 'markdown',
+    dependencies = { 'nvim-treesitter/nvim-treesitter', 'nvim-web-devicons' },
+    config = function() require('ui.render_markdown') end
+  },
 
   -- Performance
   { 'dstein64/vim-startuptime', cmd = 'StartupTime' },
