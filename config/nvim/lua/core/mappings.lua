@@ -74,10 +74,20 @@ nnoremap('<leader>ft', [[:TodoTelescope keywords=TODO,FIX<cr>]])
 nnoremap('<leader>gb', [[:Git blame<cr>]])
 nnoremap('<leader>gp', [[:Gitsigns preview_hunk<cr>]])
 
--- TODO: use one of the helpers
+-- Toggle lsp_lines (deferred to avoid loading plugin at startup)
 vim.keymap.set(
   "",
   "<leader>l",
-  require('lsp_lines').toggle,
+  function() require('lsp_lines').toggle() end,
   { desc = "Toggle lsp_lines" }
 )
+
+-- Jump between todo comments
+
+vim.keymap.set("n", "]t", function()
+  require("todo-comments").jump_next()
+end, { desc = "Next todo comment" })
+
+vim.keymap.set("n", "[t", function()
+  require("todo-comments").jump_prev()
+end, { desc = "Previous todo comment" })

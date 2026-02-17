@@ -1,3 +1,2 @@
 require('core')
-require('ide')
-require('optional')
+-- ide and optional are now loaded by lazy.nvim plugin configs
