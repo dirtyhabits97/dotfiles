@@ -12,19 +12,26 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup({
-  -- Colorscheme (load immediately)
-  { 'folke/tokyonight.nvim', lazy = false, priority = 1000 },
 
   -- LSP & Languages
-  { 'neovim/nvim-lspconfig', event = 'BufReadPre',
-    config = function() require('ide.lsp') end },
-  { 'keith/swift.vim', ft = 'swift' },
+  {
+    'neovim/nvim-lspconfig',
+    event = 'BufReadPre',
+    config = function() require('ide.lsp') end
+  },
+  { 'keith/swift.vim',    ft = 'swift' },
   { 'solarnz/thrift.vim', ft = 'thrift' },
-  { 'nvim-treesitter/nvim-treesitter', event = 'BufReadPost', build = ':TSUpdate',
-    config = function() require('ide.treesitter') end },
+  {
+    'nvim-treesitter/nvim-treesitter',
+    event = 'BufReadPost',
+    build = ':TSUpdate',
+    config = function() require('ide.treesitter') end
+  },
 
   -- Code completion
-  { 'hrsh7th/nvim-cmp', event = 'InsertEnter',
+  {
+    'hrsh7th/nvim-cmp',
+    event = 'InsertEnter',
     dependencies = {
       'hrsh7th/vim-vsnip',
       'hrsh7th/cmp-nvim-lsp',
@@ -32,53 +39,95 @@ require("lazy").setup({
       'hrsh7th/cmp-path',
       'hrsh7th/cmp-vsnip',
     },
-    config = function() require('ide.completion') end },
+    config = function() require('ide.completion') end
+  },
 
   -- Diagnostics
-  { 'https://git.sr.ht/~whynothugo/lsp_lines.nvim', event = 'LspAttach',
-    config = function() require('ide.diagnostics') end },
-  { 'folke/todo-comments.nvim', event = 'BufReadPost',
+  {
+    'https://git.sr.ht/~whynothugo/lsp_lines.nvim',
+    event = 'LspAttach',
+    config = function() require('ide.diagnostics') end
+  },
+  {
+    'folke/todo-comments.nvim',
+    event = 'BufReadPost',
     dependencies = { 'nvim-lua/plenary.nvim' },
-    config = function() require('ui.todo_comments') end },
+    config = function() require('ui.todo_comments') end
+  },
   -- To install: npm install -g diagnostic-languageserver
   { 'iamcco/diagnostic-languageserver', event = 'BufReadPre' },
-  { 'creativenull/diagnosticls-configs-nvim', event = 'BufReadPre',
-    config = function() require('ide.linters') end },
+  {
+    'creativenull/diagnosticls-configs-nvim',
+    event = 'BufReadPre',
+    config = function() require('ide.linters') end
+  },
 
   -- Status & Buffer lines
-  { 'nvim-lualine/lualine.nvim', event = 'VeryLazy',
+  {
+    'nvim-lualine/lualine.nvim',
+    event = 'VeryLazy',
     dependencies = { 'nvim-web-devicons' },
-    config = function() require('ide.lualine') end },
-  { 'akinsho/bufferline.nvim', event = 'VeryLazy',
+    config = function() require('ide.lualine') end
+  },
+  {
+    'akinsho/bufferline.nvim',
+    event = 'VeryLazy',
     dependencies = { 'nvim-web-devicons' },
-    config = function() require('ide.bufferline') end },
-  { 'SmiteshP/nvim-navic', event = 'LspAttach',
-    config = function() require('ui.nvim_navic') end },
+    config = function() require('ide.bufferline') end
+  },
+  {
+    'SmiteshP/nvim-navic',
+    event = 'LspAttach',
+    config = function() require('ui.nvim_navic') end
+  },
 
-  -- Utils
-  { 'nvim-telescope/telescope.nvim', cmd = 'Telescope',
+  -- Search
+  {
+    'nvim-telescope/telescope.nvim',
+    cmd = 'Telescope',
     dependencies = { 'nvim-lua/plenary.nvim' },
-    config = function() require('ide.telescope') end },
-  { 'preservim/nerdcommenter', event = 'BufReadPost' },
-  { 'christoomey/vim-tmux-navigator', event = 'VeryLazy' },
-  { 'tpope/vim-surround', event = 'BufReadPost' },
-  { 'jiangmiao/auto-pairs', lazy = false },
-  { 'ellisonleao/glow.nvim', cmd = 'Glow', ft = 'markdown',
-    config = function() require('ui.glow') end },
-  { 'nvim-tree/nvim-tree.lua', cmd = { 'NvimTreeToggle', 'NvimTreeFindFileToggle' },
-    config = function() require('ide.file_explorer') end },
+    config = function() require('ide.telescope') end
+  },
+  {
+    'nvim-tree/nvim-tree.lua',
+    cmd = { 'NvimTreeToggle', 'NvimTreeFindFileToggle' },
+    config = function() require('ide.file_explorer') end
+  },
+
+  -- Editing
+  { 'preservim/nerdcommenter',          event = 'BufReadPost' },
+  { 'tpope/vim-surround',               event = 'BufReadPost' },
+  { 'jiangmiao/auto-pairs',             lazy = false },
 
   -- Git
-  { 'tpope/vim-fugitive', cmd = { 'Git', 'G', 'Gdiff', 'Gblame' } },
-  { 'rhysd/git-messenger.vim', cmd = 'GitMessenger' },
-  { 'nvim-lua/plenary.nvim', lazy = true },
-  { 'lewis6991/gitsigns.nvim', event = 'BufReadPre',
-    config = function() require('ide.git') end },
+  { 'tpope/vim-fugitive',               cmd = { 'Git', 'G', 'Gdiff', 'Gblame' } },
+  { 'rhysd/git-messenger.vim',          cmd = 'GitMessenger' },
+  { 'nvim-lua/plenary.nvim',            lazy = true },
+  {
+    'lewis6991/gitsigns.nvim',
+    event = 'BufReadPre',
+    config = function() require('ide.git') end
+  },
+
+  -- Terminal
+  { 'christoomey/vim-tmux-navigator', event = 'VeryLazy' },
 
   -- Colors & Icons
-  { 'kyazdani42/nvim-web-devicons', lazy = true },
-  { 'norcalli/nvim-colorizer.lua', event = 'BufReadPost',
-    config = function() require('ui.colorizer') end },
+  { 'folke/tokyonight.nvim',          lazy = false,      priority = 1000 }, -- load immediately
+  { 'kyazdani42/nvim-web-devicons',   lazy = true },
+  {
+    'norcalli/nvim-colorizer.lua',
+    event = 'BufReadPost',
+    config = function() require('ui.colorizer') end
+  },
+
+  -- Markdown
+  {
+    'ellisonleao/glow.nvim',
+    cmd = 'Glow',
+    ft = 'markdown',
+    config = function() require('ui.glow') end
+  },
 
   -- Performance
   { 'dstein64/vim-startuptime', cmd = 'StartupTime' },
