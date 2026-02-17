@@ -59,7 +59,7 @@ require("lazy").setup({
   { 'preservim/nerdcommenter', event = 'BufReadPost' },
   { 'christoomey/vim-tmux-navigator', event = 'VeryLazy' },
   { 'tpope/vim-surround', event = 'BufReadPost' },
-  { 'jiangmiao/auto-pairs', event = 'InsertEnter' },
+  { 'jiangmiao/auto-pairs', lazy = false },
   { 'ellisonleao/glow.nvim', cmd = 'Glow', ft = 'markdown',
     config = function() require('optional.glow') end },
   { 'nvim-tree/nvim-tree.lua', cmd = { 'NvimTreeToggle', 'NvimTreeFindFileToggle' },
