@@ -152,6 +152,7 @@ vim.g['NERDCustomDelimiters'] = {
   vim   = { left = '" ' },
   c     = { left = '// ', right = '' },
   cpp   = { left = '// ', right = '' },
+  typescript = { left = '// ' }
 }
 
 -- Align the comments
