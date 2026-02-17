@@ -81,3 +81,13 @@ vim.keymap.set(
   function() require('lsp_lines').toggle() end,
   { desc = "Toggle lsp_lines" }
 )
+
+-- Jump between todo comments
+
+vim.keymap.set("n", "]t", function()
+  require("todo-comments").jump_next()
+end, { desc = "Next todo comment" })
+
+vim.keymap.set("n", "[t", function()
+  require("todo-comments").jump_prev()
+end, { desc = "Previous todo comment" })
