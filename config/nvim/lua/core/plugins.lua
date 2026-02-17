@@ -39,7 +39,7 @@ require("lazy").setup({
     config = function() require('ide.diagnostics') end },
   { 'folke/todo-comments.nvim', event = 'BufReadPost',
     dependencies = { 'nvim-lua/plenary.nvim' },
-    config = function() require('optional.todo_comments') end },
+    config = function() require('ui.todo_comments') end },
   -- To install: npm install -g diagnostic-languageserver
   { 'iamcco/diagnostic-languageserver', event = 'BufReadPre' },
   { 'creativenull/diagnosticls-configs-nvim', event = 'BufReadPre',
@@ -47,10 +47,13 @@ require("lazy").setup({
 
   -- Status & Buffer lines
   { 'nvim-lualine/lualine.nvim', event = 'VeryLazy',
-    dependencies = { 'akinsho/bufferline.nvim', 'nvim-web-devicons' },
-    config = function() require('ide.statusbars') end },
+    dependencies = { 'nvim-web-devicons' },
+    config = function() require('ide.lualine') end },
+  { 'akinsho/bufferline.nvim', event = 'VeryLazy',
+    dependencies = { 'nvim-web-devicons' },
+    config = function() require('ide.bufferline') end },
   { 'SmiteshP/nvim-navic', event = 'LspAttach',
-    config = function() require('optional.nvim_navic') end },
+    config = function() require('ui.nvim_navic') end },
 
   -- Utils
   { 'nvim-telescope/telescope.nvim', cmd = 'Telescope',
@@ -61,7 +64,7 @@ require("lazy").setup({
   { 'tpope/vim-surround', event = 'BufReadPost' },
   { 'jiangmiao/auto-pairs', lazy = false },
   { 'ellisonleao/glow.nvim', cmd = 'Glow', ft = 'markdown',
-    config = function() require('optional.glow') end },
+    config = function() require('ui.glow') end },
   { 'nvim-tree/nvim-tree.lua', cmd = { 'NvimTreeToggle', 'NvimTreeFindFileToggle' },
     config = function() require('ide.file_explorer') end },
 
@@ -75,7 +78,7 @@ require("lazy").setup({
   -- Colors & Icons
   { 'kyazdani42/nvim-web-devicons', lazy = true },
   { 'norcalli/nvim-colorizer.lua', event = 'BufReadPost',
-    config = function() require('optional.colorizer') end },
+    config = function() require('ui.colorizer') end },
 
   -- AI
   -- { 'github/copilot.vim', event = 'InsertEnter' },
