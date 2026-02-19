@@ -19,7 +19,7 @@ eval "$(direnv hook zsh)"
 # MARK: - Neofetch
 
 if [[ -z $TMUX ]]; then
-  neofetch
+  fastfetch
 fi
 
 # MARK: - Homebrew
