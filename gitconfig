@@ -1,4 +1,4 @@
-# ==================== Dev env ====================
+# [ Dev env ]
 [includeIf "gitdir:~/projects/"]
   path = .gitconfig-work.config
 [includeIf "gitdir:~/dotfiles/"]
@@ -6,7 +6,7 @@
 [includeIf "gitdir:~/other_projects/"]
   path = .gitconfig-dev.config
 
-# ==================== Misc ====================
+# [ Misc ]
 [core]
   attributesfile = ~/.gitattributes
   editor = nvim
@@ -23,7 +23,7 @@
 [rerere]
   enabled = true
 
-# ==================== Merge ====================
+# [ Merge ]
 [merge]
   tool = nvim
 [mergetool "nvim"]
@@ -33,7 +33,7 @@
   prompt = false
   keepBackup = false
 
-# ==================== Diff ====================
+# [ Diff ]
 [diff]
   algorithm = histogram
   colorMoved = zebra
@@ -54,7 +54,7 @@
   xfuncname = ^[ \t]*(((private |public |internal |final |open )*class|(private |public |internal )*struct|(private |public |internal )*actor|(private |public |internal )*func|(private |public |internal )*extension|(private |public |internal )*enum)[ \t].*)$
 
 [alias]
-  # ==================== Shortcuts ====================
+  # [ Shortcuts ]
   a = add
   aa = add --all
   ap = add -p
@@ -79,14 +79,14 @@
   s = status -sb
   unstage = reset --
   undo = reset --soft HEAD^
-  # ==================== Custom ====================
+  # [ Custom ]
   alias = !git config --list | grep 'alias\\.' | sed 's/alias\\.\\([^=]*\\)=\\(.*\\)/\\1\\t=> \\2/' | sort
   go = "!gitgo"
   ignore = "!f() { echo $1 >> .gitignore; }; f"
   ignored = ! git ls-files --others --ignored --exclude-standard --directory && git ls-files --others -i --exclude-standard
   prune-branches = "!f() { git branch --merged ${1:-main} | grep -v main | grep -v develop | grep -v master | xargs git branch -d; }; f"
   this = !git init && git add . && git commit -m \"Initial commit\"
-  # ==================== Unwatch ====================
+  # [ Unwatch ]
   unwatch = update-index --assume-unchanged
   unwatched = "!git ls-files -v | grep '^[[:lower:]]'"
   watch = update-index --no-assume-unchanged
