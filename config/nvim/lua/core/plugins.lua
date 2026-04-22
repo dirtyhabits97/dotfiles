@@ -100,7 +100,7 @@ require("lazy").setup({
   { 'jiangmiao/auto-pairs',             lazy = false },
 
   -- Git
-  { 'tpope/vim-fugitive',               cmd = { 'Git', 'G', 'Gdiff', 'Gblame' } },
+  { 'tpope/vim-fugitive',               cmd = { 'Git', 'G', 'Gdiff', 'Gdiffsplit', 'Gvdiffsplit', 'Gblame' } },
   { 'rhysd/git-messenger.vim',          cmd = 'GitMessenger' },
   { 'nvim-lua/plenary.nvim',            lazy = true },
   {
