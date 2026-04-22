@@ -1,3 +1,13 @@
-config/vifm/vifminfo.json
+# MacOS
 .DS_Store
+
+# Unix configs
 config/brewfile/Brewfile.lock.json
+config/vifm/vifminfo.json
+
+# AI
+.claude
+log
+package.json
+package-lock.json
+node_modules
