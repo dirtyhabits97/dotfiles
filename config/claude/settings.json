@@ -1,0 +1,11 @@
+{
+  "permissions": {
+    "defaultMode": "plan"
+  },
+  "model": "opus[1m]",
+  "statusLine": {
+    "type": "command",
+    "command": "~/.config/claude/statusline.sh",
+    "padding": 2
+  }
+}
