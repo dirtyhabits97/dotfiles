@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+
 # Minimal Claude Code statusline.
 #   Line 1: folder (bold cyan) + git branch/worktree + lines added/removed
 #   Line 2: tokens used/total (% colored by threshold) | rate limits (when present)

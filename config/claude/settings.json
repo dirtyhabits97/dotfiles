@@ -3,6 +3,18 @@
     "defaultMode": "plan"
   },
   "model": "opus[1m]",
+  "hooks": {
+    "Notification": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "~/.config/claude/bin/notify.sh"
+          }
+        ]
+      }
+    ]
+  },
   "statusLine": {
     "type": "command",
     "command": "~/.config/claude/bin/statusline.sh",
