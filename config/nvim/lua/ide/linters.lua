@@ -10,7 +10,7 @@ end
 
 dlsconfig.init {
   on_attach = on_attach,
-  root_dir = function(fname)
+  root_dir = function(arg)
     local fname
 
     if type(arg) == "number" then

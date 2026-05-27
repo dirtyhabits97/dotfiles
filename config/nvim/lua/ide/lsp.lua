@@ -96,11 +96,11 @@ lspconfig('bashls', {
 vim.lsp.enable('bashls')
 
 -- Haskell
-lspconfig('hsl', {
+lspconfig('hls', {
   capabilities = capabilities,
   on_attach = on_attach
 })
-vim.lsp.enable('hsl')
+vim.lsp.enable('hls')
 
 -- Rust
 lspconfig('rust_analyzer', {
@@ -108,20 +108,6 @@ lspconfig('rust_analyzer', {
   on_attach = on_attach
 })
 vim.lsp.enable('rust_analyzer')
-
--- Groovy
--- source: https://github.com/prominic/groovy-language-server
--- notes: install jdk-14.0.2, it won't install with jdk-16
-lspconfig('groovyls', {
-  cmd = {
-    "java",
-    "-jar",
-    "/Users/gonzalo.reyes/other_projects/groovy-language-server/build/libs/groovy-language-server-all.jar"
-  },
-  capabilities = capabilities,
-  on_attach = on_attach
-})
-vim.lsp.enable('groovyls')
 
 -- C
 lspconfig('clangd', {
