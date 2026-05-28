@@ -2,21 +2,21 @@
 
 # Minimal Claude Code statusline.
 #   Line 1: folder (bold cyan) + git branch/worktree + lines added/removed
-#   Line 2: tokens used/total (% colored by threshold) | rate limits (when present)
+#   Line 2: tokens used/total (%) | cost + session time (dimmed) | rate limits (when present)
 #   Line 3: model + effort (dimmed, hidden when absent)
 #
 # Each segment hides independently when its data is absent. Example renders:
 #
 #   dotfiles  🌱 byted +146 -10
-#   156k / 200k (78%)
+#   156k / 200k (78%) | $0.42 5m
 #   Opus ⚡high
 #
 #   dotfiles  🌱 byted +146 -10
-#   1M / 1M (95%) | 5h:24%  7d:85%
+#   1M / 1M (95%) | $1.20 1h12m | 5h:24%  7d:85%
 #   Opus ⚡max
 #
 #   dotfiles  🌱 byted +146 -10
-#   80k / 200k (40%)
+#   80k / 200k (40%) | $0.08 2m
 #   Sonnet
 #
 # Standard 8-color ANSI so the terminal theme (e.g. Alacritty) controls actual colors.
@@ -40,6 +40,20 @@ fmt_tokens() {
   if   [ "$n" -lt 1000 ];    then printf '%d'  "$n"
   elif [ "$n" -lt 1000000 ]; then printf '%dk' "$((n / 1000))"
   else                            printf '%dM' "$((n / 1000000))"
+  fi
+}
+
+# 0.4231 -> $0.42, 0 -> $0.00.
+fmt_cost() {
+  printf '$%.2f' "$1"
+}
+
+# Milliseconds -> compact duration: 45s, 5m, 1h12m. Strips any fractional ms.
+fmt_duration() {
+  local s=$(( ${1%%.*} / 1000 ))
+  if   [ "$s" -lt 60 ];   then printf '%ds'    "$s"
+  elif [ "$s" -lt 3600 ]; then printf '%dm'    "$((s / 60))"
+  else                         printf '%dh%dm' "$((s / 3600))" "$(((s % 3600) / 60))"
   fi
 }
 
@@ -86,13 +100,16 @@ mapfile -t F < <(
     (.rate_limits.seven_day.used_percentage  // -1),
     .session_id                               // "nosession",
     .model.display_name                       // "",
-    .effort.level                             // ""
+    .effort.level                             // "",
+    (.cost.total_cost_usd                     // 0),
+    (.cost.total_duration_ms                  // 0)
   '
 )
 DIR="${F[0]}"; WORKTREE="${F[1]}"
 TOKENS_USED="${F[2]}"; TOKENS_TOTAL="${F[3]}"; PCT="${F[4]}"
 RATE_5H="${F[5]}"; RATE_7D="${F[6]}"; SESSION_ID="${F[7]}"
 MODEL="${F[8]}"; EFFORT="${F[9]}"
+COST="${F[10]}"; DURATION_MS="${F[11]}"
 
 # --- Git data, cached 5s per session_id (sets BRANCH, ADDED, REMOVED) ---
 load_git_data() {
@@ -142,13 +159,14 @@ render_rate() {
 }
 
 render_usage() {
-  local tokens limits
+  local tokens cost limits
   tokens="$(fmt_tokens "$TOKENS_USED") / $(fmt_tokens "$TOKENS_TOTAL") ($(pct_color "$PCT")${PCT}%${C_RESET})"
+  cost="${C_DIM}| $(fmt_cost "$COST") $(fmt_duration "$DURATION_MS")${C_RESET}"
   limits=$(join_segs "$(render_rate 5h "$RATE_5H")" "$(render_rate 7d "$RATE_7D")")
   if [ -n "$limits" ]; then
-    printf '%b %b|%b %b' "$tokens" "$C_DIM" "$C_RESET" "$limits"
+    printf '%b %b %b|%b %b' "$tokens" "$cost" "$C_DIM" "$C_RESET" "$limits"
   else
-    printf '%b' "$tokens"
+    printf '%b %b' "$tokens" "$cost"
   fi
 }
 
