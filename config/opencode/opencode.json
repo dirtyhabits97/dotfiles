@@ -2,6 +2,45 @@
   "$schema": "https://opencode.ai/config.json",
   "default_agent": "plan",
   "model": "openai/gpt-5.3-codex",
+  "mcp": {
+    "alphaxiv": {
+      "type": "remote",
+      "url": "https://api.alphaxiv.org/mcp/v1",
+      "enabled": true
+    },
+    "notion": {
+      "type": "remote",
+      "url": "https://mcp.notion.com/mcp",
+      "enabled": true
+    },
+    "context7": {
+      "type": "remote",
+      "url": "https://mcp.context7.com/mcp",
+      "enabled": true
+    }
+  },
+  "permission": {
+    "alphaxiv_*": "deny",
+    "notion_*": "deny",
+    "context7_*": "deny"
+  },
+  "agent": {
+    "research": {
+      "description": "Literature and docs research with note capture",
+      "mode": "subagent",
+      "prompt": "You are a research specialist. Use alphaxiv for paper discovery/content and notion for saving summaries, decisions, and action items. Always cite sources and write concise, structured outputs.",
+      "permission": {
+        "alphaxiv_*": "allow",
+        "notion_*": "allow",
+        "read": "allow",
+        "glob": "allow",
+        "grep": "allow",
+        "webfetch": "allow",
+        "edit": "deny",
+        "bash": "deny"
+      }
+    }
+  },
   "provider": {
     "openai": {
       "models": {
