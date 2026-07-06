@@ -1,5 +1,10 @@
 # config: https://starship.rs/config/
 
+[time]
+disabled = false
+format = '[$time]($style) '
+time_format = "%T"
+
 [[battery.display]]
 threshold = 20
 style = "bold red"
