@@ -1,30 +1,32 @@
 {
+  "env": {
+    "CLAUDE_CODE_EXPERIMENTAL_AGENT_TEAMS": "1"
+  },
   "permissions": {
-    "defaultMode": "plan"
+    "defaultMode": "auto"
   },
-  "model": "opus[1m]",
-  "effortLevel": "xhigh",
-  "worktree": {
-    "baseRef": "head"
-  },
+  "model": "fable",
   "hooks": {
     "Notification": [
       {
         "hooks": [
           {
             "type": "command",
-            "command": "~/.config/claude/bin/notify.sh"
+            "command": "~/.claude/bin/notify.sh"
           }
         ]
       }
     ]
   },
+  "worktree": {
+    "baseRef": "head"
+  },
   "statusLine": {
     "type": "command",
-    "command": "~/.config/claude/bin/statusline.sh",
+    "command": "~/.claude/bin/statusline.sh",
     "padding": 2
   },
-  "env": {
-    "CLAUDE_CODE_EXPERIMENTAL_AGENT_TEAMS": "1"
-  }
+  "effortLevel": "medium",
+  "theme": "dark-ansi",
+  "agentPushNotifEnabled": true
 }
