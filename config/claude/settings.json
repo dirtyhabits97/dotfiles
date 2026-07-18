@@ -4,6 +4,9 @@
   },
   "model": "opus[1m]",
   "effortLevel": "xhigh",
+  "worktree": {
+    "baseRef": "head"
+  },
   "hooks": {
     "Notification": [
       {
