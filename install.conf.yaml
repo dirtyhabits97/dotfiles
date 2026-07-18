@@ -32,6 +32,14 @@
       force: true
       path: config/vifm/*
       exclude: [config/vifm/vifminfo.json]
+    # This is a work machine: Claude Code reads from ~/.claude, not ~/.config/claude.
+    # Link only our tracked items so infra-managed files (plugins, telemetry, auth) stay untouched.
+    ~/.claude/settings.json:
+      path: claude/settings.json
+      force: true
+    ~/.claude/bin:
+      path: claude/bin
+      force: true
     ~/lldb/scripts:
       create: true
       path: lldb/scripts
