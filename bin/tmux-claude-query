@@ -1,0 +1,13 @@
+#!/usr/bin/env bash
+
+# Run Claude Code against the personal Max subscription, ignoring the work
+# ANTHROPIC_* env (proxy/base-url/model overrides) that the shell exports.
+# Usage: tmux-claude-query [claude args...]
+env -u ANTHROPIC_AUTH_TOKEN \
+    -u ANTHROPIC_BASE_URL \
+    -u ANTHROPIC_CUSTOM_HEADERS \
+    -u ANTHROPIC_DEFAULT_HAIKU_MODEL \
+    -u ANTHROPIC_DEFAULT_SONNET_MODEL \
+    -u ANTHROPIC_DEFAULT_OPUS_MODEL \
+    -u ANTHROPIC_MODEL \
+    claude --model "sonnet[1m]" --effort "medium" "$@"
