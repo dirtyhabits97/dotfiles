@@ -11,6 +11,11 @@ alias tree="eza --tree --icons"
 alias :q="exit"
 alias :Q="exit"
 
+# Claude Code on the personal Max subscription: drop the work ANTHROPIC_* env
+# overrides (proxy/base-url/model) so it uses subscription auth. ww adds worktree.
+alias cc='env -u ANTHROPIC_AUTH_TOKEN -u ANTHROPIC_BASE_URL -u ANTHROPIC_CUSTOM_HEADERS -u ANTHROPIC_DEFAULT_HAIKU_MODEL -u ANTHROPIC_DEFAULT_SONNET_MODEL -u ANTHROPIC_DEFAULT_OPUS_MODEL -u ANTHROPIC_MODEL claude'
+alias ww='cc --worktree'
+
 # MARK: - Functions
 
 startup() {
