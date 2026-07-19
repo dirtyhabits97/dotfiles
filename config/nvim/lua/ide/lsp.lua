@@ -33,9 +33,9 @@ local on_attach = function(client, bufnr, mainOpts)
 
   -- Set some keybinds conditional on server capabilities
   -- for some reason client.server_capabilities.document_formatting was not working, this fixes it
-  if client.supports_method('textDocument/formatting') then
+  if client:supports_method('textDocument/formatting') then
     buf_set_keymap("n", "<space>f", "<cmd>lua vim.lsp.buf.format { async = true }<CR>", opts)
-  elseif client.supports_method('textDocument/rangeFormatting') then
+  elseif client:supports_method('textDocument/rangeFormatting') then
     buf_set_keymap("n", "<space>f", "<cmd>lua vim.lsp.buf.range_formatting()<CR>", opts)
   end
 
@@ -54,7 +54,7 @@ local on_attach = function(client, bufnr, mainOpts)
 
   -- Show code context
   if mainOpts == nil or mainOpts.disableCodeContext == false then
-    if client.supports_method('textDocument/documentSymbol') then
+    if client:supports_method('textDocument/documentSymbol') then
       local navic = require("nvim-navic")
       navic.attach(client, bufnr)
     end
