@@ -1,4 +1,5 @@
 -- vim.go.t_Co = '256'
+require('tokyonight').setup({ transparent = true }) -- let alacritty opacity show through
 vim.cmd('colorscheme tokyonight-night')
 
 vim.cmd[[
