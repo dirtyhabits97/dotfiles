@@ -46,7 +46,12 @@
 
 highlight clear
 
-highlight Win cterm=none ctermfg=white ctermbg=black
+" Upstream hardcodes white-on-black here (and black-on-white chrome below) so
+" the scheme stays readable on light terminals -- see vifm/vifm#981. We instead
+" use 'default' everywhere, which is -1: the terminal's own fg/bg. That follows
+" whatever `bin/theme` set, keeps alacritty's opacity, and works on light and
+" dark alike. Chrome uses 'reverse' so it inverts with the theme.
+highlight Win cterm=none ctermfg=default ctermbg=default
 highlight Directory cterm=bold ctermfg=cyan ctermbg=default
 highlight Link cterm=bold ctermfg=yellow ctermbg=default
 highlight BrokenLink cterm=bold ctermfg=red ctermbg=default
@@ -57,19 +62,19 @@ highlight Fifo cterm=bold ctermfg=cyan ctermbg=default
 highlight Executable cterm=bold ctermfg=green ctermbg=default
 highlight Selected cterm=bold ctermfg=magenta ctermbg=default
 highlight CurrLine cterm=bold,reverse ctermfg=default ctermbg=default
-highlight TopLine cterm=none ctermfg=black ctermbg=white
-highlight TopLineSel cterm=bold ctermfg=black ctermbg=default
-highlight StatusLine cterm=bold ctermfg=black ctermbg=white
-highlight WildMenu cterm=underline,reverse ctermfg=white ctermbg=black
-highlight CmdLine cterm=none ctermfg=white ctermbg=black
-highlight ErrorMsg cterm=none ctermfg=red ctermbg=black
-highlight Border cterm=none ctermfg=black ctermbg=white
+highlight TopLine cterm=reverse ctermfg=default ctermbg=default
+highlight TopLineSel cterm=bold,reverse ctermfg=default ctermbg=default
+highlight StatusLine cterm=bold,reverse ctermfg=default ctermbg=default
+highlight WildMenu cterm=underline,reverse ctermfg=default ctermbg=default
+highlight CmdLine cterm=none ctermfg=default ctermbg=default
+highlight ErrorMsg cterm=none ctermfg=red ctermbg=default
+highlight Border cterm=reverse ctermfg=default ctermbg=default
 highlight OtherLine ctermfg=default ctermbg=default
-highlight JobLine cterm=bold,reverse ctermfg=black ctermbg=white
+highlight JobLine cterm=bold,reverse ctermfg=default ctermbg=default
 highlight SuggestBox cterm=bold ctermfg=default ctermbg=default
-highlight CmpMismatch cterm=bold ctermfg=white ctermbg=red
+highlight CmpMismatch cterm=bold ctermfg=default ctermbg=red
 highlight AuxWin ctermfg=default ctermbg=default
-highlight TabLine cterm=none ctermfg=white ctermbg=black
+highlight TabLine cterm=none ctermfg=default ctermbg=default
 highlight TabLineSel cterm=bold,reverse ctermfg=default ctermbg=default
 highlight User1 ctermfg=default ctermbg=default
 highlight User2 ctermfg=default ctermbg=default

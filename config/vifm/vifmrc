@@ -60,9 +60,12 @@ set vimhelp
 
 set norunexec
 
-" List of color schemes to try (picks the first one supported by the terminal)
-
-"colorscheme Default-256 Default
+" List of color schemes to try (picks the first one supported by the terminal).
+" Without this vifm uses its compiled-in colors and never reads
+" colors/Default.vifm -- see vifm/vifm#981. Don't add Default-256 as a
+" fallback: that name resolves to the *system* scheme, which hardcodes a
+" black background again.
+colorscheme Default
 
 " Format for displaying time in file list. For example:
 " TIME_STAMP_FORMAT=%m/%d-%H:%M
