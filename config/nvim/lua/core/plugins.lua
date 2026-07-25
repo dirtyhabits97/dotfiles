@@ -113,9 +113,17 @@ require("lazy").setup({
   { 'christoomey/vim-tmux-navigator', event = 'VeryLazy' },
 
   -- Colors & Icons
-  -- Colorschemes: both installed so `theme` can switch between them (see core/color.lua)
-  { 'catppuccin/nvim', name = 'catppuccin', lazy = false, priority = 1000 }, -- load immediately
-  { 'folke/tokyonight.nvim',          lazy = false,      priority = 1000 },
+  -- Colorschemes: all installed so `theme` can switch between them (see
+  -- core/color.lua). Lazy — core/color.lua loads exactly the one in use.
+  { 'catppuccin/nvim', name = 'catppuccin', lazy = true },
+  { 'folke/tokyonight.nvim',          lazy = true },
+  { 'rose-pine/neovim', name = 'rose-pine', lazy = true },
+  -- theme lives in a vim/ subdir upstream, hence the rtp append
+  {
+    'sonph/onehalf',
+    lazy = true,
+    config = function(plugin) vim.opt.rtp:append(plugin.dir .. '/vim') end
+  },
   { 'kyazdani42/nvim-web-devicons',   lazy = true },
   {
     'norcalli/nvim-colorizer.lua',

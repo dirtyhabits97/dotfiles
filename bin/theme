@@ -18,10 +18,44 @@ themes_dir="$HOME/.config/alacritty/themes"
 state_dir="$HOME/.local/state"
 current=$(cat "$state_dir/theme" 2>/dev/null || true)
 
+# '#rrggbb' -> the SGR escape that paints it. $1 is 38 (fg) or 48 (bg); the
+# result lands in $_sgr because $(...) would fork once per color.
+sgr() {
+  local h=${2#\#}
+  printf -v _sgr '\e[%s;2;%d;%d;%dm' "$1" "0x${h:0:2}" "0x${h:2:2}" "0x${h:4:2}"
+}
+
 if [[ $# -eq 0 ]]; then
   for f in "$themes_dir"/*.toml; do
-    name=$(basename "$f" .toml)
-    [[ $name == "$current" ]] && echo "* $name" || echo "  $name"
+    name=${f##*/}; name=${name%.toml}   # ponytail: basename forks, this doesn't
+    [[ $name == "$current" ]] && marker='*' || marker=' '
+
+    if [[ ! -t 1 || -n ${NO_COLOR:-} ]]; then
+      printf '%s %s\n' "$marker" "$name"
+      continue
+    fi
+
+    # Section-aware: 'black'/'blue' also live under [colors.bright], and
+    # 'background' under [colors.footer_bar], [colors.selection], ...
+    section= bg= fg= swatch=
+    while IFS= read -r line; do
+      case $line in
+        \#*) continue ;;
+        \[*) section=${line#[}; section=${section%%]*} ;;
+        *=*)
+          key=${line%%=*};  key=${key// /}
+          val=${line#*=};   val=${val//[\'\" ]/}
+          case $section.$key in
+            colors.primary.background) bg=$val ;;
+            colors.primary.foreground) fg=$val ;;
+            colors.normal.*) sgr 48 "$val"; swatch+="$_sgr  " ;;  # file order = ANSI order
+          esac ;;
+      esac
+    done < "$f"
+
+    sgr 48 "$bg"; pill=$_sgr
+    sgr 38 "$fg"; pill+=$_sgr
+    printf '%s %s %-20s \e[0m %s\e[0m\n' "$marker" "$pill" "$name" "$swatch"
   done
   exit 0
 fi
