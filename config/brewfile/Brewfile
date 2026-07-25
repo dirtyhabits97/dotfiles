@@ -2,9 +2,15 @@
 
 # MARK: Taps
 
-tap "keith/formulae"
-tap "xcodesorg/made"
-tap "sst/tap"
+# NOTE: since Homebrew 6.0.0 third-party taps must be trusted explicitly.
+# Trust only the items we actually use, not the whole tap.
+tap "keith/formulae", trusted: { formula: "zsh-xcode-completions" }
+tap "xcodesorg/made", trusted: { formula: "xcodes" }
+tap "sst/tap", trusted: { formula: "opencode" }
+# whole tap: upgrading ipsw also loads sibling formulae (ipsw-frida)
+tap "blacktop/tap", trusted: true
+tap "teamookla/speedtest", trusted: { formula: "speedtest" }
+tap "nikitabobko/tap", trusted: { cask: "aerospace" }
 
 # MARK: Formulas
 
@@ -89,7 +95,7 @@ cask "firefox"
 cask "nikitabobko/tap/aerospace"
 cask "openemu"
 cask "proxyman"
-cask "sensei"
+# cask "sensei"
 cask "slack"
 cask "via"
 cask "whatsapp"
