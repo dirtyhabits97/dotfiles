@@ -58,6 +58,14 @@ for _, fox in ipairs({ 'nightfox', 'duskfox', 'nordfox', 'terafox', 'carbonfox',
   end
 end
 
+for _, theme in ipairs({ 'wave', 'dragon', 'lotus' }) do
+  themes['kanagawa-' .. theme] = function()
+    vim.o.background = theme == 'lotus' and 'light' or 'dark'
+    require('kanagawa').setup({ theme = theme, transparent = true })
+    return 'kanagawa-' .. theme
+  end
+end
+
 local state = vim.fn.expand('~/.local/state/theme')
 local name = vim.fn.filereadable(state) == 1 and vim.trim(vim.fn.readfile(state)[1] or '') or ''
 

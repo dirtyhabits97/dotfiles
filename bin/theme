@@ -38,7 +38,7 @@ if [[ $# -eq 0 ]]; then
   # family:glob, in display order. The globs can't be derived from the names:
   # the nightfox family shares a suffix, and the base variants (rose-pine,
   # tokyo-night) have none. Themes matching nothing print last, ungrouped.
-  groups='catppuccin:catppuccin-* nightfox:*fox rose-pine:rose-pine* tokyo-night:tokyo-night*'
+  groups='catppuccin:catppuccin-* kanagawa:kanagawa-* nightfox:*fox rose-pine:rose-pine* tokyo-night:tokyo-night*'
 
   names=() rows=() taken=()
   for f in "$themes_dir"/*.toml; do

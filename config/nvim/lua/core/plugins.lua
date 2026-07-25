@@ -119,6 +119,7 @@ require("lazy").setup({
   { 'folke/tokyonight.nvim',          lazy = true },
   { 'rose-pine/neovim', name = 'rose-pine', lazy = true },
   { 'EdenEast/nightfox.nvim',         lazy = true },
+  { 'rebelot/kanagawa.nvim',          lazy = true },
   -- theme lives in a vim/ subdir upstream, hence the rtp append
   {
     'sonph/onehalf',
