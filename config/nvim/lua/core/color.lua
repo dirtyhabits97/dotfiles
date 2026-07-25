@@ -49,6 +49,15 @@ for _, variant in ipairs({ 'main', 'moon', 'dawn' }) do
   end
 end
 
+-- nightfox names its colorschemes exactly like the alacritty files it ships
+for _, fox in ipairs({ 'nightfox', 'duskfox', 'nordfox', 'terafox', 'carbonfox', 'dayfox', 'dawnfox' }) do
+  themes[fox] = function()
+    vim.o.background = (fox == 'dayfox' or fox == 'dawnfox') and 'light' or 'dark'
+    require('nightfox').setup({ options = { transparent = true } })
+    return fox
+  end
+end
+
 local state = vim.fn.expand('~/.local/state/theme')
 local name = vim.fn.filereadable(state) == 1 and vim.trim(vim.fn.readfile(state)[1] or '') or ''
 

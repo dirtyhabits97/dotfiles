@@ -26,14 +26,24 @@ sgr() {
 }
 
 if [[ $# -eq 0 ]]; then
+  # Plain list when piped, so `theme | grep` stays scriptable.
+  if [[ ! -t 1 || -n ${NO_COLOR:-} ]]; then
+    for f in "$themes_dir"/*.toml; do
+      name=${f##*/}; name=${name%.toml}
+      [[ $name == "$current" ]] && printf '* %s\n' "$name" || printf '  %s\n' "$name"
+    done
+    exit 0
+  fi
+
+  # family:glob, in display order. The globs can't be derived from the names:
+  # the nightfox family shares a suffix, and the base variants (rose-pine,
+  # tokyo-night) have none. Themes matching nothing print last, ungrouped.
+  groups='catppuccin:catppuccin-* nightfox:*fox rose-pine:rose-pine* tokyo-night:tokyo-night*'
+
+  names=() rows=() taken=()
   for f in "$themes_dir"/*.toml; do
     name=${f##*/}; name=${name%.toml}   # ponytail: basename forks, this doesn't
     [[ $name == "$current" ]] && marker='*' || marker=' '
-
-    if [[ ! -t 1 || -n ${NO_COLOR:-} ]]; then
-      printf '%s %s\n' "$marker" "$name"
-      continue
-    fi
 
     # Section-aware: 'black'/'blue' also live under [colors.bright], and
     # 'background' under [colors.footer_bar], [colors.selection], ...
@@ -55,7 +65,24 @@ if [[ $# -eq 0 ]]; then
 
     sgr 48 "$bg"; pill=$_sgr
     sgr 38 "$fg"; pill+=$_sgr
-    printf '%s %s %-20s \e[0m %s\e[0m\n' "$marker" "$pill" "$name" "$swatch"
+    printf -v row '%s %s %-20s \e[0m %s\e[0m' "$marker" "$pill" "$name" "$swatch"
+    names+=("$name"); rows+=("$row")
+  done
+
+  for g in $groups; do
+    fam=${g%%:*} pat=${g#*:} shown=
+    for i in "${!names[@]}"; do
+      [[ -z ${taken[i]:-} && ${names[i]} == $pat ]] || continue
+      [[ -n $shown ]] || { printf '\e[1m%s\e[0m\n' "$fam"; shown=1; }
+      taken[i]=1
+      printf '  %s\n' "${rows[i]}"
+    done
+  done
+  loose=
+  for i in "${!names[@]}"; do   # whatever isn't part of a family
+    [[ -z ${taken[i]:-} ]] || continue
+    [[ -n $loose ]] || { printf '\e[1mothers\e[0m\n'; loose=1; }
+    printf '  %s\n' "${rows[i]}"
   done
   exit 0
 fi
