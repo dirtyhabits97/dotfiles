@@ -70,6 +70,7 @@ brew "xcodesorg/made/xcodes"
 # related: https://wojciechkulik.pl/ios/the-complete-guide-to-ios-macos-development-in-neovim
 brew "xcode-build-server"
 brew "yamllint"
+brew "yt-dlp"
 
 # MARK: Neovim
 
@@ -93,6 +94,7 @@ cask "codex"
 cask "daisydisk"
 cask "firefox"
 cask "nikitabobko/tap/aerospace"
+cask "notion"
 cask "openemu"
 cask "proxyman"
 # cask "sensei"
