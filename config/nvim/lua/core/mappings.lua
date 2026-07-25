@@ -70,6 +70,16 @@ nnoremap('<leader>fr', [[:Telescope lsp_references<cr>]])
 nnoremap('<leader>fs', [[:Telescope lsp_document_symbols<cr>]])
 nnoremap('<leader>ft', [[:TodoTelescope keywords=TODO,FIX<cr>]])
 
+-- Yank paths to the system clipboard (like vifm's `yd` / `yf`)
+-- Leader-prefixed so bare `yf<char>` still works as yank-to-char.
+vim.keymap.set("n", "<leader>yd", function()
+  vim.fn.setreg('+', vim.fn.expand('%:p:h'))
+end, { desc = "Yank directory path" })
+
+vim.keymap.set("n", "<leader>yf", function()
+  vim.fn.setreg('+', vim.fn.expand('%:p'))
+end, { desc = "Yank file path" })
+
 -- Preview hunk from gitsigns
 nnoremap('<leader>gb', [[:Git blame<cr>]])
 nnoremap('<leader>gp', [[:Gitsigns preview_hunk<cr>]])
