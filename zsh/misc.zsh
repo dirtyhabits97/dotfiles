@@ -13,8 +13,19 @@ bindkey '^N' autosuggest-accept
 
 # MARK: - Starship
 
-eval "$(starship init zsh)"
-eval "$(direnv hook zsh)"
+# PERF: - The output of `starship init` / `direnv hook` only changes when the
+# binary updates, so source a cached copy instead of spawning them every shell
+# (~35ms each). The cache regenerates whenever the binary is newer than it.
+evalcache() {
+  local cache=~/.cache/zsh/$1.zsh
+  if [[ ! -r $cache || $commands[$1] -nt $cache ]]; then
+    mkdir -p ~/.cache/zsh
+    "$@" > $cache
+  fi
+  source $cache
+}
+evalcache starship init zsh
+evalcache direnv hook zsh
 
 # MARK: - Neofetch
 
@@ -28,8 +39,8 @@ export HOMEBREW_BUNDLE_FILE=~/.config/brewfile/Brewfile
 
 # MARK: - Gems
 
-export GEM_HOME="$(ruby -e 'puts Gem.user_dir')"
-export PATH="$PATH:$GEM_HOME/bin"
+#export GEM_HOME="$(ruby -e 'puts Gem.user_dir')"
+#export PATH="$PATH:$GEM_HOME/bin"
 
 # =====================================
 # Environments

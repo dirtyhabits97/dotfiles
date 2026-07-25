@@ -47,7 +47,7 @@ if [[ $# -eq 0 ]]; then
 
     # Section-aware: 'black'/'blue' also live under [colors.bright], and
     # 'background' under [colors.footer_bar], [colors.selection], ...
-    section= bg= fg= swatch=
+    section='' bg='' fg='' swatch=''
     while IFS= read -r line; do
       case $line in
         \#*) continue ;;
@@ -72,6 +72,7 @@ if [[ $# -eq 0 ]]; then
   for g in $groups; do
     fam=${g%%:*} pat=${g#*:} shown=
     for i in "${!names[@]}"; do
+      # shellcheck disable=SC2053  # $pat is a glob on purpose -- that's the match
       [[ -z ${taken[i]:-} && ${names[i]} == $pat ]] || continue
       [[ -n $shown ]] || { printf '\e[1m%s\e[0m\n' "$fam"; shown=1; }
       taken[i]=1
