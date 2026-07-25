@@ -112,6 +112,7 @@ set statusline="  Hint: %z%= %A %10u:%-7g %15s %20d  "
 
 " :mark mark /full/directory/path [filename]
 
+mark d ~/dotfiles
 mark h ~/
 
 " ------------------------------------------------------------------------------
@@ -350,6 +351,9 @@ set vifminfo=dhistory,savedirs,chistory,state,tui,shistory,
 
 " Start shell in current directory
 nnoremap s :shell<cr>
+
+" Git UI for the current directory
+nnoremap ,g :!tig<cr>
 
 " Display sorting dialog
 nnoremap S :sort<cr>
