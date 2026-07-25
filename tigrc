@@ -2,6 +2,21 @@
 
 # tig has no vim-style count prefixes (5j), so half-page hops stand in for them.
 bind generic g move-first-line
-bind generic G move-last-line
 bind generic J move-half-page-down
 bind generic K move-half-page-up
+
+# MARK: - Main view
+
+# Short hash first, like the `git l` alias. Toggle at runtime with X.
+set main-view = id date:custom,format="%Y-%m-%d" author:full commit-title:graph=v2,refs=yes,overflow=no
+
+# MARK: - Colors
+
+# Named colors only: these resolve to ANSI 0-7, which alacritty remaps from
+# themes/tokyo-night.toml — so tig follows the terminal theme for free.
+# The defaults put dim white on blue/green; tokyo-night's blue and green are
+# light, so dark text on them is what actually reads.
+color cursor        black       green
+color title-focus   black       blue        bold
+color title-blur    black       white
+color status        default     default
