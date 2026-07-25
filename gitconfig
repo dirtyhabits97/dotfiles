@@ -42,7 +42,9 @@
 [delta]
   line-numbers = true
   navigate = true
-  syntax-theme = Catppuccin Mocha
+# syntax-theme is written by `bin/theme`; missing file is silently ignored
+[include]
+  path = ~/.local/state/theme.gitconfig
 [color "diff"]
   # Using the background from: delta --show-config | grep style
   oldMoved = italic brightmagenta "#3f0001"

@@ -113,7 +113,9 @@ require("lazy").setup({
   { 'christoomey/vim-tmux-navigator', event = 'VeryLazy' },
 
   -- Colors & Icons
-  { 'folke/tokyonight.nvim',          lazy = false,      priority = 1000 }, -- load immediately
+  -- Colorschemes: both installed so `theme` can switch between them (see core/color.lua)
+  { 'catppuccin/nvim', name = 'catppuccin', lazy = false, priority = 1000 }, -- load immediately
+  { 'folke/tokyonight.nvim',          lazy = false,      priority = 1000 },
   { 'kyazdani42/nvim-web-devicons',   lazy = true },
   {
     'norcalli/nvim-colorizer.lua',

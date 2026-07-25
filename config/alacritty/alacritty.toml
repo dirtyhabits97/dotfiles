@@ -40,7 +40,7 @@ key = "Slash"
 mods = "Control"
 
 [general]
+# Written by `bin/theme` — switch with e.g. `theme tokyo-night`.
 import = [
-  "~/.config/alacritty/themes/tokyo-night.toml"
-  #"~/.config/alacritty/themes/onehalf-dark.toml"
+  "~/.local/state/theme.toml"
 ]

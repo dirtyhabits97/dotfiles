@@ -1,0 +1,50 @@
+#!/usr/bin/env bash
+#
+# Switch the terminal colorscheme without editing tracked dotfiles.
+#
+# Themes live in ~/.config/alacritty/themes/*.toml (tracked). The *choice* lives
+# in ~/.local/state/ (untracked), so experimenting never dirties the repo:
+#
+#   ~/.local/state/theme.toml       copy of the chosen theme; alacritty imports
+#                                   it and live-reloads when it changes
+#   ~/.local/state/theme            the plain name; read by nvim at startup
+#   ~/.local/state/theme.gitconfig  delta's syntax-theme; included by ~/.gitconfig
+#
+#   theme                       list themes, * marks the current one
+#   theme catppuccin-mocha      switch
+set -euo pipefail
+
+themes_dir="$HOME/.config/alacritty/themes"
+state_dir="$HOME/.local/state"
+current=$(cat "$state_dir/theme" 2>/dev/null || true)
+
+if [[ $# -eq 0 ]]; then
+  for f in "$themes_dir"/*.toml; do
+    name=$(basename "$f" .toml)
+    [[ $name == "$current" ]] && echo "* $name" || echo "  $name"
+  done
+  exit 0
+fi
+
+target="$themes_dir/$1.toml"
+[[ -f $target ]] || { echo "no such theme: $1 (run 'theme' to list)" >&2; exit 1; }
+
+mkdir -p "$state_dir"
+# ponytail: copy, not symlink — alacritty's file watcher reacts to content changes
+cp "$target" "$state_dir/theme.toml"
+printf '%s\n' "$1" > "$state_dir/theme"
+
+# delta's syntax theme, for the ~/.gitconfig include. Names come from
+# `delta --list-syntax-themes`. Anything unlisted falls back to the terminal's
+# own ANSI colors, so a new theme file needs no entry here.
+case "$1" in
+  catppuccin-latte)     delta_theme="Catppuccin Latte" ;;
+  catppuccin-frappe)    delta_theme="Catppuccin Frappe" ;;
+  catppuccin-macchiato) delta_theme="Catppuccin Macchiato" ;;
+  catppuccin-mocha)     delta_theme="Catppuccin Mocha" ;;
+  onehalf-dark)         delta_theme="OneHalfDark" ;;
+  *)                    delta_theme="ansi" ;;
+esac
+printf '[delta]\n\tsyntax-theme = %s\n' "$delta_theme" > "$state_dir/theme.gitconfig"
+
+echo "theme -> $1 (alacritty + delta reload now; restart nvim to pick it up)"
