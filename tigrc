@@ -1,0 +1,7 @@
+# MARK: - Navigation
+
+# tig has no vim-style count prefixes (5j), so half-page hops stand in for them.
+bind generic g move-first-line
+bind generic G move-last-line
+bind generic J move-half-page-down
+bind generic K move-half-page-up

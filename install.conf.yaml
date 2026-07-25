@@ -11,6 +11,7 @@
     ~/.gitconfig:
     ~/.gitconfig-dev.config:
     ~/.lldbinit:
+    ~/.tigrc:
     ~/.tmux.conf:
     ~/.zsh:
     ~/.zshrc:
