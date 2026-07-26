@@ -13,6 +13,40 @@
           {
             "type": "command",
             "command": "~/.claude/bin/notify.sh"
+          },
+          {
+            "type": "command",
+            "command": "[ -z \"$TMUX_PANE\" ] || tmux set -p -t \"$TMUX_PANE\" @claude_wait 1"
+          }
+        ]
+      }
+    ],
+    "Stop": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "[ -z \"$TMUX_PANE\" ] || tmux set -p -t \"$TMUX_PANE\" @claude_wait 1"
+          }
+        ]
+      }
+    ],
+    "UserPromptSubmit": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "[ -z \"$TMUX_PANE\" ] || tmux set -up -t \"$TMUX_PANE\" @claude_wait"
+          }
+        ]
+      }
+    ],
+    "SessionEnd": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "[ -z \"$TMUX_PANE\" ] || tmux set -up -t \"$TMUX_PANE\" @claude_wait"
           }
         ]
       }
