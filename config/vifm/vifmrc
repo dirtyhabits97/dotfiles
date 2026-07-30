@@ -304,8 +304,14 @@ fileviewer {*.docx},
 "
 " Explicitly set highlight type for some extensions
 "
-" 256-color terminal
-fileviewer *.json,*.lua,*.py,*.rb,*.rs,*.sh,*.swift,*.ts,*.vim highlight -O xterm256 -s base16/rebecca %c
+" bat autodetects the language, so the list is only about which files to hand
+" it. --theme=base16 uses the terminal's ANSI colors, so it follows the
+" alacritty theme.
+fileviewer *.json,*.toml,*.yaml,*.yml,*.lua,*.py,*.rb,*.rs,*.sh,*.swift,*.ts,*.vim
+       \ bat --color=always --style=plain --paging=never --theme=base16 %c
+" A leading `*` won't match a leading dot, so dotfiles need their own rule.
+" `!{.*/}` excludes dot-directories, which `.*` would otherwise match too.
+fileviewer {.*}!{.*/} bat --color=always --style=plain --paging=never --theme=base16 %c
 
 " fileviewer *.[ch],*.[ch]pp highlight -O xterm256 -s dante --syntax c %c
 " fileviewer Makefile,Makefile.* highlight -O xterm256 -s dante --syntax make %c
