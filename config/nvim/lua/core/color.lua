@@ -18,6 +18,34 @@ local themes = {
     })
     return 'onehalfdark'
   end,
+  ['dracula'] = function()
+    require('dracula').setup({ transparent_bg = true })
+    return 'dracula'
+  end,
+  -- the nvim port of Moonlight II is just 'moonlight'
+  ['moonlight-ii'] = function()
+    vim.g.moonlight_disable_background = true
+    return 'moonlight'
+  end,
+  -- palenight ships as a style of material.nvim
+  ['palenight'] = function()
+    vim.g.material_style = 'palenight'
+    require('material').setup({ disable = { background = true } })
+    return 'material'
+  end,
+  ['challenger-deep'] = function()
+    -- vimscript theme, no transparency knob: same :hi merge trick as onehalf
+    vim.api.nvim_create_autocmd('ColorScheme', {
+      pattern = 'challenger_deep',
+      callback = function()
+        vim.cmd('hi Normal guibg=NONE ctermbg=NONE')
+        vim.cmd('hi NormalNC guibg=NONE ctermbg=NONE')
+        vim.cmd('hi SignColumn guibg=NONE ctermbg=NONE')
+        vim.cmd('hi EndOfBuffer guibg=NONE ctermbg=NONE')
+      end,
+    })
+    return 'challenger_deep'
+  end,
 }
 
 for _, flavour in ipairs({ 'latte', 'frappe', 'macchiato', 'mocha' }) do

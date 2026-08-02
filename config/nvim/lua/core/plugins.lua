@@ -120,6 +120,11 @@ require("lazy").setup({
   { 'rose-pine/neovim', name = 'rose-pine', lazy = true },
   { 'EdenEast/nightfox.nvim',         lazy = true },
   { 'rebelot/kanagawa.nvim',          lazy = true },
+  { 'Mofiqul/dracula.nvim',           lazy = true },
+  { 'shaunsingh/moonlight.nvim',      lazy = true },
+  { 'marko-cerovac/material.nvim',    lazy = true }, -- for its palenight style
+  -- upstream repo is literally named 'vim'; rename the install dir
+  { 'challenger-deep-theme/vim', name = 'challenger-deep', lazy = true },
   -- theme lives in a vim/ subdir upstream, hence the rtp append
   {
     'sonph/onehalf',
