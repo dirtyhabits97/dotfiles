@@ -9,9 +9,11 @@
 #                                   it and live-reloads when it changes
 #   ~/.local/state/theme            the plain name; read by nvim at startup
 #   ~/.local/state/theme.gitconfig  delta's syntax-theme; included by ~/.gitconfig
+#   ~/.local/state/theme.prev       the previous name; lets 'theme -' toggle
 #
 #   theme                       list themes, * marks the current one
 #   theme catppuccin-mocha      switch
+#   theme -                     switch back, like cd -
 set -euo pipefail
 
 themes_dir="$HOME/.config/alacritty/themes"
@@ -88,10 +90,16 @@ if [[ $# -eq 0 ]]; then
   exit 0
 fi
 
+if [[ $1 == - ]]; then
+  set -- "$(cat "$state_dir/theme.prev" 2>/dev/null || true)"
+  [[ -n $1 ]] || { echo "no previous theme to go back to" >&2; exit 1; }
+fi
+
 target="$themes_dir/$1.toml"
 [[ -f $target ]] || { echo "no such theme: $1 (run 'theme' to list)" >&2; exit 1; }
 
 mkdir -p "$state_dir"
+[[ -z $current ]] || printf '%s\n' "$current" > "$state_dir/theme.prev"
 # ponytail: copy, not symlink — alacritty's file watcher reacts to content changes
 cp "$target" "$state_dir/theme.toml"
 printf '%s\n' "$1" > "$state_dir/theme"
