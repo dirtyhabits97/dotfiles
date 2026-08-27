@@ -35,3 +35,11 @@ gitgo() {
   branch=$(echo "$branches" | fzf-tmux -d 40 +m)
   git checkout $(echo "$branch" | sed "s/.* //" | sed "s#remotes/[^/]*/##")
 }
+
+# Print the terminal's current 16-color palette (fastfetch-style blocks).
+# `colors` is taken by zsh's stock color-definitions function.
+palette() {
+  local i
+  for i in {0..7}; do printf '\e[4%dm  ' "$i"; done; printf '\e[0m\n'
+  for i in {0..7}; do printf '\e[10%dm  ' "$i"; done; printf '\e[0m\n'
+}
