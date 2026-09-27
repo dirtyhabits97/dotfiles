@@ -1,0 +1,87 @@
+#!/usr/bin/env bash
+#
+# Ask TypeSafe's Jev model one typed question from the shell.
+# Docs: https://docs.typesafe.ai/api
+#
+# The state (the text or JSON Jev judges) is read from stdin. Valid JSON is
+# sent as structured data; anything else is sent as a plain string.
+#
+#   jev noul   "question"                      probability of yes, 0..1
+#   jev choice "question" option1 option2 ...  the picked option + distribution
+#   jev score  "question" level1 level2 ...    weighted level (0-based) + distribution
+#
+#   jev -r ...   print the raw JSON response instead
+#
+# Examples:
+#   curl -s "$forecast_url" | jev noul "Should I bring an umbrella today?"
+#   echo "My payouts are failing" | jev choice "Which team handles this?" billing technical sales
+#   echo "Fix this NOW" | jev score "How frustrated is the customer?" calm annoyed furious
+#
+# Needs TYPESAFE_API_KEY. JEV_MODEL overrides the model (default: jev-latest).
+set -euo pipefail
+
+usage() { sed -n '3,20p' "$0" | sed 's/^# \{0,1\}//'; exit "${1:-0}"; }
+
+raw=false
+if [[ "${1:-}" == "-r" ]]; then raw=true; shift; fi
+[[ "${1:-}" == "-h" || "${1:-}" == "--help" ]] && usage
+[[ $# -lt 2 ]] && usage 1
+
+type=$1 instructions=$2
+shift 2
+
+case "$type" in
+  noul) [[ $# -eq 0 ]] || { echo "jev: noul takes no options" >&2; exit 1; } ;;
+  choice | score) [[ $# -ge 2 ]] || { echo "jev: $type needs at least 2 options" >&2; exit 1; } ;;
+  *) echo "jev: unknown type '$type' (noul, choice, score)" >&2; exit 1 ;;
+esac
+
+: "${TYPESAFE_API_KEY:?jev: TYPESAFE_API_KEY is not set}"
+[[ -t 0 ]] && { echo "jev: pipe the state on stdin" >&2; exit 1; }
+
+state=$(cat)
+[[ -n "${state//[[:space:]]/}" ]] || { echo "jev: state on stdin is empty" >&2; exit 1; }
+# Keep a single JSON object or array as JSON; wrap everything else (bare
+# numbers, NDJSON, plain text) as a string, since the API only takes those.
+if jq -se 'length == 1 and (.[0] | type == "object" or type == "array")' >/dev/null 2>&1 <<<"$state"; then
+  state_json=$state
+else
+  state_json=$(jq -Rs . <<<"$state")
+fi
+
+# Choice criteria is a map of option -> description; Score criteria is an ordered list.
+case "$type" in
+  noul) criteria='null' ;;
+  choice) criteria=$(jq -n '[$ARGS.positional[] | {(.): null}] | add' --args "$@") ;;
+  score) criteria=$(jq -n '$ARGS.positional' --args "$@") ;;
+esac
+
+body=$(jq -n \
+  --argjson state "$state_json" \
+  --arg model "${JEV_MODEL:-jev-latest}" \
+  --arg type "$type" \
+  --arg instructions "$instructions" \
+  --argjson criteria "$criteria" \
+  '{state: $state, model: $model,
+    questions: {q: ({type: $type, instructions: $instructions}
+                    + if $criteria == null then {} else {criteria: $criteria} end)}}')
+
+response=$(curl -sS --fail-with-body https://api.typesafe.ai/v1/systemone \
+  -H "Authorization: Bearer $TYPESAFE_API_KEY" \
+  -H "Content-Type: application/json" \
+  -d "$body") || { echo "jev: request failed: $response" >&2; exit 1; }
+
+if $raw; then
+  jq . <<<"$response"
+  exit
+fi
+
+jq -r '.answers.q as $a
+  | if $a.type == "noul" then $a.noul
+    elif $a.type == "choice" then
+      "\($a.choice)  (confidence \($a.confidence))",
+      ($a.probabilities | to_entries | sort_by(-.value)[] | "  \(.value)\t\(.key)")
+    else
+      "\($a.score)  (confidence \($a.confidence))",
+      ($a.probabilities | to_entries[] | "  \(.value)\t\(.key): \($a.legend[.key])")
+    end' <<<"$response"
