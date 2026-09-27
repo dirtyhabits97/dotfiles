@@ -5,7 +5,7 @@
   "permissions": {
     "defaultMode": "auto"
   },
-  "model": "fable",
+  "model": "opus",
   "hooks": {
     "Notification": [
       {
@@ -60,7 +60,18 @@
     "command": "~/.claude/bin/statusline.sh",
     "padding": 2
   },
-  "effortLevel": "medium",
+  "enabledPlugins": {
+    "typesafe@typesafe-ai": true
+  },
+  "extraKnownMarketplaces": {
+    "typesafe-ai": {
+      "source": {
+        "source": "github",
+        "repo": "typesafe-ai/skills"
+      }
+    }
+  },
+  "effortLevel": "high",
   "theme": "dark-ansi",
   "agentPushNotifEnabled": true
 }
