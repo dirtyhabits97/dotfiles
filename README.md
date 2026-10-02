@@ -70,7 +70,7 @@ git clone git@github.com:facebook/chisel.git ~/lldb/chisel
 * Configure email using Spark
 * Configure Things and Bear with my personal account
 * Configure Kindle with my personal email
-* Configure keybinds using via
+* Configure keybinds using via (see [config/via/README.md](config/via/README.md), including the "Cmd key does nothing" fix)
 
 For better debugging and reverse engineering:
 * Download [lookin](https://lookin.work)
