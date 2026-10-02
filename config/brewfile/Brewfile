@@ -31,6 +31,7 @@ brew "fd"
 brew "fortune"
 # NOTE: run `$(brew --prefix)/opt/fzf/install`  in terminal after installation
 brew "fzf"
+brew "gh"
 brew "git"
 brew "git-delta"
 brew "git-lfs"
