@@ -61,9 +61,20 @@
     "padding": 2
   },
   "enabledPlugins": {
+    "swift-lsp@claude-plugins-official": true,
+    "typescript-lsp@claude-plugins-official": true,
+    "lua-lsp@claude-plugins-official": true,
+    "pyright-lsp@claude-plugins-official": true,
+    "ponytail@ponytail": true,
     "typesafe@typesafe-ai": true
   },
   "extraKnownMarketplaces": {
+    "ponytail": {
+      "source": {
+        "source": "github",
+        "repo": "DietrichGebert/ponytail"
+      }
+    },
     "typesafe-ai": {
       "source": {
         "source": "github",
