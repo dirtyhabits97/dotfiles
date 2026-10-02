@@ -7,6 +7,7 @@
 tap "keith/formulae", trusted: { formula: "zsh-xcode-completions" }
 tap "xcodesorg/made", trusted: { formula: "xcodes" }
 tap "sst/tap", trusted: { formula: "opencode" }
+tap "facebook/fb", trusted: { formula: "idb-companion" }
 # whole tap: upgrading ipsw also loads sibling formulae (ipsw-frida)
 tap "blacktop/tap", trusted: true
 tap "teamookla/speedtest", trusted: { formula: "speedtest" }
@@ -38,6 +39,8 @@ brew "graphviz"
 brew "highlight"
 brew "htop"
 brew "httpie"
+# idb: drive iOS simulators/devices from the CLI (handy for agents)
+brew "facebook/fb/idb-companion"
 brew "ideviceinstaller"
 brew "blacktop/tap/ipsw"
 brew "jq"
