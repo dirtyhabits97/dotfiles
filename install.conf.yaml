@@ -13,6 +13,12 @@
     ~/.lldbinit:
     ~/.tigrc:
     ~/.tmux.conf:
+    # Not a ~/.tmux directory link: ~/.tmux/plugins holds tpm's clones and must stay put.
+    # Switch to `~/.tmux/: {glob: true, path: tmux/*}` once tmux/ has 2+ items - this
+    # dotbot rejects a glob into a directory that matches only one item.
+    ~/.tmux/claude-status:
+      create: true
+      path: tmux/claude-status
     ~/.zsh:
     ~/.zshrc:
       force: true
