@@ -4,8 +4,7 @@
   },
   "attribution": {
     "commit": "Co-Authored-By: Claude <noreply@anthropic.com>",
-    "pr": "",
-    "sessionUrl": false
+    "pr": ""
   },
   "permissions": {
     "defaultMode": "auto"
@@ -57,9 +56,7 @@
       }
     ]
   },
-  "worktree": {
-    "baseRef": "head"
-  },
+  "worktree": {},
   "statusLine": {
     "type": "command",
     "command": "~/.claude/bin/statusline.sh",
@@ -88,6 +85,19 @@
     }
   },
   "effortLevel": "high",
+  "modelSettings": {
+    "claude-opus-5-5": {
+      "effortLevel": "xhigh",
+      "autoCompactWindow": 400000
+    },
+    "claude-sonnet-5-5": {
+      "effortLevel": "medium"
+    },
+    "claude-haiku-5-5": {
+      "effortLevel": "low"
+    }
+  },
   "theme": "dark-ansi",
-  "agentPushNotifEnabled": true
+  "agentPushNotifEnabled": true,
+  "skipAutoPermissionPrompt": true
 }
