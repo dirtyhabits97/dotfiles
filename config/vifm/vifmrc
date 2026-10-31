@@ -169,12 +169,21 @@ command! reload :write | restart full
 " You can also add %CLEAR if you want to clear screen before running FUSE
 " program.
 
+" kitty (direct or through tmux) can draw images, so PDFs and images preview as pictures there
+let g:kitty = $TERM == 'xterm-kitty' || $TMUX != '' && system('tmux display -p "#{client_termname}"') == 'xterm-kitty'
+
 " Pdf
 filetype {*.pdf},<application/pdf>
        \ {Open in Preview}
        \ open -a Preview.app,
        \ {Open in Skim}
        \ open -a Skim.app,
+if g:kitty
+  fileviewer {*.pdf},<application/pdf>
+           \ kitten icat --transfer-mode=file --place=%pwx%ph@%pxx%py "$(thumb %c:p)" >/dev/tty </dev/tty %N
+           \ %pc
+           \ kitten icat --clear >/dev/tty </dev/tty %N
+endif
 fileviewer {*.pdf},<application/pdf> pdftotext -nopgbrk %c -
 
 " PostScript
@@ -234,6 +243,17 @@ fileviewer {*.[1-8]},<text/troff> man ./%c | col -b
 " Image
 filetype {*.bmp,*.jpg,*.jpeg,*.png,*.gif,*.xpm},<image/*>
        \ open -a Preview.app,
+if g:kitty
+  " icat can't decode SVG; must come before <image/*> below
+  fileviewer {*.svg},<image/svg+xml>
+           \ kitten icat --transfer-mode=file --place=%pwx%ph@%pxx%py "$(thumb %c:p)" >/dev/tty </dev/tty %N
+           \ %pc
+           \ kitten icat --clear >/dev/tty </dev/tty %N
+  fileviewer {*.bmp,*.jpg,*.jpeg,*.png,*.gif,*.xpm,*.webp},<image/*>
+           \ kitten icat --transfer-mode=file --place=%pwx%ph@%pxx%py %c >/dev/tty </dev/tty %N
+           \ %pc
+           \ kitten icat --clear >/dev/tty </dev/tty %N
+endif
 fileviewer {*.bmp,*.jpg,*.jpeg,*.png,*.gif,*.xpm},<image/*>
          \ identify %f
 

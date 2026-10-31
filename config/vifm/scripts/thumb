@@ -1,0 +1,21 @@
+#!/usr/bin/env bash
+# Renders a file that kitten icat can't decode to a PNG and prints its path:
+# page 1 of a PDF via Quick Look, an SVG via sips (keeps transparency).
+# vifm uses it to preview these in kitty (see the Pdf and Image sections of vifmrc):
+#   kitten icat ... "$(thumb %c:p)"
+# It renders again on every call (PDF ~130-200 ms, SVG ~35 ms) and keeps only the
+# latest image, so two files with the same name never show each other's image
+# and thumbnails of private documents don't pile up. qlmanage hangs forever on
+# a broken PDF, hence the timeout.
+
+set -euo pipefail
+
+out=${TMPDIR:-/tmp}/vifm-thumb
+png=$out/$(basename "$1").png
+mkdir -p "$out"
+rm -f "$out"/*.png
+case $1 in
+  *.[sS][vV][gG]) timeout 2 sips -s format png -Z 1600 "$1" --out "$png" ;;
+  *)              timeout 2 qlmanage -t -s 1600 -o "$out" "$1" ;;
+esac >/dev/null 2>&1
+echo "$png"
