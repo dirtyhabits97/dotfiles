@@ -33,6 +33,12 @@ if [[ -z $TMUX ]]; then
   fastfetch
 fi
 
+# MARK: - Editor & pager
+
+export EDITOR=nvim
+export VISUAL=nvim
+export MANPAGER='nvim +Man!'
+
 # MARK: - Homebrew
 
 export HOMEBREW_BUNDLE_FILE=~/.config/brewfile/Brewfile
