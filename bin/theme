@@ -7,6 +7,8 @@
 #
 #   ~/.local/state/theme.toml       copy of the chosen theme; alacritty imports
 #                                   it and live-reloads when it changes
+#   ~/.local/state/theme-kitty.conf the same colors in kitty's format; kitty
+#                                   includes it and reloads on SIGUSR1
 #   ~/.local/state/theme            the plain name; read by nvim at startup
 #   ~/.local/state/theme.gitconfig  delta's syntax-theme; included by ~/.gitconfig
 #   ~/.local/state/theme.prev       the previous name; lets 'theme -' toggle
@@ -102,6 +104,39 @@ mkdir -p "$state_dir"
 [[ -z $current ]] || printf '%s\n' "$current" > "$state_dir/theme.prev"
 # ponytail: copy, not symlink — alacritty's file watcher reacts to content changes
 cp "$target" "$state_dir/theme.toml"
+
+# kitty can't read the TOML, so translate the colors it has a name for. Same
+# section-aware read as the list above.
+section=''
+while IFS= read -r line; do
+  case $line in
+    \#*) continue ;;
+    \[*) section=${line#[}; section=${section%%]*} ;;
+    *=*)
+      key=${line%%=*};  key=${key// /}
+      val=${line#*=};   val=${val//[\'\" ]/}
+      [[ $val =~ ^#[[:xdigit:]]{6}$ ]] || continue   # e.g. CellForeground
+      case $section.$key in
+        colors.primary.background)   opt=background ;;
+        colors.primary.foreground)   opt=foreground ;;
+        colors.cursor.cursor)        opt=cursor ;;
+        colors.cursor.text)          opt=cursor_text_color ;;
+        colors.selection.background) opt=selection_background ;;
+        colors.selection.text)       opt=selection_foreground ;;
+        colors.normal.*|colors.bright.*)
+          case $key in   # by name, not file order
+            black) n=0 ;; red) n=1 ;; green) n=2 ;; yellow) n=3 ;;
+            blue) n=4 ;; magenta) n=5 ;; cyan) n=6 ;; white) n=7 ;;
+            *) continue ;;
+          esac
+          [[ $section == colors.normal ]] || n=$((n + 8))
+          opt=color$n ;;
+        *) continue ;;
+      esac
+      printf '%s %s\n' "$opt" "$val" ;;
+  esac
+done < "$target" > "$state_dir/theme-kitty.conf"
+pkill -USR1 -x kitty || true   # no kitty running is fine
 printf '%s\n' "$1" > "$state_dir/theme"
 
 # delta's syntax theme, for the ~/.gitconfig include. Names come from
@@ -117,4 +152,4 @@ case "$1" in
 esac
 printf '[delta]\n\tsyntax-theme = %s\n' "$delta_theme" > "$state_dir/theme.gitconfig"
 
-echo "theme -> $1 (alacritty + delta reload now; restart nvim to pick it up)"
+echo "theme -> $1 (alacritty + kitty + delta reload now; restart nvim to pick it up)"
